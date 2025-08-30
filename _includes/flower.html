@@ -1,0 +1,57 @@
+<div class="flower-box">
+  <button id="flower-btn" class="flower-btn" aria-label="送花">🌸 送花</button>
+  <span id="flower-count" class="flower-count">0</span>
+</div>
+
+<!-- LeanCloud JS SDK（固定版本） -->
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.2/dist/av-min.js"></script>
+<script>
+  // 1) 初始化（切勿把 Master Key 放前端）
+  AV.init({
+    appId: '0K9GjJzIqyb6Q2bzmbnLfjMN-MdYXbMMI',
+    appKey: 'Swt0oJDjVR5ffS93m1bZENQN',
+    serverURL: 'https://0k9gjjzi.api.lncldglobal.com' // 例如：https://api.leancloud.app
+  });
+
+  // 2) 用当前文章的 URL 作为唯一键（Jekyll 会在构建时把变量替换成真实路径）
+  const slug = '{{ page.url }}';
+
+  // 3) 首次加载：读取计数
+  async function refresh() {
+    const query = new AV.Query('Flower');
+    query.equalTo('slug', slug);
+    const obj = await query.first();
+    document.getElementById('flower-count').textContent = obj ? (obj.get('count') || 0) : 0;
+  }
+
+  // 4) 点击送花：使用 LeanCloud 的原子自增（避免并发覆盖）
+  document.getElementById('flower-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('flower-btn');
+    const key = 'flower:' + slug + ':' + new Date().toISOString().slice(0,10);
+    if (localStorage.getItem(key)) { alert('谢谢你的花花~'); return; }
+    btn.disabled = true;
+    try {
+      const query = new AV.Query('Flower');
+      query.equalTo('slug', slug);
+      let obj = await query.first();
+      if (!obj) { const Flower = AV.Object.extend('Flower'); obj = new Flower(); obj.set('slug', slug); obj.set('count', 0); }
+      obj.increment('count', 1);
+      await obj.save();
+      document.getElementById('flower-count').textContent = obj.get('count') || 0;
+      localStorage.setItem(key, '1');
+    } catch (e) {
+      console.error(e); alert('网络异常，稍后再试');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', refresh);
+</script>
+
+<style>
+  .flower-box { display:inline-flex; align-items:center; gap:.5rem; margin-top:1rem; }
+  .flower-btn { border:0; padding:.45rem .8rem; border-radius:999px; cursor:pointer; font-size:14px; }
+  .flower-btn:active { transform: scale(0.98); }
+  .flower-count { font-variant-numeric: tabular-nums; }
+</style>
