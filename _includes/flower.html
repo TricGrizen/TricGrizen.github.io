@@ -12,18 +12,16 @@
     appId: 'GYcDHtwby7Z0jfTPS4sE5vSB-gzGzoHsz',
     appKey: 'XHcF55G1bbSGIRgvsBeJ1htf',
     serverURL: 'https://gycdhtwb.lc-cn-n1-shared.com'
-    // 若以后想更稳，可统一用 https://api.leancloud.app 或你绑定的自定义 API 域名
   });
 
   // ===== 文案（按需修改） =====
   const MSG_SUCCESS = '🌸 收到你的花啦，谢谢！愿你今天也开心。';
   const MSG_LIMITED = '今天已经送过啦，明天再来～';
-
-  // 如果你只想“终身第一次”才弹提示，把下面开关设为 true
+  // 仅“生平第一次”才提示：true；默认：每天第一次
   const ONLY_FIRST_EVER = false;
 
   // ===== 基本变量 =====
-  const slug = '{{ page.path }}';   // 用文件路径做 key 更稳
+  const slug = '{{ page.path }}';            // 用文件路径做 key 更稳
   const $btn = document.getElementById('flower-btn');
   const $count = document.getElementById('flower-count');
 
@@ -46,6 +44,64 @@
     console.error(`[Flower] ${where} error:`, e);
     const msg = `${(e && e.code) || ''} ${(e && e.message) || e}`;
     toast(`送花失败（${where}）：${msg}`);
+  }
+
+  // ===== 极简“撒花”效果（高雅、轻量、尊重减少动画） =====
+  function ensurePetalLayer() {
+    let layer = document.getElementById('petal-layer');
+    if (!layer) {
+      layer = document.createElement('div');
+      layer.id = 'petal-layer';
+      document.body.appendChild(layer);
+    }
+    return layer;
+  }
+
+  function petalsBurst(anchorEl) {
+    // 系统设为“减少动画”时直接跳过
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const layer = ensurePetalLayer();
+    const rect = anchorEl.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+
+    const count = 14; // 数量少、质感更“高级”
+    // 柔和粉调色板（可改为你站点主色）
+    const palette = [
+      ['#ff7aa2', '#ffc2d1'],
+      ['#ff9db5', '#ffd1dc'],
+      ['#ff85a1', '#ffc8dd']
+    ];
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('i');
+      el.className = 'petal';
+      const [c1, c2] = palette[i % palette.length];
+      el.style.setProperty('--c1', c1);
+      el.style.setProperty('--c2', c2);
+
+      const angle = (i / count) * 2 * Math.PI + (Math.random() * 0.5 - 0.25);
+      const radius = 80 + Math.random() * 40;             // 飞行半径
+      const dx = Math.cos(angle) * radius;
+      const dy = Math.sin(angle) * radius - 20;            // 略向上
+      const rotStart = Math.random() * 180;
+      const rot = Math.random() * 180 - 90;                // 轻微翻转
+      const scale = (0.9 + Math.random() * 0.5).toFixed(2);
+      const dur = 900 + Math.random() * 500;               // 0.9–1.4s
+
+      el.style.setProperty('--x', `${cx}px`);
+      el.style.setProperty('--y', `${cy}px`);
+      el.style.setProperty('--dx', `${dx}px`);
+      el.style.setProperty('--dy', `${dy}px`);
+      el.style.setProperty('--rot-start', `${rotStart}deg`);
+      el.style.setProperty('--rot', `${rot}deg`);
+      el.style.setProperty('--scale', scale);
+      el.style.setProperty('--dur', `${dur}ms`);
+
+      layer.appendChild(el);
+      el.addEventListener('animationend', () => el.remove());
+    }
   }
 
   // ===== 读取当前计数（Class 不存在时当 0） =====
@@ -91,7 +147,7 @@
 
   // ===== 点击送花 =====
   $btn.addEventListener('click', async () => {
-    const dayKey = 'flower:' + slug + ':' + new Date().toISOString().slice(0,10);
+    const dayKey = 'flower:' + slug + ':' + new Date().toISOString().slice(0, 10);
     if (localStorage.getItem(dayKey)) {
       toast(MSG_LIMITED);
       return;
@@ -102,23 +158,24 @@
       const n = await increment();
       $count.textContent = n;
 
-      // 小动画让数字更“有反馈感”
+      // 小反馈动画
       $count.classList.add('bump');
       setTimeout(() => $count.classList.remove('bump'), 300);
 
       // 记下“今天已送过”
       localStorage.setItem(dayKey, '1');
 
-      // 成功提示（当天第一次）
+      // 成功提示 + “撒花”
       if (ONLY_FIRST_EVER) {
         const everKey = 'flower-ever:' + slug;
         if (!localStorage.getItem(everKey)) {
           toast(MSG_SUCCESS);
+          petalsBurst($btn);               // ← 高级感撒花
           localStorage.setItem(everKey, '1');
         }
       } else {
-        // 每天第一次成功就提示
         toast(MSG_SUCCESS);
+        petalsBurst($btn);                 // ← 每天第一次成功才撒花
       }
     } catch (e) {
       showError('送花', e);
@@ -153,4 +210,30 @@
     z-index:9999;
   }
   .flower-toast.show{ opacity:1; transform:translateX(-50%) translateY(-4px); }
+
+  /* ===== 高级感“撒花”样式 ===== */
+  #petal-layer{
+    position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:9998;
+  }
+  .petal{
+    position:absolute;
+    left:var(--x); top:var(--y);
+    width:10px; height:14px;
+    transform:translate(-50%,-50%) scale(var(--scale)) rotate(var(--rot-start,0deg));
+    opacity:0; will-change:transform,opacity; filter:blur(.1px);
+    border-radius:100% 100% 60% 60%; /* 花瓣轮廓 */
+    background:
+      radial-gradient(40% 40% at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%),
+      linear-gradient(180deg, var(--c1), var(--c2));
+    animation: petal-fly var(--dur) cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  @keyframes petal-fly{
+    0%   { opacity:0; transform:translate(-50%,-50%) scale(calc(var(--scale)*.6)) rotate(var(--rot-start,0deg)); }
+    10%  { opacity:1; }
+    100% { opacity:0; transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+                         scale(var(--scale)) rotate(calc(var(--rot-start) + var(--rot))); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .petal{ animation:none; opacity:0; }
+  }
 </style>
