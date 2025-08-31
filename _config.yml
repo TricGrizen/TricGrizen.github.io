@@ -57,3 +57,5 @@ defaults:
       type: posts
     values:
       layout: post-with-flower
+
+timezone: Asia/Shanghai
