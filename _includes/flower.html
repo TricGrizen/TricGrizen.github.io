@@ -14,13 +14,20 @@
 
   const slug = '{{ page.url }}';
 
+  function showLcError(e, where) {
+    console.error(`[Flower] ${where} error:`, e, e && e.code, e && e.message);
+    alert(`送花失败（${where}）：${(e && e.code) || ''} ${(e && e.message) || e}`);
+  }
+
   async function refresh() {
     try {
       const query = new AV.Query('Flower');
       query.equalTo('slug', slug);
       const obj = await query.first();
       document.getElementById('flower-count').textContent = obj ? (obj.get('count') || 0) : 0;
-    } catch (e) { console.error(e); }
+    } catch (e) {
+      showLcError(e, '读取');
+    }
   }
 
   document.getElementById('flower-btn').addEventListener('click', async () => {
@@ -37,8 +44,11 @@
       await obj.save();
       document.getElementById('flower-count').textContent = obj.get('count') || 0;
       localStorage.setItem(key, '1');
-    } catch (e) { console.error(e); alert('网络异常，稍后再试'); }
-    finally { btn.disabled = false; }
+    } catch (e) {
+      showLcError(e, '送花');
+    } finally {
+      btn.disabled = false;
+    }
   });
 
   document.addEventListener('DOMContentLoaded', refresh);
