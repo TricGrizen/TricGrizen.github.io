@@ -1,3 +1,4 @@
+<!-- 结构不变 -->
 <div class="flower-box">
   <button id="flower-btn" class="flower-btn" aria-label="送花">🌸 送花</button>
   <span id="flower-count" class="flower-count">0</span>
@@ -6,24 +7,48 @@
 <!-- LeanCloud JS SDK（固定版本） -->
 <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.2/dist/av-min.js"></script>
 <script>
+  // ===== 你的 LeanCloud 初始化：保持你现在的配置 =====
   AV.init({
     appId: 'GYcDHtwby7Z0jfTPS4sE5vSB-gzGzoHsz',
     appKey: 'XHcF55G1bbSGIRgvsBeJ1htf',
-    serverURL: 'https://gycdhtwb.lc-cn-n1-shared.com' // 控制台显示的 API 域名，如 https://api.leancloud.app 或你的专属域名
+    serverURL: 'https://gycdhtwb.lc-cn-n1-shared.com'
+    // 若以后想更稳，可统一用 https://api.leancloud.app 或你绑定的自定义 API 域名
   });
 
-  // 用文件相对路径更稳（改 permalink 时也不丢数据；若你更想用 URL，可改成 {{ page.url }}）
-  const slug = '{{ page.path }}';
+  // ===== 文案（按需修改） =====
+  const MSG_SUCCESS = '🌸 收到你的花啦，谢谢！愿你今天也开心。';
+  const MSG_LIMITED = '今天已经送过啦，明天再来～';
 
+  // 如果你只想“终身第一次”才弹提示，把下面开关设为 true
+  const ONLY_FIRST_EVER = false;
+
+  // ===== 基本变量 =====
+  const slug = '{{ page.path }}';   // 用文件路径做 key 更稳
   const $btn = document.getElementById('flower-btn');
   const $count = document.getElementById('flower-count');
 
-  function errAlert(where, e) {
-    console.error(`[Flower] ${where} error:`, e);
-    alert(`送花失败（${where}）：${(e && e.code) || ''} ${(e && e.message) || e}`);
+  // ===== 轻量 toast（非阻塞） =====
+  function toast(msg, ms = 1800) {
+    let el = document.getElementById('flower-toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'flower-toast';
+      el.className = 'flower-toast';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.remove('show'), ms);
   }
 
-  // 读取当前计数：Class 不存在时当 0
+  function showError(where, e) {
+    console.error(`[Flower] ${where} error:`, e);
+    const msg = `${(e && e.code) || ''} ${(e && e.message) || e}`;
+    toast(`送花失败（${where}）：${msg}`);
+  }
+
+  // ===== 读取当前计数（Class 不存在时当 0） =====
   async function getCount() {
     try {
       const q = new AV.Query('Flower');
@@ -31,12 +56,12 @@
       const obj = await q.first();
       return obj ? (obj.get('count') || 0) : 0;
     } catch (e) {
-      if (e && e.code === 101) return 0;  // Class or object doesn't exist
+      if (e && e.code === 101) return 0; // Class or object doesn't exist
       throw e;
     }
   }
 
-  // +1：如果记录不存在则先创建后自增
+  // ===== +1；记录不存在则先创建后自增 =====
   async function increment() {
     let obj = null;
     try {
@@ -44,11 +69,9 @@
       q.equalTo('slug', slug);
       obj = await q.first();
     } catch (e) {
-      if (!(e && e.code === 101)) throw e;  // 非 101 错误才抛
+      if (!(e && e.code === 101)) throw e;
     }
-
     if (!obj) {
-      // 首次创建（Class 也会在首次保存时自动创建）
       obj = new AV.Object('Flower');
       obj.set('slug', slug);
       obj.set('count', 0);
@@ -59,20 +82,46 @@
   }
 
   async function refresh() {
-    try { $count.textContent = await getCount(); }
-    catch (e) { errAlert('读取', e); }
+    try {
+      $count.textContent = await getCount();
+    } catch (e) {
+      showError('读取', e);
+    }
   }
 
+  // ===== 点击送花 =====
   $btn.addEventListener('click', async () => {
-    const key = 'flower:' + slug + ':' + new Date().toISOString().slice(0,10);
-    if (localStorage.getItem(key)) { alert('今天已经送过啦，明天再来～'); return; }
+    const dayKey = 'flower:' + slug + ':' + new Date().toISOString().slice(0,10);
+    if (localStorage.getItem(dayKey)) {
+      toast(MSG_LIMITED);
+      return;
+    }
+
     $btn.disabled = true;
     try {
       const n = await increment();
       $count.textContent = n;
-      localStorage.setItem(key, '1');
+
+      // 小动画让数字更“有反馈感”
+      $count.classList.add('bump');
+      setTimeout(() => $count.classList.remove('bump'), 300);
+
+      // 记下“今天已送过”
+      localStorage.setItem(dayKey, '1');
+
+      // 成功提示（当天第一次）
+      if (ONLY_FIRST_EVER) {
+        const everKey = 'flower-ever:' + slug;
+        if (!localStorage.getItem(everKey)) {
+          toast(MSG_SUCCESS);
+          localStorage.setItem(everKey, '1');
+        }
+      } else {
+        // 每天第一次成功就提示
+        toast(MSG_SUCCESS);
+      }
     } catch (e) {
-      errAlert('送花', e);
+      showError('送花', e);
     } finally {
       $btn.disabled = false;
     }
@@ -82,6 +131,7 @@
 </script>
 
 <style>
+  /* 居中排版 */
   .flower-box {
     display:flex; justify-content:center; align-items:center;
     gap:.5rem; margin:1.25rem auto; width:100%; text-align:center;
@@ -89,4 +139,18 @@
   .flower-btn { border:0; padding:.45rem .8rem; border-radius:999px; cursor:pointer; font-size:14px; }
   .flower-btn:active { transform:scale(0.98); }
   .flower-count { font-variant-numeric: tabular-nums; }
+
+  /* 数字轻微弹跳动画 */
+  @keyframes bump { 0%{transform:scale(1)} 50%{transform:scale(1.18)} 100%{transform:scale(1)} }
+  .flower-count.bump { animation: bump .28s ease; }
+
+  /* Toast 提示 */
+  .flower-toast{
+    position:fixed; left:50%; bottom:10vh; transform:translateX(-50%);
+    background:rgba(0,0,0,.78); color:#fff; padding:.6rem .9rem;
+    border-radius:.75rem; font-size:14px; line-height:1.2;
+    opacity:0; pointer-events:none; transition:opacity .22s, transform .22s;
+    z-index:9999;
+  }
+  .flower-toast.show{ opacity:1; transform:translateX(-50%) translateY(-4px); }
 </style>
