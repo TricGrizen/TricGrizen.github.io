@@ -12,42 +12,69 @@
     serverURL: 'https://0k9gjjzi.api.lncldglobal.com' // 控制台显示的 API 域名，如 https://api.leancloud.app 或你的专属域名
   });
 
-  const slug = '{{ page.url }}';
+  // 用文件相对路径更稳（改 permalink 时也不丢数据；若你更想用 URL，可改成 {{ page.url }}）
+  const slug = '{{ page.path }}';
 
-  function showLcError(e, where) {
-    console.error(`[Flower] ${where} error:`, e, e && e.code, e && e.message);
+  const $btn = document.getElementById('flower-btn');
+  const $count = document.getElementById('flower-count');
+
+  function errAlert(where, e) {
+    console.error(`[Flower] ${where} error:`, e);
     alert(`送花失败（${where}）：${(e && e.code) || ''} ${(e && e.message) || e}`);
   }
 
-  async function refresh() {
+  // 读取当前计数：Class 不存在时当 0
+  async function getCount() {
     try {
-      const query = new AV.Query('Flower');
-      query.equalTo('slug', slug);
-      const obj = await query.first();
-      document.getElementById('flower-count').textContent = obj ? (obj.get('count') || 0) : 0;
+      const q = new AV.Query('Flower');
+      q.equalTo('slug', slug);
+      const obj = await q.first();
+      return obj ? (obj.get('count') || 0) : 0;
     } catch (e) {
-      showLcError(e, '读取');
+      if (e && e.code === 101) return 0;  // Class or object doesn't exist
+      throw e;
     }
   }
 
-  document.getElementById('flower-btn').addEventListener('click', async () => {
-    const btn = document.getElementById('flower-btn');
+  // +1：如果记录不存在则先创建后自增
+  async function increment() {
+    let obj = null;
+    try {
+      const q = new AV.Query('Flower');
+      q.equalTo('slug', slug);
+      obj = await q.first();
+    } catch (e) {
+      if (!(e && e.code === 101)) throw e;  // 非 101 错误才抛
+    }
+
+    if (!obj) {
+      // 首次创建（Class 也会在首次保存时自动创建）
+      obj = new AV.Object('Flower');
+      obj.set('slug', slug);
+      obj.set('count', 0);
+    }
+    obj.increment('count', 1);
+    await obj.save();
+    return obj.get('count') || 0;
+  }
+
+  async function refresh() {
+    try { $count.textContent = await getCount(); }
+    catch (e) { errAlert('读取', e); }
+  }
+
+  $btn.addEventListener('click', async () => {
     const key = 'flower:' + slug + ':' + new Date().toISOString().slice(0,10);
     if (localStorage.getItem(key)) { alert('今天已经送过啦，明天再来～'); return; }
-    btn.disabled = true;
+    $btn.disabled = true;
     try {
-      const query = new AV.Query('Flower');
-      query.equalTo('slug', slug);
-      let obj = await query.first();
-      if (!obj) { const Flower = AV.Object.extend('Flower'); obj = new Flower(); obj.set('slug', slug); obj.set('count', 0); }
-      obj.increment('count', 1);
-      await obj.save();
-      document.getElementById('flower-count').textContent = obj.get('count') || 0;
+      const n = await increment();
+      $count.textContent = n;
       localStorage.setItem(key, '1');
     } catch (e) {
-      showLcError(e, '送花');
+      errAlert('送花', e);
     } finally {
-      btn.disabled = false;
+      $btn.disabled = false;
     }
   });
 
@@ -55,8 +82,11 @@
 </script>
 
 <style>
-  .flower-box { display:inline-flex; align-items:center; gap:.5rem; margin-top:1rem; }
+  .flower-box {
+    display:flex; justify-content:center; align-items:center;
+    gap:.5rem; margin:1.25rem auto; width:100%; text-align:center;
+  }
   .flower-btn { border:0; padding:.45rem .8rem; border-radius:999px; cursor:pointer; font-size:14px; }
-  .flower-btn:active { transform: scale(0.98); }
+  .flower-btn:active { transform:scale(0.98); }
   .flower-count { font-variant-numeric: tabular-nums; }
 </style>
