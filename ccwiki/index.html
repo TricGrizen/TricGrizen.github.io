@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="一个人的 Claude 生态检索手册：Skills、MCP、社区智慧、项目图鉴与生活应用，700+ 张已核验条目卡">
+<meta name="description" content="一个人的 Claude 生态检索手册：Skills、MCP、社区智慧、项目图鉴与生活应用，800+ 张已核验条目卡">
 <title>生态百科全书</title>
 <style>
 /* ============================================================
@@ -6682,6 +6682,95 @@ main{
     </article>
   </div>
 
+  <h3>加更：更大范围（dev.to · lobste.rs · Product Hunt · itch.io）</h3>
+  <p>前面几组多来自 GitHub、Hacker News 和个人博客。这一节把网撒得更宽——去<strong>开发者写长文的 dev.to</strong>、<strong>老程序员扎堆认真辩论的 lobste.rs</strong>、<strong>独立产品发布的 Product Hunt</strong>、<strong>独立游戏作者写开发日志的 itch.io</strong>，捞第一人称实战。这里的料更"生":有人 4 天做出安卓 App，有人 5 天造一门编程语言，也有人老实吐槽"和 AI 吵架的时间比写代码还多"。chip 标了新平台；卡里凡有的负面信号（社区争议、AI 中途变慢、作者坦白自己不懂代码）我都照录不美化——实战报告的价值正在于此。这批线索均于 2026-07-12 逐条打开原帖核验。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="raio exitwatcher 安卓 android 4天 双层协议 two-layer design ai implementation dev.to 保险 sony 日语 mvp claude code">
+      <h4>零安卓经验，4 天做出一个能用的安卓 App</h4>
+      <p class="desc">控制系统工程师 <strong>Raio</strong>（dev.to，本行是给摩托车 ECU 写了 15 年代码，但从没碰过安卓）用一套"<strong>双层协议</strong>"4 天做出 ExitWatcher：一个盯保险理财产品的安卓工具，自动抓 Sony Life 的数据、和基准指数比走势、按 10 档预警推送通知。方法是关键——他把 AI 拆成两层用：<strong>设计层（Claude.ai）</strong>把需求写成结构化的 Markdown 指令，<strong>实现层（Claude Code）</strong>照着具体指令写码，人只当中间的"测试与拍板"。整个过程走了 53 条指令、7 段"步骤对话"汇到 1 段"总装对话"。<em>为我所用：</em>想做 App 又怕一上来就乱？抄他这套"先让一个 Claude 出规格、再让另一个 Claude 照规格写码、你只验收"的双层流水线，它比"一句话丢给 AI 让它全包"稳得多。</p>
+      <p class="links"><a href="https://dev.to/raio/i-built-an-android-app-in-4-days-with-zero-android-experience-using-claude-code-and-a-two-layer-2p44" target="_blank" rel="noopener">作者做法全文</a></p>
+      <p class="meta"><span class="chip">dev.to</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="guy powell cogniscript 编译器 compiler 编程语言 5天 陪练 sparring dev.to ast 虚拟机 诚实 co-architect">
+      <h4>5 天造一门编程语言（但作者说：几乎没让它写一行码）</h4>
+      <p class="desc">CTO <strong>Guy Powell</strong>（dev.to）5 天用 Claude 从零做出 Cogniscript——一门 AI 优先的编程语言，配套自制汇编、编译器、字节码虚拟机、带 20 个系统调用的标准库和多阶段编译管线。最值钱的是他<strong>反直觉的诚实</strong>："我连开五天用 Claude，却几乎没让它写过一行代码"——他把 Claude 当"陪练/结对搭档"，最派用场的是在写 AST 表达式解析、走通递归下降解析逻辑、调试疑难输出的时候。他一句定性："<strong>Claude 写不出一个编译器，但没它这活儿得花两倍时间</strong>。"<em>为我所用：</em>啃硬核项目（编译器、解析器、算法）时，别指望 AI 替你写完——把它当那个"你讲思路、它帮你找漏洞、卡住时陪你推演"的搭档，你的理解才是主线，这样出来的东西你才真的懂。</p>
+      <p class="links"><a href="https://dev.to/guypowell/i-built-a-compiler-in-five-days-with-claude-ai-269c" target="_blank" rel="noopener">作者复盘全文</a></p>
+      <p class="meta"><span class="chip">dev.to</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="ramsbaby jarvis company claude max 24/7 cron 定时任务 discord launchagent macos 后端 dev.to 全职员工 复盘">
+      <h4>把 Claude Max 会员，改造成一家 24 小时运转的"AI 公司"</h4>
+      <p class="desc">后端工程师 <strong>ramsbaby</strong>（dev.to）不把 Claude 当聊天机器人，而是当"全职员工"用：他搭了个叫 <strong>Jarvis Company</strong> 的系统——<strong>7 个"组长"以定时任务（cron）常驻，56 个排期任务每天发起约 40 次 Claude 调用</strong>，结果统一发到 Discord 私有频道当界面，底层用 macOS 的 LaunchAgent + bash 跑。产出很实在：每天早报汇总相关论文、监测机器人输出的质量回退、提醒你冷落已久的副业。他也不藏拙，坦白几个教训：<strong>曾冲到 64 个任务后发现"少即是多"砍回 56</strong>；一度高估了它的开源价值；早期summary太啰嗦没人看——结论是"提示词要具体，泛泛总结没用"。（原帖发到 HN 只有 2 分，热度不高但干货扎实。）<em>为我所用：</em>你订了 Claude 会员却只拿来问答太亏了——挑几件"你每天/每周本该做却总忘"的事（盯行情、清邮件、催副业），让 Claude 定时自动跑一遍，结果推到你手机上，一个人也能有支"隐形团队"。</p>
+      <p class="links"><a href="https://dev.to/ramsbaby/i-turned-my-claude-max-subscription-into-a-247-ai-company-heres-what-actually-happened-33fj" target="_blank" rel="noopener">作者复盘全文</a></p>
+      <p class="meta"><span class="chip">dev.to</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="nishil bhave codeprobe 多智能体 9专家 代码审查 code review skill 只读 orchestrator dev.to github mit npx skills">
+      <h4>CodeProbe · 9 个"AI 专家"并行审你的代码</h4>
+      <p class="desc">开发者 <strong>Nishil Bhave</strong>（dev.to）开源的 Claude Code 技能包：一条命令派出 <strong>9 个专精角色并行体检代码</strong>——安全、SOLID 原则、架构、错误处理、性能、测试、坏味道、设计模式、框架惯用法各管一摊。它会自动识别你的技术栈、加载对应参考、分头出带严重度（严重/主要/次要）的问题清单和可直接粘贴的修复提示，按类别加权打分（安全权重是测试的两倍），而且<strong>全程只读、绝不改你的文件</strong>。装法就一句 <code>npx skills add nishilbhave/codeprobe</code>，MIT 开源。<em>为我所用：</em>你用 AI vibe 出来的代码没人审、心里发虚？装上这个，跑一次 <code>/codeprobe audit</code> 就有九个视角替你挑毛病并给出改法——这是本节里上手成本最低、见效最快的一次抄作业。</p>
+      <p class="links"><a href="https://dev.to/nishilbhave/i-built-a-multi-agent-code-review-skill-for-claude-code-heres-how-it-works-366i" target="_blank" rel="noopener">作者讲解全文</a> · <a href="https://github.com/nishilbhave/codeprobe-claude" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">dev.to</span><span class="chip">有码</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="mike dolan claude-brain 持久记忆 memory sqlite hook 语义搜索 embedding mcp 跨项目 dev.to github 遗忘">
+      <h4>claude-brain · 给 Claude Code 装一颗记得住的"大脑"</h4>
+      <p class="desc">技术创业者 <strong>Mike Dolan</strong>（dev.to）开源的记忆系统，专治 Claude Code 的老毛病：每开一次新会话都失忆、得反复重讲上下文，而内置的 MEMORY.md 又只是"一个 25KB/200 行封顶、无搜索无结构的平面文件"。他的 claude-brain <strong>用 6 个生命周期钩子把每次对话一字不落存进本地 SQLite</strong>，支持三种检索（关键词全文、2.7 万+ 向量语义、模糊匹配），能跨项目共享记忆、区分"个人"与"项目"范围，还配 14 个斜杠命令、11 个 MCP 工具、每日站会邮件摘要、会话质量打分自动打标签。他自己已跑在 <strong>1321 次会话、6.7 万+ 条消息、9 个项目</strong>上，全自动无需手动配置。<em>为我所用：</em>受够了每次都得跟 AI 重新自我介绍？装上它，你之前跟 Claude 讨论过的决定、踩过的坑、调试记录都能被搜出来复用——相当于给你的 AI 搭档接上一块长期硬盘。</p>
+      <p class="links"><a href="https://dev.to/mikeadolan/how-i-built-persistent-memory-for-claude-code-1dn7" target="_blank" rel="noopener">作者讲解全文</a> · <a href="https://github.com/mikeadolan/claude-brain" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">dev.to</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="claude code nfs linux 漏洞 23年 buffer overflow 内核 nicholas carlini anthropic mtlynch lobste.rs 安全 缓冲区溢出">
+      <h4>Claude Code 揪出藏了 23 年的 Linux 内核漏洞</h4>
+      <p class="desc">这条在 <strong>lobste.rs</strong> 上炸了锅（<strong>83 顶、25 评</strong>）：Anthropic 的 Nicholas Carlini 用 Claude Code 在 Linux 的 <strong>NFS（网络文件系统）</strong>服务端代码里，找出一个<strong>藏了 23 年的缓冲区溢出漏洞</strong>——服务器拒绝一个锁请求时，会把 1056 字节的响应硬塞进一个 112 字节的缓冲区，攻击者据此可能覆写内核内存。社区当然也有硬核辩论：Claude 到底是"读懂了协议"还是模糊测试也能撞见？Carlini 也很克制——他用 Claude 找到上百个疑似漏洞，但只在人工验证后报了少数几个。<em>为我所用：</em>这不是让你去挖内核漏洞，而是一记方向标：AI 已经能在<strong>巨大陌生的老代码库里做严肃的安全审计</strong>。你手上若有一坨没人敢碰、又怕出事的祖传代码，完全可以让 Claude 陪你逐段过一遍安全隐患——但记住 Carlini 的纪律：<strong>AI 报的疑点必须人工复核后才算数</strong>。</p>
+      <p class="links"><a href="https://lobste.rs/s/lh9rmv/claude_code_found_linux_vulnerability" target="_blank" rel="noopener">lobste.rs 讨论帖</a>（原文出自 mtlynch.io）</p>
+      <p class="meta"><span class="chip">lobste.rs</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="will morrison arch linux 配置 dotfiles claude code 95% 省时 lobste.rs 争议 nixos 声明式 安装">
+      <h4>让 Claude Code 帮我装好整个 Arch Linux</h4>
+      <p class="desc">开发者 <strong>willmorrison</strong>（个人博客，经 lobste.rs 讨论）让 Claude Code 全程配置他的 Arch Linux（一款以"什么都得自己动手装"著称、最劝退新手的 Linux 发行版）。他的结论很夸张也很具体：<strong>"这次安装花的时间比我以往任何一次少了约 95%，而且效果比我手工搭的任何一版都好。"</strong> 但这张卡的价值一半在评论区（17 顶、30 评）——社区吵得很真：<strong>有人照做却搞出系统不稳、驱动没解决</strong>，也有人指出 AI 更适合 NixOS 这种"声明式、可版本控制"的系统，而非传统那种"改一步是一步"的有状态安装。<em>为我所用：</em>面对"步骤多到让人放弃"的系统配置（装系统、配开发环境、搭服务器），可以让 Claude Code 当你的向导边讲边做，省下大把翻文档的时间——但别盲信，<strong>照那条社区提醒：能落成配置文件/脚本、可回滚可复现的做法，才敢真交给 AI</strong>。</p>
+      <p class="links"><a href="https://lobste.rs/s/8pfxqy/i_let_claude_code_configure_my_arch" target="_blank" rel="noopener">lobste.rs 讨论帖</a></p>
+      <p class="meta"><span class="chip">lobste.rs</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="freja games scoop sort 拼图 冰淇淋 手机游戏 零基础 no code 单文件 html itch.io 直播 新手 30关">
+      <h4>Scoop Sort · 零编程经验，做出一款能玩的手机拼图游戏</h4>
+      <p class="desc">开发者 <strong>Freja Games</strong>（itch.io）做了个实验：<strong>看一个完全不会编程的人，能靠 Claude 把手机游戏做到多远。</strong>结果是 Scoop Sort——一款"按口味给冰淇淋球分类"的拼图游戏，首个原型（2026-06-07 上线）就有 <strong>30 个手工设计的关卡、分 2 章、带限时奖励关、金币经济和商店，配音效、动画、震动反馈</strong>。作者的自述一句到位："<strong>我负责指挥，Claude 写下每一行代码</strong>。"整个游戏是<strong>单个 HTML 文件</strong>，浏览器直接开、免安装。<em>为我所用：</em>你就是那个"不会写代码但想做点东西"的人？这就是你的可行性证明。别从大制作起步，挑一个规则简单的小游戏（分类、消除、连线），一句句把玩法讲给 Claude，它替你写码，你负责"好不好玩"——做出来能发给朋友玩，就已经赢了。</p>
+      <p class="links"><a href="https://freja-games.itch.io/scoop-sort/devlog/1547096/first-prototype-live-built-with-claude-ai" target="_blank" rel="noopener">开发日志 · 作品页</a></p>
+      <p class="meta"><span class="chip">itch.io</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="jay-droid133 tharkys the knight zx spectrum 128k z80 汇编 复古 8bit ula snow 真机 模拟器 itch.io 硬件">
+      <h4>Tharkys the Knight · Claude 手写 Z80 汇编的 ZX Spectrum 游戏</h4>
+      <p class="desc">开发者 <strong>Jay-droid133</strong>（itch.io）做了款致敬 1980 年代 ZX Spectrum 128K 的复古动作冒险游戏，<strong>全部 Z80 汇编代码由 Claude 写</strong>——而这台老机器 Claude"从没摸过"。最精彩的是这篇日志记的一个"只有真机才会犯的错"：游戏在模拟器上一切正常，一到真实的 128K 硬件上就<strong>满屏雪花（ULA snow）</strong>。原因极其硬核——音乐中断的向量表被放进了"争用内存"，只有在真芯片上才会和 ULA 的显存访问撞车，模拟器根本测不出来。把向量表挪到非争用内存，雪花就没了。<em>为我所用：</em>这条给所有"让 AI 碰底层/硬件"的人两个提醒：一，<strong>连 40 年前的汇编 AI 都能写</strong>，硬件老古董别怕；二，<strong>模拟器/测试环境跑通 ≠ 真机跑通</strong>，越贴近硬件的活，越要在真实设备上验一遍——这条铁律对嵌入式、单片机、复古计算都通用。</p>
+      <p class="links"><a href="https://jay-droid133.itch.io/tharkys-the-knight/devlog/1571716/ula-snow-on-real-128k-hardware" target="_blank" rel="noopener">开发日志 · 作品页</a></p>
+      <p class="meta"><span class="chip">itch.io</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="jgesq magick shadows 跑团 gm 游戏主持 solo trpg 单人 骰子 裁判 claude itch.io 恐怖 1974 非代码用途">
+      <h4>让 Claude 当"跑团主持人"，一个人也能玩桌游</h4>
+      <p class="desc">这张不是用 Claude 写码，而是把它<strong>当游戏本身的一部分</strong>：开发者 <strong>Jgesq</strong>（itch.io）为自己的单人恐怖跑团游戏《Magick Shadows V》配了 Claude 当"公正裁判"（GM，游戏主持人）——<strong>替你掷骰（"开局掷出 7：部分成功，代价不小"，你无法作弊）、串联前后果（早先给某人塞钱，后面就引来更多麻烦）、守规则一致性、把控叙事节奏</strong>。一局下来，程序生成了一部 1974 年的邪典电影当剧情、和盗版片商谈判、销毁 16 份拷贝、还把一个反派谈成了盟友。作者说这带来了"传统单人日志式玩法给不了的、真正意外的走向"。<em>为我所用：</em>Claude 不只会写代码——它能<strong>当你的桌游主持、剧本杀 NPC、语言陪练、面试官</strong>。给它一套规则和角色设定、要求它"公正执行、不许放水、记住前情"，它就能陪你玩出一场有来有回、结局未知的体验。这是"非程序员也能立刻上手"的一类用法。</p>
+      <p class="links"><a href="https://jgesq.itch.io/magick-shadows-v-exploitation/devlog/1312068/ms5-game-play-with-claude-ai" target="_blank" rel="noopener">开发日志 · 作品页</a></p>
+      <p class="meta"><span class="chip">itch.io</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="richmpne 独狼开发 solo dev 反思 ai 变慢 争吵 unity spine 诚实 反面 itch.io 局限 冷静">
+      <h4>反面一课：独狼开发者吐槽"跟 AI 吵架比写代码还费时"</h4>
+      <p class="desc">留一张<strong>清醒剂</strong>压轴。独立游戏作者 <strong>Richmpne</strong>（itch.io 博客）诚实记下用 AI 做游戏的糟心处：他同时要伺候 Unity、Spine 2D、Photoshop、Stable Diffusion 一堆工具，累远超预期；更让他担心的是"<strong>感觉 Claude 开始以指数级变慢</strong>"——偏偏是项目越复杂、越需要它给力的时候，它越不给力。他的观察分寸很准：<strong>AI 在"你把方向讲清楚"时能扛核心写码，但一到动画工具这类专门活就不靠谱；能生成代码，却替代不了美术这种要审美和反复打磨的判断</strong>。收尾一句自嘲——"我去接着骂 Claude 了（对，它会回骂）"。<em>为我所用：</em>本章前面全是"我做成了"，这张告诉你另一半真相：<strong>AI 不是万能，项目中期会有"越推越慢"的坎，专门性、审美性的活它接不住。</strong>抱着"它是个有脾气、会犯错的搭档"而非"许愿机"的预期上手，你反而走得更稳、更不容易半途弃坑。</p>
+      <p class="links"><a href="https://itch.io/blog/830145/surviving-solo-dev-when-ai-and-i-argue-more-than-we-code" target="_blank" rel="noopener">作者反思全文</a></p>
+      <p class="meta"><span class="chip">itch.io</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="hiurich iqpage product hunt 阅读助手 chrome 插件 非技术 委内瑞拉 独立创始人 8个月 丧妻 自学 未知工具 坚持">
+      <h4>Product Hunt 上一位非技术创始人的 8 个月：从零做出 AI 阅读助手</h4>
+      <p class="desc">补一个<strong>平台样本 + 人的故事</strong>。45 岁的委内瑞拉独立创始人 <strong>Hiurich</strong>（Product Hunt 自我介绍帖）没有任何开发背景：2023 年全职照顾患癌的妻子，2024 年 7 月妻子离世后他"精神和经济上都彻底垮了"，转而靠创业重启人生。<strong>独自开发 8 个月</strong>、被 Chrome 应用商店拒了 3 次才过审，做出 IQPage——一个帮你更高效读网页的 Chrome 插件（总结内容、就页面提问、识别文章里误导性的表述）。发帖时他坦白"我连第一个用户都还没有"。<em>（注：他在这篇帖子里未点名用什么工具开发，故本卡制作方式标"未知"，只作为"非技术者靠现代工具单干"的平台样本收录，不替他认领 Claude。）</em><em>为我所用：</em>把它当一剂"心理可行性证明"：<strong>非技术背景、资源有限、身处逆境的人，也能靠今天的工具从零做出一个真上架的产品。</strong>技术门槛正在塌，剩下的多是"要不要开始、扛不扛得住被拒"的问题。</p>
+      <p class="links"><a href="https://www.producthunt.com/p/introduce-yourself/hey-ph-solo-founder-who-spent-8-months-building-an-ai-reading-assistant-finally-here" target="_blank" rel="noopener">Product Hunt 自述帖</a></p>
+      <p class="meta"><span class="chip">Product Hunt</span><span class="chip">未知</span><span class="chip">无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
   <figure class="quote"><blockquote>这个 App 完全是用 Claude 聊天 vibe coded 出来的——我完全不懂这些代码。我只是怕别人也遇到同样的问题，才把它传上来。</blockquote>
     <figcaption>— leostar505，<a href="https://github.com/leostar505-ship-it/Watch-browser" target="_blank" rel="noopener">Pixel Watch Browser 仓库 README</a>（中文转述）</figcaption></figure>
 
@@ -7016,6 +7105,83 @@ main{
     <figcaption>— 知乎作者 Ivan（清华 AI4S），<a href="https://zhuanlan.zhihu.com/p/2032909890998490476" target="_blank" rel="noopener">《用上 Claude Code 之后，我不再读文献了》</a>（中文转述）</figcaption></figure>
 
   <div class="callout"><strong>看完想动手？</strong>中文圈这一章最大的启发是：<strong>最值钱的点子往往长在你自己的重复劳动里</strong>。别急着做马麻将、做 SaaS，先从"办公与文书"那组里挑一件你每天都要手动做一遍的烦事（建文档、写纪要、排版发文），照着抄一遍。做成了、自己用上了，你就迈过了从"围观"到"上手"最难的那道坎。国内用不上官方 Claude Code？这章里好几位作者用的是腾讯 CodeBuddy 等同源国产工具，一样能跑——工具从不是借口。</div>
+
+  <h3>加更：短视频与更多平台</h3>
+  <p>前面几组多来自知乎、即刻、B站、V2EX。这一节把网撒得更宽——抖音/快手的短视频演示，加上开发者聚集的掘金（juejin）实战长文。<strong>说明两件事</strong>：一，抖音/快手的短视频原生页多是登录墙或搜索聚合，很难拿到稳定的单条视频直链，这类卡的链接一律注明"经搜索引擎确认"的核验方式，你也可以按标题在 App 内二次搜到；二，掘金/虎嗅/CSDN 的图文帖都是可直接打开的文章，可信度更高。六要素照旧齐全，另附复刻难度星和"为我所用"。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="抖音 短视频 视频文案 脚本拆解 字幕 claude 4.8 segmentfault b站 视频号 爆款 内容生产 自媒体 ai辅助">
+      <h4>把 10 分钟视频脚本，从 90 分钟压到 8 分钟</h4>
+      <p class="desc"><strong>谁：</strong>SegmentFault 思否作者（面向抖音/B站/视频号创作者）。<strong>干成了什么：</strong>用 Claude 4.8 拆解视频脚本与字幕，把一条 10 分钟视频的脚本梳理从<strong>约 90 分钟压到 8 分钟</strong>，还能 30 秒批量出 10 个不同平台调性的标题。<strong>怎么干的：</strong>把"内容生产"当成一条流水线——先让 Claude 拆结构、提炼要点，再按平台改写文案、生成字幕，纯对话零代码。<strong>结果信号：</strong>是一套可照抄的"短视频文案流水线"方法，图文详解公开。<strong>制作方式：</strong>AI 辅助（文案由人把关）。</p>
+      <p class="links"><a href="https://segmentfault.com/a/1190000048015222" target="_blank" rel="noopener">SegmentFault 原文</a></p>
+      <p class="meta"><span class="chip">SegmentFault</span><span class="chip">AI 辅助</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你要是做视频号/抖音，最耗时的就是写脚本和起标题。照他这套"拆结构→提要点→按平台改写"的流程走一遍，一条视频的文案功夫能省一大半。</p>
+    </article>
+
+    <article class="card" data-tags="抖音 短视频 提示词 追加 连续 claude 教学 一分钟 入门 门槛 普通用户 未知 演示">
+      <h4>抖音一分钟教程：Claude 怎么"追加提示词"</h4>
+      <p class="desc"><strong>谁：</strong>抖音创作者（单条教学视频）。<strong>干成了什么：</strong>把"如何给 Claude 连续追加提示词、一步步逼近想要的结果"这个新手常卡的点，做成一条一分钟就能看懂的短视频。<strong>怎么干的：</strong>短视频演示 + 口播讲解，点子本质是把 Claude 的使用门槛压成"看一眼就会"的一分钟教程。<strong>结果信号：</strong>抖音站内已形成"Claude 怎么用"的教学类目，反映普通用户的入门需求量很大、供给已成规模。<strong>制作方式：</strong>未知。</p>
+      <p class="links"><a href="https://www.douyin.com/shipin/7645474186466560051" target="_blank" rel="noopener">抖音视频页</a>（短视频，经搜索引擎确认可达单条视频页，未获稳定直链，可按标题在 App 内二次搜到）</p>
+      <p class="meta"><span class="chip">抖音</span><span class="chip">未知</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>如果你也常"一句话说不清楚需求"，记住这条视频教的核心动作——不用一次讲全，先让它做，再一句句补充和纠偏，比憋一段完美提示词更实用。</p>
+    </article>
+
+    <article class="card" data-tags="快手 kat-coder-pro streamlake 国产模型 claude code router 免费 tokens 接入 省钱 csdn 编程 人工教程">
+      <h4>快手自研编程模型，3 分钟白嫖接进 Claude Code</h4>
+      <p class="desc"><strong>谁：</strong>CSDN 作者。<strong>干成了什么：</strong>教你把快手自研的编程大模型 <strong>KAT-Coder-Pro V1</strong> 接到 Claude Code 上用——CC 当"壳"（界面与工作流），底层模型换成国产免费的。<strong>怎么干的：</strong>用 claude-code-router 把 CC 路由到快手 StreamLake 平台的模型，装包、填 API key、指定推理点，<strong>约 3 分钟</strong>搞定。<strong>结果信号：</strong>该模型 SWE-Bench 解决率约 <strong>73.4%</strong>，新用户送 2000 万 tokens 试用、Air 版 API 永久免费，中文友好、响应快。<strong>制作方式：</strong>人工教程（对接国产模型）。</p>
+      <p class="links"><a href="https://blog.csdn.net/cook_for_you/article/details/154048307" target="_blank" rel="noopener">CSDN 原文</a></p>
+      <p class="meta"><span class="chip">CSDN</span><span class="chip">快手模型</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>心疼 Claude 额度、又想留着 CC 顺手的工作流，这是国内最实在的省钱路子之一——保留 Claude Code 的壳，把烧钱的模型换成免费国产的。适合练手和跑量。</p>
+    </article>
+
+    <article class="card" data-tags="掘金 双越 wangeditor 智语 baoyu-skills 公众号 自动发布 chrome cdp 阿里百炼 配图 agent 开源 办公 自媒体 ai辅助">
+      <h4>掘金·双越：智语 + 宝玉 Skill，写稿配图自动发公众号</h4>
+      <p class="desc"><strong>谁：</strong>掘金作者双越（wangEditor 富文本编辑器作者，知名前端）。<strong>干成了什么：</strong>用自研 Agent"智语"配上宝玉（dotey）开源的 baoyu-skills，把"写文章→AI 生成配图→自动发到微信公众号"整条链路跑通，全程无人值守。<strong>怎么干的：</strong>Skill 通过 Chrome CDP（浏览器底层调试协议）直接操作 Chrome 发文、记住登录态；配图走阿里百炼的文生图 API；Markdown 自动转 HTML 排版。<strong>结果信号：</strong>作者强调"不是 demo 是真实可用工具"，自己在用并持续优化；baoyu-skills 通用于 Claude Code / Codex / OpenClaw。<strong>制作方式：</strong>AI 辅助。</p>
+      <p class="links"><a href="https://juejin.cn/post/7654867618023817216" target="_blank" rel="noopener">掘金原文（经搜索引擎确认）</a> · <a href="https://x.com/dotey/status/2011486901610467836" target="_blank" rel="noopener">宝玉 Skill 说明</a></p>
+      <p class="meta"><span class="chip">掘金</span><span class="chip">AI 辅助</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>和本章"公众号躺更""Agent 团队"是同类，但这张给的是<strong>知名开发者背书的现成 Skill</strong>——想要"一条命令发公众号"，直接找 baoyu-skills 抄，比自己攒发布脚本靠谱得多。</p>
+    </article>
+
+    <article class="card" data-tags="掘金 清汤饺子 16个技巧 复盘 长期使用 worktree checkpoint 上下文 skills claude.md git钩子 省token 编程 ai辅助">
+      <h4>掘金·清汤饺子：用了大半年，攒下 16 个实用技巧</h4>
+      <p class="desc"><strong>谁：</strong>掘金作者清汤饺子。<strong>干成了什么：</strong>把自己<strong>大半年真实使用 Claude Code</strong> 的经验沉淀成 16 条可操作技巧，是"长期使用者复盘"型的干货。<strong>怎么干的：</strong>核心几条——给 AI 具体的验证方式和测试用例，它会自己开浏览器测、错了自己改；用 git worktree 开独立工作区并行开发；善用 checkpoint 回退；把专项指令拆进 Skills 按需加载、别全塞 CLAUDE.md 撑大上下文（token 越长越贵、表现还下降）；用 git 钩子自动跑 lint。<strong>结果信号：</strong>掘金高赞长文，被博客园等多处转载。<strong>制作方式：</strong>AI 辅助（经验为人工）。</p>
+      <p class="links"><a href="https://juejin.cn/post/7616666752521732096" target="_blank" rel="noopener">掘金原文（经搜索引擎确认）</a></p>
+      <p class="meta"><span class="chip">掘金</span><span class="chip">AI 辅助</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>比零散刷技巧强——这是一个人用半年踩出来的清单。哪怕你不写代码，"把长指令拆进 Skills、别撑大上下文""让 AI 自己验证"这两条，任何用 CC 干活的人都能立刻用上省钱。</p>
+    </article>
+
+    <article class="card" data-tags="掘金 trae claude code 对比 实测 vibe coding edulearn 在线教育 字节 幂等 并发 横评 编程 ai辅助 备选">
+      <h4>掘金实测：拿同一个真实项目横评 TRAE 与 Claude Code</h4>
+      <p class="desc"><strong>谁：</strong>掘金作者（Java 转 Go 开发者，两款工具都深用 2 个月+）。<strong>干成了什么：</strong>用同一个真实的在线教育项目"EduLearn"分别跑 TRAE 和 Claude Code 做 vibe coding，做了一次可信度较高的横评。<strong>怎么干的：</strong>同一需求两边跑、比迭代能力与稳定性。<strong>结果信号：</strong>发现 CC 生成的点赞脚本<strong>缺幂等校验，并发下一次点击点赞数 +3</strong>——暴露了"纯英文/标准化场景强、中文口语化需求与高并发隐患上易翻车"；结论是字节的 TRAE 中文语义理解与免费基础版在国内 vibe coding 里是高性价比替代。<strong>制作方式：</strong>AI 辅助（实测类）。</p>
+      <p class="links"><a href="https://juejin.cn/post/7655529430274998335" target="_blank" rel="noopener">掘金原文（经搜索引擎确认）</a></p>
+      <p class="meta"><span class="chip">掘金</span><span class="chip">AI 辅助</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>"用同一个真项目跑两款工具"是最靠谱的选型方法，别信孤立跑分。它点破的那个坑（AI 写并发逻辑爱漏幂等校验）更值钱——凡涉及"点赞/计数/扣款"的功能，务必让 AI 补上幂等和并发处理。</p>
+    </article>
+
+    <article class="card" data-tags="掘金 alien claude code 破圈 全能玩法 写文案 报告 ppt大纲 邮件 爬股票 旅行规划 非编程 办公 ai辅助">
+      <h4>掘金·alien：别只拿 Claude Code 写代码</h4>
+      <p class="desc"><strong>谁：</strong>掘金作者 alien。<strong>干成了什么：</strong>把 Claude Code 的用途从"写代码"一路扩到写文案、整理调研报告、生成 PPT 大纲、写邮件、爬股票数据、规划旅行——一篇"工具破圈"的用法盘点。<strong>怎么干的：</strong>把 CC 当成一个能读文件、跑命令、联网查资料的通用助手，而不只是编程工具。<strong>结果信号：</strong>掘金 Claude 标签下的高热帖，点出"CC 的瓶颈不是算力，是人的注意力"。<strong>制作方式：</strong>AI 辅助。</p>
+      <p class="links"><a href="https://juejin.cn/post/7653686112275431458" target="_blank" rel="noopener">掘金原文（经搜索引擎确认）</a></p>
+      <p class="meta"><span class="chip">掘金</span><span class="chip">AI 辅助</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>专给"以为 Claude Code 是程序员专属"的人——你完全可以只拿它整理报告、写邮件、做 PPT 大纲、订行程。这张卡就是一份非程序员的用法清单，挑一件今天就能试。</p>
+    </article>
+
+    <article class="card" data-tags="虎嗅 78个skills 5个组合 微信小程序 资产管理 brainstorming ui-ux-pro-max planning-with-files tdd insights 横评 自媒体 办公 ai辅助">
+      <h4>虎嗅：实测 78 个 Skills，挑出 5 个"黄金组合"</h4>
+      <p class="desc"><strong>谁：</strong>虎嗅网作者。<strong>干成了什么：</strong>借开发一个"资产管理+人生目标"微信小程序的真实过程，<strong>系统测试了 78 个 Claude Code Skills</strong>，提炼出覆盖原型/UI/开发/沉淀四阶段的 5 个最优技能组合。<strong>怎么干的：</strong>brainstorming 定产品定位 → ui-ux-pro-max 出游戏化界面 → planning-with-files 梳理里程碑 → test-driven-development 保代码质量 → insights 自动沉淀个人技能库。<strong>结果信号：</strong>结论很实用——"针对阶段精准匹配 Skill，比盲目堆一整个军火库更提效"；虎嗅平台自带流量，被腾讯新闻等转载。<strong>制作方式：</strong>AI 辅助。</p>
+      <p class="links"><a href="https://www.huxiu.com/article/4840706.html" target="_blank" rel="noopener">虎嗅原文</a></p>
+      <p class="meta"><span class="chip">虎嗅</span><span class="chip">AI 辅助</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>面对满屏 Skills 不知装哪个时，直接抄他这条"四阶段各一件"的组合，比自己一个个试省事。核心心法记牢：<strong>Skill 不是越多越好，按阶段精准配</strong>——和本章"71 亿 token 筛出 6 个"异曲同工。</p>
+    </article>
+
+    <article class="card" data-tags="知乎 claude code 泄露 热点 workbuddy 腾讯 playwright mcp 情报系统 微信 日报 10分钟 追热点 自动化 ai辅助">
+      <h4>蹭泄露热点：10 分钟搭一个每天推送的 AI 情报系统</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者。<strong>干成了什么：</strong>趁 Claude Code 源码泄露刷屏当天，用腾讯 WorkBuddy AI 工作台<strong>不到 10 分钟</strong>搭了个 AI 情报系统——每天自动抓全球 AI 热点，整理成中文日报推到微信。<strong>怎么干的：</strong>WorkBuddy 接 Playwright MCP 直接操作 Chrome 打开 X（推特）、抓热门推文/搜关键词/追大神动态，再整理成日报；设定每天早 8:30 自动开工。<strong>结果信号：</strong>搭完即全自动，点子是"拿泄露事件本身当练手素材"，追热点的传播信号强。<strong>制作方式：</strong>AI 辅助。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2022848732727625143" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">AI 辅助</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>"每天定时抓信息→整理→推到微信"这套自动化对做行业跟踪、盯竞品、追政策的人极实用。不必等热点，把 X 换成你关心的信息源（招标网、行业公众号、政策站），就是你自己的情报台。</p>
+    </article>
+  </div>
 </section>
 <section id="cases-ideas" class="chapter">
   <header class="ch-head"><span class="ch-num">29</span>
@@ -7205,9 +7371,526 @@ main{
     <figcaption>— techtiff，<a href="https://techtiff.substack.com/p/code-with-claude-2026" target="_blank" rel="noopener">Code with Claude 2026</a>（中文转述）</figcaption></figure>
 
   <div class="callout"><strong>把任何一张点子卡变成现实，就三步：</strong>①<strong>描述效果</strong>——别想技术，用大白话把「我想要一个能……的东西」讲清楚，越具体越好（谁用、解决什么、长什么样）；②<strong>让 Claude 先规划</strong>——加一句「先别写代码，帮我把这个需求拆成几步、列出要用到的东西、告诉我最简单的做法」，让它替你把路铺好；③<strong>vibe coding</strong>——说「好，按第一步开始做」，做出雏形就用起来，不满意就继续用大白话说「这里改成……」。整章的每一句「复刻起手式」都是给你准备好的第一步——挑离你最近、最痒的那一个，现在就把它说出口。</div>
+
+  <h3>加更：来自人类精工与暗矿的启发</h3>
+  <p>前面收的多是「用 Claude 一句话能变出什么」。这一节换两个池子淘金——<strong>人类精工</strong>（不靠 AI、纯手工也香的独立作品）与 <strong>GitHub 暗矿</strong>（偷偷做给自己用、只有个位数星、README 朴素得只有一句自述的低调仓库）。挑的标准只有一条：作者已经做出来了，而它的<strong>点子</strong>可以原样搬进你的生活。它们大多不是 Claude 做的，但每一张卡的潜台词都是同一句——<strong>「这个你也能给自己做一个」</strong>。每卡照旧四件事：点子本质、为什么可行、原帖、复刻起手式；再加一枚<strong>制作方式</strong>标（纯人工／未知／AI 辅助）。星仍是你复刻的上手难度。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="unsure calculator 不确定 概率 蒙特卡洛 区间 估算 filip hracek show hn 纯人工 有码 思维 效率 英文圈">
+      <h4>一个「会算不确定性」的计算器：别再假装精确</h4>
+      <p class="desc"><strong>点子本质：</strong>Filip Hracek 做了个反直觉的计算器 Unsure Calculator——你不填精确数字，而填<strong>区间</strong>，比如 <code>1400~1700</code>，意思是「我 95% 确定它落在这个范围」。它用蒙特卡洛法把每个区间当正态分布采样上千次、反复计算，最后给你一张结果的概率分布直方图，而不是一个假装精确的数。<strong>为什么可行：</strong>作者把成品和源码都公开了，核心逻辑（区间→采样→取分布）并不复杂。<strong>为我所用：</strong>凡是「拍脑袋估数」的场合——搬家总花费、项目工期、开店能不能回本、这月还剩多少钱——都别再用一个骗自己的精确数，改用区间，你看到的是「大概率赚/亏多少」。纯手工，已开源。</p>
+      <p class="links"><a href="https://filiph.github.io/unsure/" target="_blank" rel="noopener">Unsure Calculator（成品＋源码）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个网页计算器：输入里允许写区间（如 1400~1700），你把每个区间当作正态分布采样一万次、按公式计算，最后输出结果的中位数、5%~95% 区间和一张直方图，全部写进一个 HTML 文件。」</p>
+      <p class="meta"><span class="chip">效率</span><span class="chip">纯人工</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="touch grass touchgrass 反刷屏 doomscrolling 图像识别 摸草 rhys kentish swiftui 自律 生活 未知 无码 英文圈">
+      <h4>想刷手机？先出门拍一张真草地</h4>
+      <p class="desc"><strong>点子本质：</strong>工程师 Rhys Kentish 花四个月做了个反刷屏 App「Touch Grass」——想打开社交软件，得先起身出门，用手机<strong>拍一张真实的草地</strong>，图像识别确认「你真的摸到草了」才给你解锁；没上线就在网上炸了。<strong>为什么可行：</strong>它不讲大道理，而是把「制造摩擦」做到极致——用系统的屏幕时间 API 锁应用、用图像识别当钥匙，这套「完成一个现实动作才解锁」的机关思路完全可自制。<strong>为我所用：</strong>把「摸草」换成任何你想逼自己做的事：拍到跑鞋才解锁 B 站、拍到铺好的瑜伽垫才解锁抖音、拍到喝完的水杯才解锁游戏——给自己造一把「现实钥匙」。仅演示概念，未开源。</p>
+      <p class="links"><a href="https://techcrunch.com/2025/03/17/this-app-limits-your-screen-time-by-making-you-literally-touch-grass/" target="_blank" rel="noopener">TechCrunch 报道</a> · <a href="https://touchgrass.now/" target="_blank" rel="noopener">官网</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个网页小工具：进入某个页面前，必须先用摄像头拍一张照片，你用浏览器里的图像识别判断照片里有没有『绿色植物/草』，确认了才放行；先做一个能跑通拍照→识别→解锁的最小版本。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">未知</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="horizon sky gradient css 天空 大气散射 实时 daniel lazaro dnlzro show hn 纯人工 有码 生活 创意 英文圈 无js">
+      <h4>把「此刻你头顶的天空色」画成一条实时渐变</h4>
+      <p class="desc"><strong>点子本质：</strong>Daniel Lazaro 做了个页面「Horizon」，只干一件事——把<strong>你此刻所在位置的真实天空颜色</strong>用一条 CSS 渐变铺满全屏，每分钟刷新，背后是真的大气散射模型算出来的，全程<strong>不用一行 JavaScript</strong>，服务器直接算好渐变发给你。Show HN 登顶。<strong>为什么可行：</strong>作者开源了源码，核心是「经纬度+时间→太阳高度角→天空色」的一段计算再拼成渐变。<strong>为我所用：</strong>「把一个真实数据实时画成一张极简画面」是能复用一辈子的点子——你此刻的天气、潮汐、空气质量、离下班还剩多久，都能变成一张随时间呼吸的桌面壁纸或主页背景。纯手工，已开源。</p>
+      <p class="links"><a href="https://github.com/dnlzro/horizon" target="_blank" rel="noopener">horizon 源码仓库</a>（成品 sky.dlazaro.ca，经搜索引擎确认）</p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个单页网页：根据我所在城市的经纬度和当前时间，估算此刻天空大概的颜色，用一条 CSS 线性渐变铺满全屏，页面每分钟自动刷新，不用 JavaScript，越简洁越好。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">纯人工</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="ciechanowski 互动 科普 3d 可拖拽 原理 机械表 gps three.js bartosz 纯人工 无码 学习 教学 英文圈 天花板">
+      <h4>把讲不清的原理做成「能拖着玩」的 3D 演示</h4>
+      <p class="desc"><strong>点子本质：</strong>Bartosz Ciechanowski 的博客被公认「技术科普天花板」——讲机械表、自行车、GPS、月相时，文章里直接嵌<strong>能用鼠标拖动的 3D 模型</strong>：你拖一下齿轮它就动，拉一下滑块时间就走，把抽象原理变成「能上手玩」的东西，全部手写实现。<strong>为什么可行：</strong>你不必做到他手写渲染引擎的程度——如今让 Claude 用 Three.js 生成一个「可拖动的原理演示」，门槛已经低了几个数量级。<strong>为我所用：</strong>凡是你想给别人讲清、但一张静态图讲不明白的东西——公司业务流程、一个数学概念、一台设备怎么运转、孩子的作业题——都能做成「能拖着看」的小演示，看懂的速度会翻倍。纯手工，思路公开。</p>
+      <p class="links"><a href="https://ciechanow.ski/" target="_blank" rel="noopener">ciechanow.ski（互动科普长文）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用 Three.js 帮我做一个可交互的原理演示：一个能用鼠标旋转和拖动的三维模型，配一个时间/参数滑块，拖动时各部件按真实逻辑联动，旁边用一句话解释正在发生什么，写进一个 HTML 文件。」</p>
+      <p class="meta"><span class="chip">学习</span><span class="chip">纯人工</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="synth daughter 合成器 音序器 arduino pcb 3d打印 礼物 alastair roberts 硬件 纯人工 无码 生活 情感 英文圈">
+      <h4>给女儿做一台专属合成器：为一个具体的人做一件东西</h4>
+      <p class="desc"><strong>点子本质：</strong>Alastair Roberts 给女儿做生日礼物——一台便携步进音序器合成器：四个推子控制循环里的音符，推上去音高、拉下去音低，屏幕上还有只「跳舞的熊猫」；从面包板原型一路做到自设计 PCB、3D 打印的粉色外壳。<strong>为什么可行：</strong>关键不是「买不到玩具」，而是「为一个具体的人、一个具体的喜好量身做」——而 Claude Code 恰好能把 Arduino 固件、MIDI 逻辑这些最劝退的部分替你写掉。<strong>为我所用：</strong>别总想着做能发布的产品。给你在意的那个人做件只属于 TA 的小玩意：给爸妈做字超大的天气钟、给孩子做只认得家人照片的相框、给伴侣做纪念日倒数灯——心意藏在实体里，比 App 动人。纯手工硬件，过程公开。</p>
+      <p class="links"><a href="https://bitsnpieces.dev/posts/a-synth-for-my-daughter/" target="_blank" rel="noopener">作者制作全记录</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我有一块 Arduino 和几个电位器、一个小扬声器，帮我写固件做一个最简单的音序器：四个旋钮各控制一个音符、循环播放，转动旋钮改音高，一步步教我接线和烧录。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">纯人工</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="nodaysoff 跑步 十年 数据可视化 坚持 日历热力图 adrien friggeri 纯人工 无码 生活 数据 英文圈 3881天">
+      <h4>把「坚持了十年的一件事」做成一张震撼的图</h4>
+      <p class="desc"><strong>点子本质：</strong>Adrien Friggeri 连续 <strong>3881 天、每天跑步不断</strong>，把这十年的数据做成一个网站：总里程 13454 英里、七大洲都跑过、配速心率天气逐年变化，全部铺成一张张精致图表。<strong>为什么可行：</strong>数据是「每天一条」攒出来的，而可视化恰是 Claude 最擅长的活——喂它一份 CSV，它能一次把日历热力图、趋势线、分布图都画好。<strong>为我所用：</strong>你一定有某件坚持很久的事：记账、读书、体重、通勤、追的剧、喝的咖啡。把那份流水账导出来，让它做成一张「我的十年」，你会第一次真正看见自己走了多远。纯手工，数据自记。</p>
+      <p class="links"><a href="https://nodaysoff.run" target="_blank" rel="noopener">nodaysoff.run（十年跑步可视化）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「这是我多年的记录（CSV，每行一天）。请用一个单文件网页把它可视化：一张按年份铺开的日历热力图、一条逐年趋势线、一张分布直方图，配色克制，能直接在浏览器打开。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">纯人工</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="nvencforge 视频压缩 批处理 安全 保留原件 burnersen github 暗矿 0星 未知 有码 效率 工具 英文圈">
+      <h4>暗矿一枚：压视频「绝不搞砸原件」的一条铁律</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 0 星的自用小工具 NVENCForge，把一句朴素承诺做成铁律——「丢一个视频进去，拿回一个更小的版本，<strong>绝不会更大；原始文件永远安全</strong>」。它会先判断该不该重压，压出来更大就自动扔掉，新文件通过校验后才把原件送进回收站（还能找回）。<strong>为什么可行：</strong>点子的精华不在编码技术，而在那条自我保护的规矩「宁可不动，绝不搞砸原件」——这套「安全批处理」思维，任何批量改文件的场景都该有。<strong>为我所用：</strong>下次批量处理一堆珍贵文件（照片改名、视频压缩、文档转格式），先立这条护栏：新文件先存旁边、校验没问题才动原件、失败就保持原样，让它替你写进脚本。低星暗矿，仓库公开。</p>
+      <p class="links"><a href="https://github.com/burnersen/NVENCForge" target="_blank" rel="noopener">NVENCForge 仓库（0 星·自用）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个批处理脚本压缩一个文件夹里的视频，规矩是：每个文件先压到临时目录，只有当新文件确实更小且能正常播放时才用它替换原件，否则保留原件不动；每一步都打印日志告诉我发生了什么。」</p>
+      <p class="meta"><span class="chip">效率</span><span class="chip">未知</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="agent-notify 通知 推送 bark ntfy hook claude code 长任务 lettgaco github 暗矿 5星 未知 有码 效率 工具 中文">
+      <h4>暗矿一枚：让 AI 干完活「ping 你手机」</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 5 星的自用小工具 agent-notify，专治「让 AI 干活时你只能干等着盯屏幕」——它接住 Claude Code / Codex 等工具跑出的 hook 事件（要权限了、报错了、干完了），在服务器上整理成一句话，再通过 <strong>Bark 或 ntfy 推到你手机</strong>上。<strong>为什么可行：</strong>这些 AI 工具本就支持「完成/出错时触发一个钩子」，接一个手机推送服务是标准动作，作者已把整套开源。<strong>为我所用：</strong>凡是「启动后要跑很久」的任务——AI 写代码、大文件下载、视频导出、脚本批处理——都该配个「跑完 ping 我手机」的尾巴，你从此不用守着进度条。低星暗矿，仓库公开。</p>
+      <p class="links"><a href="https://github.com/LetTTGACO/agent-notify" target="_blank" rel="noopener">agent-notify 仓库（5 星·自用）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我让 Claude Code 跑一个长任务，帮我配一个『任务结束时推我手机』的通知：用它的 hook 机制，在完成或报错时调用 ntfy/Bark 发一条带项目名和结果的推送，一步步教我设置。」</p>
+      <p class="meta"><span class="chip">效率</span><span class="chip">未知</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="lyric-note 歌词 标注 声乐 练习 换气 单文件 html judysonnen github 暗矿 0星 未知 有码 生活 窄需求 中文">
+      <h4>暗矿一枚：窄到只有你需要，才做得这么顺手</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 0 星、纯中文界面的自用网页 lyric-note——给唱歌练习的人标歌词：换气记号、连音线、重音、各种下划线、逐行旁注，还能语音输入笔记、导出 PDF。整个东西就是一个 4400 行的<strong>单 HTML 文件</strong>，作者显然是为自己练声做的。<strong>为什么可行：</strong>它是「暗矿」精神的标本——需求窄到几乎只有作者一个人有，却因此做得无比顺手；这类工具的可行性恰恰来自「只服务一个人，不用考虑别人」。<strong>为我所用：</strong>你一定有某个窄到没人会为你做产品的需求：给谱子标指法、给菜谱标家人忌口、给台词标停顿、给棋谱做批注——别再将就通用工具，把那个只有你懂的需求描述出来，让它给你捏一个专属的。低星暗矿，仓库公开。</p>
+      <p class="links"><a href="https://github.com/Judysonnen/lyric-note" target="_blank" rel="noopener">lyric-note 仓库（0 星·自用）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个单文件网页，用来给歌词/谱子/台词做标注：能选中文字加下划线、重音号、换气记号，能在每行旁边写小字笔记，能整体导出成 PDF，数据存在本地不丢。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">未知</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+</section>
+<section id="cases-human" class="chapter">
+  <header class="ch-head"><span class="ch-num">30</span>
+    <div>
+      <h2>人类精工：不靠 AI 也香的作品与点子</h2>
+      <p class="lede">前面几章讲的都是「AI 帮人做成了什么」。这一章反过来——把镜头对准那些<strong>靠点子本身站住脚</strong>的作品，不管是纯手工磨出来的，还是拿 AI 当搬砖工的，我们只认一条硬指标：<strong>idea 密度</strong>。因为一个真相是：机器擅长把活干快、干多，但「想到要做这个」这一步，目前仍然是人做得更好。下面这些东西，有的一个人做了六年，有的一句话就点破一个痛点，有的干脆是把「无聊」做成了「奇观」。分五摊：一人软件、网站奇观与数字花园、内容与知识工程、硬件与实体、一人生意。每张卡先告诉你<strong>它的点子本质是什么</strong>、为什么妙、在哪能看到，再用一句「为我所用」告诉你——能不能让 Claude 帮你也复刻一个。</p>
+    </div>
+  </header>
+
+  <div class="callout"><strong>怎么读这一章：</strong>chip 里的「纯人工／AI 辅助／未知」是<strong>制作方式</strong>——本章不歧视任何一边，标出来只为诚实。第二个 chip 是<strong>热度信号</strong>（Show HN 赞数、GitHub 星数等，是「有多少人认它」不是门槛）。星级★是<strong>你想照着做一个的上手难度</strong>：★=有手就行，★★★★★=得真折腾。每卡最后那句「为我所用」，是给你留的抄作业入口。</div>
+
+  <h3>一、一人软件：小到一个念头，就是一整个产品</h3>
+  <p>这一节全是「一个人 + 一个小得不能再小的点子」做出来的软件。它们的共同点：不追求大而全，只把<strong>一件小事做到让你会心一笑</strong>。门槛低、可复刻性高，最适合当你的第一个练手方向。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="unsure calculator filiph 概率 估算 不确定 计算器 蒙特卡洛 拍脑袋 纯人工 show hn">
+      <h4>Unsure Calculator · 会算「大概齐」的计算器</h4>
+      <p class="desc"><strong>点子本质：</strong>一个能输入「模糊数字」的计算器——你不确定房租是多少，就写 <code>1500~1700</code>（意思是「我 95% 确定在这个区间」），它用蒙特卡洛模拟帮你把最终结果也算成一个<strong>带概率的范围</strong>，而不是一个假装精确的单一数字。<strong>为什么妙：</strong>它戳中了每个人都干过的事——「拍脑袋估个数」。作者 Filip Hracek 举的例子绝了：一份看起来「每月净赚 50 元」的搬家决定，用它一算其实是「−60 到 +220」，风险一下子现了原形。把「不确定性」这个抽象概念做成了普通人能用的小工具。<strong>为我所用：</strong>这类「单一功能纯前端网页工具」是 Claude 最拿手的活——你完全可以让它给你做一个「带误差范围的旅行预算计算器」，一个下午就能跑起来。</p>
+      <p class="links"><a href="https://filiph.github.io/unsure/" target="_blank" rel="noopener">在线试用</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">Show HN 930+ 赞</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="breezepdf pdf 编辑 本地 隐私 浏览器 客户端 免费 独立开发 在线工具">
+      <h4>BreezePDF · 文件不离开你电脑的 PDF 编辑器</h4>
+      <p class="desc"><strong>点子本质：</strong>一个免费的浏览器内 PDF 编辑器——改文字、加图片、签名、合并，全都行，但招牌是一句话：<strong>「100% 在你浏览器本地处理，文件一个字节都不上传」</strong>。<strong>为什么妙：</strong>网上的免费 PDF 站多如牛毛，但你永远要担心「我这份合同传上去了会不会被留存」。BreezePDF 用「纯客户端」这一个卖点，把独立开发者对抗付费软件（Adobe）+ 尊重隐私两件事一次做了。它证明「体贴」本身就是差异化。<strong>免费情况：</strong>编辑无限、免费版每月 3 次下载，重度用户 12 美元/月。<strong>为我所用：</strong>「纯浏览器本地跑、数据不外传」正是 Claude 做小工具时最该学的默认姿势——你要做任何处理敏感文件的小工具，都可以让它照这个思路来。</p>
+      <p class="links"><a href="https://breezepdf.com" target="_blank" rel="noopener">官网</a></p>
+      <p class="meta"><span class="chip">未知</span><span class="chip">Show HN 790+ 赞</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="kitten tts 语音合成 tts 开源 cpu 轻量 25mb onnx 边缘 divamgupta 小模型">
+      <h4>Kitten TTS · 25MB、纯 CPU 就能说话的语音模型</h4>
+      <p class="desc"><strong>点子本质：</strong>一个开源文字转语音模型，最小的版本只有 <strong>25MB、不用显卡、纯 CPU 就能跑</strong>，自带 8 种声音。<strong>为什么妙：</strong>当整个行业都在比谁的模型更大、更吃显卡时，有人反其道而行，把 TTS 做到能塞进任何一台老电脑、任何一个树莓派。这种「极致做小」的克制，恰恰是最稀缺的产品直觉——它让「给自己的小设备加个语音」这件事对普通人第一次变得可能。GitHub 已 1.5 万+★。<strong>为我所用：</strong>你不用自己训模型，但可以让 Claude 帮你把 Kitten TTS 接进一个小脚本——比如「把我收藏的文章自动读成播客」，跑在自己电脑上、不花一分钱云费用。</p>
+      <p class="links"><a href="https://github.com/KittenML/KittenTTS" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">AI/ML 工程</span><span class="chip">15.1k★</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="term everything mmulet wayland 终端 gui 命令行 黑科技 开源 linux ssh">
+      <h4>term.everything · 让任何图形软件跑进终端里</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 Linux 小工具，能把<strong>普通图形界面程序（火狐、文件管理器、甚至 Doom）硬塞进黑框框终端里</strong>运行，还能透过 SSH 远程用。<strong>为什么妙：</strong>它是那种「谁会需要？——但看到就想笑、就想试」的极客点子。技术上把窗口画面转成终端能显示的字符/图像，本质是自己写了个 Wayland 合成器。作者很诚实地标注「现在只能 term some things，离 term everything 还早」——这份幽默感本身就是作品的一部分。GitHub 8000★。<strong>为我所用：</strong>这个复刻难度极高（系统级折腾），更适合当「原来还能这么玩」的灵感；真要动手，可以让 Claude 陪你从「在终端里显示一张图片」这种小目标起步。</p>
+      <p class="links"><a href="https://github.com/mmulet/term.everything" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">Show HN 1094 赞</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="clippy felixrieseberg 大眼夹 本地大模型 llm 怀旧 90年代 ui 桌面助手 离线 开源">
+      <h4>Clippy · 把本地大模型装进 90 年代「大眼夹」</h4>
+      <p class="desc"><strong>点子本质：</strong>一个桌面小程序，把在你电脑本地离线跑的大模型（Llama、Qwen 等），套上微软 Office 那个经典「大眼夹助手」的 90 年代皮肤。<strong>为什么妙：</strong>作者说得很坦白——「这不追求当最好的聊天应用，它是对 90 年代科技的怀旧，和我们这个时代最神奇技术的一次古怪杂交」。它不解决任何刚需，纯靠<strong>「情怀 × 前沿」的反差</strong>取胜，恰好证明了一个好点子有时候就是一次任性的混搭。GitHub 1.3k★，完全离线、不联网。<strong>为我所用：</strong>「给一个现代功能套一层怀旧皮」是极高性价比的点子公式——你可以让 Claude 帮你给自己的某个小工具套上 Win98/像素风外壳，成本几乎为零，观感翻倍。</p>
+      <p class="links"><a href="https://github.com/felixrieseberg/clippy" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">AI 辅助</span><span class="chip">1.3k★</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="cs16 css samke 反恐精英 counter strike 游戏 ui 组件库 前端 怀旧 纯人工">
+      <h4>cs16.css · 把《CS 1.6》的界面做成一套组件库</h4>
+      <p class="desc"><strong>点子本质：</strong>一套 CSS 组件库，把《反恐精英 1.6》那套经典游戏菜单 UI——按钮、复选框、滑块、对话框——原样复刻成网页能直接用的组件。<strong>为什么妙：</strong>它把「一代人的肌肉记忆」变成了生产力工具。做网页时引一行代码，你的页面就有了那股熟悉的游戏味儿。这是「怀旧游戏梗 + 实用前端工具」的精准杂交，属于那种「只有真爱粉才想得出、做得对」的作品。MIT 开源，GitHub 800+★。<strong>为我所用：</strong>想给自己的小页面/作品集换个有梗的皮肤，直接引它就行；更进一步，可以让 Claude 帮你照着做一套「你自己喜欢的那款老游戏」风格的组件。</p>
+      <p class="links"><a href="https://cs16.samke.me" target="_blank" rel="noopener">在线文档与演示</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">Show HN 819 赞</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="workout cool snouzy 健身 开源 教练 运动 平台 saas 垂类 nextjs 免费">
+      <h4>Workout.cool · 一个人做的开源健身教练平台</h4>
+      <p class="desc"><strong>点子本质：</strong>一个开源的健身训练平台——排训练计划、追踪进度、查一个带动作视频的完整动作库，把付费健身 App 的核心功能全做成了免费开源。<strong>为什么妙：</strong>它是「个人开发者把一个垂直领域的付费 SaaS 整个开源掉」的典型。健身 App 遍地都是且大多收费，一个人用现代技术栈（Next.js）把它做出来、白送，本身就是一种态度。这条路证明：<strong>选一个你真懂的领域，把别人收费的做成免费开源的，天然自带传播力</strong>。GitHub 8.1k★。<strong>为我所用：</strong>照它的逻辑——挑一个你自己在付费、又觉得「不就那点功能」的软件，让 Claude 陪你做一个够自己用的开源版，说不定就成了下一个 Workout.cool。</p>
+      <p class="links"><a href="https://github.com/Snouzy/workout-cool" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">8.1k★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <h3>二、网站奇观与数字花园：把个人主页做成一件作品</h3>
+  <div class="callout"><p>这一节收的是<strong>「个人表达型」网站</strong>——个人主页、数字花园、实验性作品集，核心卖点正是那股「人味儿」。它和第 18 章「宝藏网站」（收的是人人可用的工具站）不重叠：那边是「打开就能干活」，这边是「打开就想逛、逛完记住这个人」。「数字花园」是个近几年的说法，意思是<strong>把个人网站当花园一样慢慢养</strong>——想法不必写完美，可以像植物一样随手种下、慢慢长大，非线性、常年更新。</p></div>
+
+  <div class="card-grid">
+    <article class="card" data-tags="bruno simon three.js 3d 赛车 作品集 portfolio webgl awwwards 创意开发 纯人工 开源">
+      <h4>Bruno Simon · 开着一辆车逛完的 3D 作品集</h4>
+      <p class="desc"><strong>点子本质：</strong>法国创意开发者 Bruno Simon 把自己的作品集做成了一个<strong>可驾驶的 3D 世界</strong>——你开着一辆小车在里面到处跑，撞到不同物件就了解他的一段经历，还有赛道和藏起来的彩蛋。<strong>为什么妙：</strong>别人的简历是一页 PDF，他的简历是一款游戏。它几乎定义了「创意开发者作品集」的天花板，长年霸榜 Awwwards 年度最佳，用 Three.js 手工搭建、代码开源。它证明<strong>「怎么呈现」本身可以比「呈现什么」更让人记住你</strong>。<strong>为我所用：</strong>整个复刻难度极高，但「把简历/介绍做成可交互体验」这个点子可以缩小——让 Claude 帮你做一个「点击房间里的物件跳到不同板块」的轻量交互主页，一样出彩。</p>
+      <p class="links"><a href="https://bruno-simon.com/" target="_blank" rel="noopener">在线体验</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">Awwwards 年度最佳</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="mitchivin windows xp 作品集 portfolio 复刻 怀旧 桌面 os 浏览器 前端 hacker news">
+      <h4>MitchIvin XP · 把整个 Windows XP 桌面做成个人主页</h4>
+      <p class="desc"><strong>点子本质：</strong>澳洲设计师 Mitch Ivin 把自己的作品集做成一个<strong>能在浏览器里操作的完整 Windows XP 桌面</strong>——开机音效、任务栏、能打开的「关于我/简历/项目」窗口，连手机上都能正常用。<strong>为什么妙：</strong>它精准复用了几乎所有人的童年记忆，进站的一瞬间就被击中。作者从零基础起步、花几个月和 AI 协作学着做，但强调「每一个像素、每一个决定都过我的手」——这正是本章的态度：<strong>AI 是搬砖的，审美和点子是人的</strong>。Hacker News 历史前 100、Awwwards 荣誉提名。<strong>为我所用：</strong>「把作品集做成一个操作系统桌面」是可复刻的爆款公式——让 Claude 帮你搭个简化版怀旧桌面主页，工作量可控、话题度拉满。</p>
+      <p class="links"><a href="https://mitchivin.com/" target="_blank" rel="noopener">在线体验</a> · <a href="https://github.com/mitchivin/MitchIvin-XP" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="meta"><span class="chip">AI 辅助</span><span class="chip">HN 历史前 100</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="nekoweb 个人建站 静态 托管 neocities 老网页 复古 geocities 数字花园 手写html tiktok">
+      <h4>Nekoweb · 年轻人复兴「90 年代个人小网站」的地盘</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 2024 年出现的免费静态建站平台，专门给人做<strong>那种手写 HTML、闪烁 GIF、访客留言簿的千禧年风格个人小站</strong>，无广告、无追踪，还专门拦截 AI 爬虫。<strong>为什么妙：</strong>在千篇一律的社交媒体模板时代，它逆流而上，重新给了普通人「一块自己的地、爱怎么造怎么造」的自由，2025 年在 TikTok 上带起一波「怪异个站」复兴热潮。相比老平台 Neocities，它<strong>不限文件类型、不限大小</strong>，年轻用户涌入。这是一场「用手工感对抗 AI 感」的文化运动。<strong>为我所用：</strong>想要一个完全属于自己的表达角落，在这里注册就能开工；不会写 HTML 也没关系——让 Claude 帮你把想法写成一页复古小站，直接传上去。</p>
+      <p class="links"><a href="https://nekoweb.org/" target="_blank" rel="noopener">Nekoweb 官网</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">TikTok 复古个站热潮</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="十年之约 foreverblog 独立博客 中文 社区 长期主义 公约 blog 个人网站 坚持">
+      <h4>十年之约 · 一群人承诺「个人博客十年不关站」</h4>
+      <p class="desc"><strong>点子本质：</strong>一个中文独立博客社区，核心是一份<strong>公开的承诺——加入者立约让自己的博客持续更新十年</strong>，平台公开记录每个人的加入时间、履约情况，甚至「博客陨落时间」。<strong>为什么妙：</strong>它把「坚持」这件最反人性的事，变成了一场有见证、有名册的集体行动。目前 1891 位博主仍在履约、757 位已「违约」——这份诚实的名册本身就很动人。在什么都速朽的互联网上，它代表了中文个人网站的长期主义。<strong>为我所用：</strong>它的「已签约博主名单」是寻找优质中文个人博客的最佳索引；如果你也想开个长期博客，可以让 Claude 帮你搭一个极简、能长期维护的静态博客，然后来这里立个约。</p>
+      <p class="links"><a href="https://www.foreverblog.cn/" target="_blank" rel="noopener">十年之约官网</a> · <a href="https://www.foreverblog.cn/blogs.html" target="_blank" rel="noopener">已签约博主名单</a></p>
+      <p class="meta"><span class="chip">纯人工（社区共建）</span><span class="chip">1891 位在约博主</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>三、内容与知识工程：一个人把「资料」做成了「奇观」</h3>
+  <p>这一节的作者，本职可能是飞行员、研究员、跑者。他们的共同点：<strong>手里有一堆自己的数据或知识，然后花大力气把它做成一件能让人「哇」的作品</strong>——不是发条动态，是建一座小型博物馆。这类东西最能激发「原来我也有值得这么做的东西」的念头。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="ciechanowski 互动 科普 可视化 webgl 技术博客 物理 月球 自行车 gps 纯人工 天花板">
+      <h4>ciechanow.ski · 文章里嵌满可拖动 3D 模型的科普天花板</h4>
+      <p class="desc"><strong>点子本质：</strong>Bartosz Ciechanowski 的个人博客，每篇长文讲一个原理（机械表、自行车、GPS、月球运动），文章里<strong>嵌着几十个能用手拖、用滑块调的 3D 交互模型</strong>——你不是在读,是在亲手把玩。<strong>为什么妙：</strong>公认的「技术博客写作与可视化天花板」，每一个互动件都是他手写的 WebGL 引擎。它把「看懂一个复杂原理」从「读懂文字」升级成「亲手感受因果」，一篇能让人逛一下午。这是极致耐心堆出来的手艺活。<strong>为我所用：</strong>他这个级别难复刻，但「用一个可拖动的小模型讲清一件事」的思路很值钱——你要给别人解释任何东西，都可以让 Claude 帮你做一个能点、能拖的小交互演示，胜过千言万语。</p>
+      <p class="links"><a href="https://ciechanow.ski/" target="_blank" rel="noopener">博客首页</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">技术写作公认标杆</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="nodaysoff friggeri 跑步 数据可视化 十年 每日 坚持 数据艺术 running streak 纯人工 个人">
+      <h4>No Days Off · 连续十年每天跑步，做成一座数据博物馆</h4>
+      <p class="desc"><strong>点子本质：</strong>Adrien Friggeri 把自己<strong>从 2015 到 2026 每天都跑、一天没断的十年跑步数据</strong>，做成一个精美的可视化网站：13454 英里、2088 小时、跑遍七大洲，配速、心率、天气、时段全都拆开来看。<strong>为什么妙：</strong>点子的全部力量来自那句「no days off」——十年零缺席这件事本身已经足够震撼，而他没有只发一条动态，而是把它郑重地做成了一件作品。它证明<strong>一个足够纯粹的坚持，配上认真的呈现，就是最好的内容</strong>。<strong>为我所用：</strong>你手上一定也有某样长期数据（步数、读书、记账、打卡）——让 Claude 帮你把它做成一个漂亮的年度可视化页面，你会重新看见自己的坚持。</p>
+      <p class="links"><a href="https://nodaysoff.run" target="_blank" rel="noopener">在线查看</a></p>
+      <p class="meta"><span class="chip">纯人工</span><span class="chip">Show HN 958 赞</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="james harding pilot 飞行员 航班 数据可视化 地球仪 logbook sql 跨界 交互 未知">
+      <h4>飞行员的航班数据地球仪</h4>
+      <p class="desc"><strong>点子本质：</strong>英国航空 A350 副驾 James Harding，把自己<strong>逐笔记录的飞行日志（从 2016 年至今）</strong>做成一整套交互可视化：飞行日历、按角色统计的年度小时数、座位英里、辐射暴露量、碳足迹，还有一个能转的 3D 航线地球仪。<strong>为什么妙：</strong>「飞行员」这个身份 + 「把本职工作的数据做成艺术」的跨界，本身就极有说服力。他用 LogTen Pro 记录、再用 SQL 查询、最后可视化——普通职业的日常数据，被他做成了让飞行迷流连的展馆。<strong>为我所用：</strong>你的职业里也藏着别人没有的独家数据。把它导出来，让 Claude 帮你做一个交互看板，你就有了一份没人能抄的「作品集」。</p>
+      <p class="links"><a href="https://jameshard.ing/pilot" target="_blank" rel="noopener">在线查看</a></p>
+      <p class="meta"><span class="chip">未知</span><span class="chip">Show HN 1539 赞</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="isometric nyc cannoneyed 等距 像素艺术 地图 纽约 卫星 ai生成 nano banana claude code 奇观">
+      <h4>Isometric NYC · 一整座纽约的等距像素地图</h4>
+      <p class="desc"><strong>点子本质：</strong>Google DeepMind 的 Andy Coenen 做的一张<strong>巨幅、可缩放漫游的等距（斜 45 度）像素艺术纽约地图</strong>——曼哈顿、中央公园、自由女神、两大机场，全都像素化地铺在一张图上。<strong>为什么妙：</strong>它是「点子驱动 + AI 干活」的教科书：作者把 Google 地图的卫星与 3D 数据，通过一条自动流水线一格一格转成像素画，<strong>几乎没自己写代码</strong>，全程指挥 Gemini CLI、Claude Code、Nano Banana 完成。人负责「想到要做这个、定义怎么做」，机器负责海量苦力。这正是本章想说的分工。<strong>为我所用：</strong>这是「AI 时代新型手艺」的样板——你想把某个真实地方/数据做成风格化地图，可以让 Claude 帮你设计这样一条「数据 → 风格化图像」的自动流水线。</p>
+      <p class="links"><a href="https://cannoneyed.com/isometric-nyc/" target="_blank" rel="noopener">在线地图</a> · <a href="https://github.com/cannoneyed/isometric-nyc" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="meta"><span class="chip">AI 辅助</span><span class="chip">Show HN 1325 赞</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="chinese independent blogs timqian 中文 独立博客 列表 rss opml 索引 挖宝 社区维护 人工整理">
+      <h4>中文独立博客列表 · 一份 2.3 万星的寻宝地图</h4>
+      <p class="desc"><strong>点子本质：</strong>timqian 在 GitHub 维护的一份<strong>中文独立博客大清单</strong>——几百个个人博客，带 RSS 地址、网址、主题标签，还配了能一键导入阅读器的 OPML 文件。<strong>为什么妙：</strong>它做的是一件「基础设施」的事：在大平台垄断注意力的今天，帮人重新找到「一个个真实的人认真写的东西」。这种<strong>长期人工整理的目录</strong>本身就是一种作品——3946 次提交、多年维护，GitHub 2.3 万+★。<strong>为我所用：</strong>把它的 OPML 导进你的 RSS 阅读器（见第 24 章），你就拥有了一条源源不断的优质中文内容河流；想做垂类目录的人，也能照这个模式起步。</p>
+      <p class="links"><a href="https://github.com/timqian/chinese-independent-blogs" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">人工整理</span><span class="chip">23.5k★</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>四、硬件与实体：把点子从屏幕里做到桌面上</h3>
+  <p>这一节最「重」——作者们不满足于软件，而是掏出电烙铁、CNC、甚至混凝土，把点子做成能摸到的实物。复刻门槛高，但天花板也最高，最能点燃「我也想动手做点真东西」的冲动。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="byran 开源 笔记本电脑 硬件 从零 rk3588 主板 机械键盘 amoled diy 纯人工 极客">
+      <h4>从零手搓一台开源笔记本电脑</h4>
+      <p class="desc"><strong>点子本质：</strong>开发者 Byran 一个人<strong>从零做出一台能用的开源笔记本电脑</strong>：4K AMOLED 屏、机械键盘、约 7 小时续航，自己设计 RK3588 主板、无线键盘、阳极氧化铝机身，设计文件全部开源。<strong>为什么妙：</strong>在「买都懒得组装」的时代，有人反过来「能自己做的绝不买现成的」——横跨电子、软件、机械三个领域，目标是「尽可能多的东西从零做起」。它是极客精神最硬核的表达，也把「一台笔记本到底怎么造出来」这件黑箱事彻底摊开给所有人看。Show HN 3237 赞。<strong>为我所用：</strong>这个纯硬件项目基本无法软件复刻，但它的文档是绝佳学习材料；你要研究某个硬件怎么工作，可以让 Claude 帮你把他那套开源资料读懂、讲成人话。</p>
+      <p class="links"><a href="https://www.byran.ee/posts/creation/" target="_blank" rel="noopener">项目全记录</a></p>
+      <p class="meta"><span class="chip">纯人工（硬件）</span><span class="chip">Show HN 3237 赞</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="kilopixel benholmen 木质 像素 显示屏 六年 cnc 装置 众包 慢 纯人工 长期主义">
+      <h4>Kilopixel · 花六年做「全世界最没用的 1000 像素屏」</h4>
+      <p class="desc"><strong>点子本质：</strong>Ben Holmen 花<strong>六年</strong>做的一块木质像素显示屏——40×25 个能翻转的木头方块，一台 CNC 机械臂一次翻一个，<strong>每分钟大约只能改十个像素</strong>，全世界的人都能上网提交图案、投票让它画出来。<strong>为什么妙：</strong>它把「快」这个现代执念反过来玩到极致——刻意的慢、刻意的没用、刻意的手工。这份「明知没用还认真做六年」的偏执，本身就是对功利主义最优雅的反抗，也是长期主义精工的代名词。<strong>为我所用：</strong>硬件难复刻，但「做一件慢的、没用的、只为好玩的东西」这个心态值得偷——挑个纯粹好玩的小点子，让 Claude 陪你做出来，别问有没有用。</p>
+      <p class="links"><a href="https://benholmen.com/blog/kilopixel/" target="_blank" rel="noopener">项目介绍</a> · <a href="https://kilopx.com" target="_blank" rel="noopener">在线提交像素</a></p>
+      <p class="meta"><span class="chip">纯人工（硬件）</span><span class="chip">Show HN 1145 赞</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="synth daughter bitsnpieces 合成器 硬件 女儿 生日 步进音序器 pcb 3d打印 情感 纯人工 学习">
+      <h4>给女儿做一台合成器</h4>
+      <p class="desc"><strong>点子本质：</strong>一位父亲为女儿三岁生日，<strong>从零做了一台便携步进音序器合成器</strong>——四个滑块控制一段循环旋律里的四个音，带 OLED 动画屏、自制 PCB、3D 打印外壳。<strong>为什么妙：</strong>他做这个之前，单片机、CAD、PCB 制造一样都不会——全是为了女儿现学的。情感动机 + 硬核工程的结合，让这个项目有一种打动人的温度：<strong>最好的点子，常常来自「我想给某个具体的人做点什么」</strong>。Show HN 1278 赞。<strong>为我所用：</strong>把「为某个具体的人做一个小东西」当出发点，成功率和满足感都最高——想给孩子/家人做个小玩具软件或小工具，让 Claude 从最简单的版本陪你起步。</p>
+      <p class="links"><a href="https://bitsnpieces.dev/posts/a-synth-for-my-daughter/" target="_blank" rel="noopener">项目全记录</a></p>
+      <p class="meta"><span class="chip">纯人工（硬件）</span><span class="chip">Show HN 1278 赞</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="runpyxl python 硬件 处理器 fpga gpio 编译 bytecode 确定性 极客 纯人工 嵌入式">
+      <h4>RunPyXL · 一颗「直接跑 Python」的自制处理器</h4>
+      <p class="desc"><strong>点子本质：</strong>一个人做出的<strong>能在硬件层面直接执行 Python 的处理器</strong>——把 .py 文件编译成专用汇编、烧进 FPGA 芯片，GPIO 引脚直接连进处理器内核，跳过了解释器和虚拟机。<strong>为什么妙：</strong>它挑战了一个「常识」——Python 慢、只能靠解释器跑。作者偏要让它变成芯片里的原生指令，实测 GPIO 往返延迟比 MicroPython 快 30 倍、且时序完全确定。这是「把一个大家默认不可能的事真做出来」的硬核浪漫。Show HN 983 赞。<strong>为我所用：</strong>纯硬件项目无法软件复刻，但「质疑一条人人默认的常识、然后动手证伪」这个思维方式，正是好点子的源头——下次你觉得「这肯定做不到」时，不妨让 Claude 陪你查查到底能不能。</p>
+      <p class="links"><a href="https://www.runpyxl.com/gpio" target="_blank" rel="noopener">项目介绍</a></p>
+      <p class="meta"><span class="chip">纯人工（硬件）</span><span class="chip">Show HN 983 赞</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="sam burns 混凝土 笔记本支架 粗野主义 diy 工业设计 brutalist 实体制造 跨界 纯人工">
+      <h4>粗野主义混凝土笔记本支架</h4>
+      <p class="desc"><strong>点子本质：</strong>Sam Burns 用<strong>实心混凝土做了一个笔记本支架</strong>，刻意做成粗野主义建筑的样子——带一个磕坏的墙角、生锈的钢筋、还内嵌了插座、两个 USB 充电口和一个种着多肉的花盆。<strong>为什么妙：</strong>它把「城市废墟美学（urbex / 都市衰败）」这个抽象概念，做成了桌面上一件能用的实物，甚至用震动器排气泡、刻意让混凝土「不均匀」来做旧。这是设计师跨界玩材料的典范——<strong>一个足够任性的审美，配上认真的工艺，就是作品</strong>。Show HN 786 赞。<strong>为我所用：</strong>硬件不好复刻，但它的价值在于提醒你：把一个抽象的美学/概念做成一件具体的东西，本身就极有辨识度——数字世界里同理，让 Claude 帮你把一个概念做成一个有强烈风格的小页面。</p>
+      <p class="links"><a href="https://sam-burns.com/posts/concrete-laptop-stand/" target="_blank" rel="noopener">制作全记录</a></p>
+      <p class="meta"><span class="chip">纯人工（实体）</span><span class="chip">Show HN 786 赞</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+  </div>
+
+  <h3>五、一人生意：把一个点子做成能养活自己的产品</h3>
+  <div class="callout"><p>这一节讲「solo 变现」——一个人，一个点子，做到有人付钱。它和第 29 章「无码点子库」的区别是：这里给的是<strong>真实发生过的商业结局和产品思路</strong>，有成功也有清醒的冷水。看这一节不是让你复制某个具体产品，而是<strong>偷它们的「打法」</strong>：怎么选题、怎么冷启动、怎么变现。</p></div>
+
+  <div class="card-grid">
+    <article class="card" data-tags="base44 maor shlomo wix 收购 8000万 独立开发 solo 一人公司 arr vibe coding 出圈 变现">
+      <h4>Base44 · 一个人、六个月、被 Wix 现金收购 8000 万美元</h4>
+      <p class="desc"><strong>点子本质：</strong>以色列独立开发者 Maor Shlomo 独自做的 AI 应用生成器 Base44——用大白话描述就能生成 App——<strong>2025 年 2 月上线，三周做到 100 万美元年化收入，六个月被 Wix 以约 8000 万美元现金收购</strong>，全程没融一分钱外部资金。<strong>为什么妙：</strong>它是 2025 年独立开发者最出圈的案例，把「一个人的公司能值多少钱」的想象力彻底拉满：卖出前月收入约 20 万美元、35 万用户。作者坦言独自走这条路「真的会孤独」，也在两场战争的背景下坚持——这份真实让案例更有分量。<strong>为我所用：</strong>别只盯着 8000 万，盯它的打法：<strong>选一个「让不会写代码的人也能做出东西」的刚需、极快上线、用真实收入而非融资证明自己</strong>。你的第一个产品，可以让 Claude 帮你从一个小到能三周上线的切口开始。</p>
+      <p class="links"><a href="https://www.lennysnewsletter.com/p/the-base44-bootstrapped-startup-success-story-maor-shlomo" target="_blank" rel="noopener">创始人深度访谈</a> · <a href="https://www.inc.com/ben-sherry/vibe-coding-base44-wix-avishai-abrahami-maor-shlomo/91267959" target="_blank" rel="noopener">Inc. 报道</a></p>
+      <p class="meta"><span class="chip">AI 辅助</span><span class="chip">8000 万美元收购</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="idoubi 独立开发 11个产品 高产 虎嗅 反思 广撒网 变现 社区 微信 腾讯 中文">
+      <h4>idoubi · 一年做 11 个产品后，他说「砍掉一半会更开心」</h4>
+      <p class="desc"><strong>点子本质：</strong>从腾讯/微信出来的独立开发者 idoubi，<strong>一年狂做 11 个产品</strong>（AI 绘图、虚拟试衣、知识库、播客生成、搜索引擎、落地页生成器……），然后公开反思这种「广撒网」策略的得失。<strong>为什么妙：</strong>它是本章少有的<strong>清醒的冷水</strong>——他承认很多产品只是「有 bug 的粗糙原型」，主要收入其实来自一个 200+ 人的付费开发者社群、而非产品本身，这和他最初的目标有点矛盾。他给自己的定位是独立开发的「大一新生」，最想做出一个能拿得出手的产品，而不是一堆平庸的。<strong>为我所用：</strong>这是最值钱的一课——<strong>做得多不等于做得成</strong>。与其让 Claude 帮你一口气开十个坑，不如把一个点子打磨到「有人愿意付钱」。</p>
+      <p class="links"><a href="https://m.huxiu.com/article/3631911.html" target="_blank" rel="noopener">虎嗅报道</a></p>
+      <p class="meta"><span class="chip">未知</span><span class="chip">虎嗅报道</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="ezindie 独立开发 变现 周刊 中文 ljinkai 案例 saas 月收入 复盘 长期 信息源">
+      <h4>ezindie 独立开发变现周刊 · 中文最持续的「抄作业」信息源</h4>
+      <p class="desc"><strong>点子本质：</strong>一份中文周刊，<strong>每周精选拆解一两个「独立开发者靠小产品赚到钱」的真实案例</strong>——月入 100 万美元的 AI 写作 SaaS、年入 1800 万美元的支付业务等，主打「让小产品的独立变现更简单」。<strong>为什么妙：</strong>它本身就是一个「一人内容生意」的样板：作者 ljinkai 自 2021 年起持续更新至今，把散落全网的变现故事整理成一条有序的学习线，成了中文独立开发圈最持续的信息源。<strong>做一份持续的垂类周刊，本身就是一门生意</strong>。<strong>为我所用：</strong>两层用法——把它当每周读物,培养「什么产品能赚钱」的直觉；或者照它的模式，选一个你懂的垂类，让 Claude 帮你把每周的观察整理成一份 newsletter，长期做下去就是你的资产。</p>
+      <p class="links"><a href="https://www.ezindie.com/weekly" target="_blank" rel="noopener">周刊索引页</a></p>
+      <p class="meta"><span class="chip">纯人工（内容）</span><span class="chip">2021 年至今持续更新</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+
+  <figure class="quote"><blockquote>机器可以把一件事做得又快又多，但「想到要做这件事」——目前仍然是人类干得更漂亮的那一步。这一章里最贵的，从来不是代码，是点子。</blockquote>
+    <figcaption>—— 本章编辑手记</figcaption></figure>
+
+  <div class="callout"><strong>看完想动手？</strong>本章想给你的不是二十几个待复刻的项目，而是<strong>一种嗅觉</strong>——好点子往往长这几个样子：把一件小事做到极致（Unsure Calculator）、把别人收费的做成免费的（Workout.cool）、给一个具体的人做点什么（给女儿的合成器）、把自己的数据做成奇观（十年跑步）、给现代功能套怀旧的皮（Clippy）、或者干脆做一件慢的、没用的、只为好玩的东西（Kilopixel）。挑一个离你最痒的，用大白话讲给 Claude 听——它负责搬砖，你负责那个值钱的点子。</div>
+
+</section>
+<section id="gh-dark" class="chapter">
+  <header class="ch-head"><span class="ch-num">31</span>
+    <div>
+      <h2>GitHub 暗矿：自用小工具点子库</h2>
+      <p class="lede">GitHub 上有一类仓库从不上热门榜：作者只是想给自己解决一个具体的烦恼，随手做完就把代码公开了——不写徽章、不求 star、README 常常只有朴素一句「built for my own use（自用）」。它们星数个位数甚至是 <strong>0★</strong>，却往往是最诚实的好点子，因为一个人愿意花周末给自己做的东西，一定是真痛。这一章我把这些「暗矿」挖出来，<strong>点子是主体、仓库只是证据</strong>：每张卡第一句就是点子本质，你不必会写代码，看懂那个「原来还能这么用」就够了。这也是 vibe coding（对着 AI 描述需求、让它写代码）时代的新风景——越来越多人偷偷给自己造轮子，仓库却是公开的。</p>
+    </div>
+  </header>
+
+  <div class="callout"><strong>为什么低星不等于低质，怎么自己继续挖：</strong>大项目靠营销和明星作者攒 star，而暗矿仓库的作者压根没打算「运营」它——低星是它「只为一个人服务」的证据，不是缺陷。想自己挖矿，去 GitHub 搜索框粘下面的配方，记得把结果按 <strong>Recently updated（最近更新）</strong> 排序，就能看到那些刚出土、还带着体温的自用工具：<br>
+  ① <code>in:readme "built for my own use"</code> —— 英文圈最经典的自用宣言。<br>
+  ② <code>in:readme "just for myself"</code> 或 <code>"scratch my own itch"</code> —— 「纯为自己」「挠自己的痒」，同一类味道。<br>
+  ③ <code>"自用" in:readme,description</code> —— 中文圈直接搜「自用」，配合最近更新排序，能捞到大量个人小脚本。<br>
+  时代彩蛋：搜 <code>path:CLAUDE.md "for my own"</code> 或 <code>in:readme "vibe coded"</code>，专挑那些带 CLAUDE.md（写给 AI 看的项目说明书）、自述「vibe 出来的」自用仓库——本章凡遇到这类，卡内都标了出来。</div>
+
+  <div class="callout"><strong>怎么读这一章：</strong>每张卡第一句是<strong>点子本质</strong>；接着是<strong>作者 + 仓库链接 + 星数</strong>（照实写，哪怕 0★，一律标「暗矿」）与<strong>作者自述</strong>（尽量摘 README 原话）；最后是<strong>复刻起手式</strong>——一句你可以直接对 Claude / Claude Code 说的话，作为你亲手复刻它的第一步。chip 里的「纯人工 / AI 辅助 / 未知」是制作方式（人做的精品与 AI 辅助的照单全收），星是<strong>你复刻的上手难度</strong>（★=一句话出雏形，★★★★★=得反复折腾）。我只链公开原址并署名，绝不搬运代码——尊重每一位把自己周末成果免费公开的作者。所有仓库均已亲自打开核验，星数为核验当日实见。</div>
+
+  <h3>个人仪表盘与量化自我</h3>
+  <p>共同点是——把「我此刻的状态」变成一块看得见的表盘。别人做仪表盘是给用户看，这些人做仪表盘是给自己一个人看。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="ccr claude code 用量 额度 burn rate 仪表盘 量化 cli 暗矿 bingh0 en">
+      <h4>一眼看清自己的 Claude Code 额度烧得多快</h4>
+      <p class="desc"><strong>点子本质：</strong>做一个只读的命令行小表盘，实时显示你 Claude Code 订阅额度的「燃烧速率」——每分钟烧掉百分之几、还有多久撞到 5 小时限额，甚至算给你「现在清空上下文能多换几分钟」。作者 <strong>bingh0</strong> 的 <a href="https://github.com/bingh0/ccr" target="_blank" rel="noopener">ccr（0★，暗矿）</a>，README 自述：「A solo side project, shared as-is — built to scratch my own itch and daily-driven（单人副业项目，原样公开，为挠自己的痒而做、天天在用）」。全程只读、绝不碰你的凭证。<strong>为我所用：</strong>重度用 Claude Code 的人都有的隐忧——额度到底还剩多少，这块表让焦虑变成数字。</p>
+      <p class="links"><a href="https://github.com/bingh0/ccr" target="_blank" rel="noopener">GitHub · bingh0/ccr</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个命令行小工具，读取本地 Claude Code 的用量日志，实时算出当前 5 小时窗口内额度的消耗速率和预计触顶时间，用简洁的终端界面显示，只读不改任何文件。」</p>
+      <p class="meta"><span class="chip">量化自我</span><span class="chip">未知</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="tail-claude-mux tmux 侧边栏 claude code 状态 git 分支 会话 claude-md 暗矿 kylesnowschwartz en">
+      <h4>tmux 侧边栏常驻，一眼掌握所有 AI agent 在干嘛</h4>
+      <p class="desc"><strong>点子本质：</strong>在终端（tmux）左边挂一条常驻侧边栏，实时显示每个 Claude Code / agent 会话的状态、当前 git 分支，还能一键在会话间瞬移——把「多个 AI 同时在帮我干活」变成一块看板。作者 <strong>kylesnowschwartz</strong> 的 <a href="https://github.com/kylesnowschwartz/tail-claude-mux" target="_blank" rel="noopener">tail-claude-mux（1★，暗矿）</a>，README 直白写着：「Personal tool — fork at your own risk（自用工具，克隆自负风险）」。<strong>时代特征：仓库带 CLAUDE.md</strong>（写给 AI 看的项目说明书），是典型的 AI 协作自用仓库。<strong>为我所用：</strong>同时跑好几个 AI 会话时，最怕忘了哪个在等你——一条侧边栏解决。</p>
+      <p class="links"><a href="https://github.com/kylesnowschwartz/tail-claude-mux" target="_blank" rel="noopener">GitHub · kylesnowschwartz/tail-claude-mux</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我常同时开好几个终端里的 AI 编码会话，帮我做一个 tmux 侧边栏脚本，列出所有会话、各自的运行状态和 git 分支，支持快捷键切换。」</p>
+      <p class="meta"><span class="chip">量化自我</span><span class="chip">AI 辅助</span><span class="chip">含 CLAUDE.md</span><span class="chip">暗矿 1★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="brr ebpf profiler linux 系统 监控 top ps 硬核 codex ai 暗矿 tanelpoder en">
+      <h4>给系统里那些看不见的 eBPF 程序做一个 top</h4>
+      <p class="desc"><strong>点子本质：</strong>Linux 内核里跑着一堆你看不见的 eBPF 小程序（防火墙、监控探针都靠它），却没有像 <code>top</code> 那样的工具让你看它们各自吃了多少、跑得多慢。数据库性能专家 <strong>tanelpoder</strong> 就给自己做了一个：<a href="https://github.com/tanelpoder/brr" target="_blank" rel="noopener">brr（28★，暗矿）</a>，一块实时 TUI 表盘，显示每个 eBPF 程序的调用次数、延迟、CPU 采样。README 自述：「I built this for my own use... It's entirely AI-coded by Codex in Python using my specs & tests（我给自己造的……完全由 Codex 按我的规格和测试用例 AI 编码）」——<strong>老专家写规格、让 AI 落地</strong>的时代样本。<strong>为我所用：</strong>它示范了一种新工种：你懂领域、AI 懂编码，合起来一晚上补上一个空白工具。</p>
+      <p class="links"><a href="https://github.com/tanelpoder/brr" target="_blank" rel="noopener">GitHub · tanelpoder/brr</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我懂某个专业领域但不太会写代码，我把这个工具该做什么、每个指标怎么算、验收标准是什么写清楚给你，你来实现，我负责审。先帮我把需求整理成一份规格文档。」</p>
+      <p class="meta"><span class="chip">量化自我</span><span class="chip">AI 辅助</span><span class="chip">暗矿 28★</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="linuxdo assistant 信任等级 积分 仪表盘 论坛 油猴 tampermonkey 暗矿 dongshuyan cn 中文">
+      <h4>把论坛的成长进度做成顶栏常驻仪表盘</h4>
+      <p class="desc"><strong>点子本质：</strong>在 linux.do 论坛顶栏塞一块小仪表盘，随时显示自己的信任等级各项完成进度、当前积分、明天预计能挣多少、社区分——不用来回翻页就知道「离升级还差什么」。作者 <strong>dongshuyan</strong> 的 <a href="https://github.com/dongshuyan/Linuxdo-Assistant" target="_blank" rel="noopener">Linuxdo-Assistant（40★，暗矿）</a>，README 自称「a concise elegant Linux.do dashboard（简洁优雅的 Linux.do 仪表盘）」，靠油猴脚本（Tampermonkey，浏览器里跑的小脚本）实现。<strong>为我所用：</strong>任何有「等级/积分/成长值」的网站，都能照这个思路给自己贴一块进度表。</p>
+      <p class="links"><a href="https://github.com/dongshuyan/Linuxdo-Assistant" target="_blank" rel="noopener">GitHub · dongshuyan/Linuxdo-Assistant</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个油猴脚本，在某个论坛页面的顶栏显示我的等级进度、积分和每日签到情况，数据从页面已有的接口或元素里读。」</p>
+      <p class="meta"><span class="chip">量化自我</span><span class="chip">未知</span><span class="chip">暗矿 40★</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>家庭与生活自动化</h3>
+  <p>这一组解决的都是家里、生活里那种「不至于花钱买软件、但每次都嫌烦」的小事，作者干脆写个脚本让它自动盯着。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="bioschecker asrock 主板 bios 更新 邮件 提醒 diy 装机 暗矿 orzcode en">
+      <h4>主板出了新 BIOS 就发邮件通知我，别让我手动查</h4>
+      <p class="desc"><strong>点子本质：</strong>DIY 装机的人总记不住去查主板固件更新，作者就写了个每天自动去 ASRock 官网查、一有新 BIOS 就发邮件提醒的小服务。作者 <strong>orzcode</strong> 的 <a href="https://github.com/orzcode/biosChecker" target="_blank" rel="noopener">biosChecker（2★，暗矿）</a>，README 自述：「originally intended just for myself, until I decided to spend more time working on it so that everyone could use it（本来只想给自己用，后来才多花时间让大家都能用）」——暗矿长大的标准剧本。支持 AM4/AM5、LGA1700/1851 等主流平台。<strong>为我所用：</strong>任何「官网不推送、得自己定期去刷」的更新（驱动、固件、政策），都能改成这种「有变化才吵我」的看门狗。</p>
+      <p class="links"><a href="https://github.com/orzcode/biosChecker" target="_blank" rel="noopener">GitHub · orzcode/biosChecker</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个每天自动检查某个官网页面、发现指定内容有更新就给我发邮件的小工具，最好能直接部署到免费平台定时跑。」</p>
+      <p class="meta"><span class="chip">生活自动化</span><span class="chip">未知</span><span class="chip">暗矿 2★</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="cat-deal-radar 猫 用品 折扣 团购 豆瓣 邮件 打分 单用户 sqlite 暗矿 harab94 cn">
+      <h4>给猫囤货：折扣雷达按我的偏好打分再通知我</h4>
+      <p class="desc"><strong>点子本质：</strong>盯着豆瓣上的猫用品团购/打折帖，按「品牌偏好、品类、折扣力度、你买过什么」算一个「猫分」，够高才发邮件叫你，还能根据你「多来点/少来点」的反馈慢慢学你的口味。作者 <strong>harab94</strong> 的 <a href="https://github.com/harab94/cat-deal-radar" target="_blank" rel="noopener">cat-deal-radar（0★，暗矿）</a>，README 明写设计原则：「Keep the project single-user and low-maintenance（保持单用户、低维护）」，用 SQLite + GitHub Actions 定时跑。<strong>为我所用：</strong>把「猫」换成你真正想囤的任何东西（尿不湿、咖啡豆、显卡），这就是一个私人比价雷达的模板。</p>
+      <p class="links"><a href="https://github.com/harab94/cat-deal-radar" target="_blank" rel="noopener">GitHub · harab94/cat-deal-radar</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个单用户的折扣雷达：定时抓取某个网站关于某类商品的帖子，按我给的偏好规则打分，够高就发邮件通知我，数据用 SQLite 存本地。」</p>
+      <p class="meta"><span class="chip">生活自动化</span><span class="chip">未知</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="deal-hunter 房产 房地产 捡漏 邮件 llm claude 抽取 underwriting 管道 暗矿 shawnjohnsamuel en">
+      <h4>房产捡漏流水线：邮件进来，AI 抽取，代码算账，人只做最后判断</h4>
+      <p class="desc"><strong>点子本质：</strong>每天自动读进「房源推送邮件」，用 Claude 把杂乱的自然语言里的房子信息抽出来，去重、按你自己的「买房标准」打分排序，把明显不行的先用免费手段筛掉再花 AI token，最后给你一份排好序的结论清单。作者 <strong>shawnjohnsamuel</strong> 的 <a href="https://github.com/shawnjohnsamuel/deal-hunter" target="_blank" rel="noopener">deal-hunter（0★，暗矿）</a>，README 金句：「LLM only where language is messy; code everywhere math must be right（只在语言混乱处用 AI，凡是算数必须准的地方全交给代码）」，边界情况留给人判断。<strong>为我所用：</strong>这句「AI 管语言、代码管算账、人管拍板」的分工，是所有信息筛选自动化最该抄的心法。</p>
+      <p class="links"><a href="https://github.com/shawnjohnsamuel/deal-hunter" target="_blank" rel="noopener">GitHub · shawnjohnsamuel/deal-hunter</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我每天收到很多信息推送邮件，帮我搭一条流水线：AI 负责从乱糟糟的正文里抽出结构化字段，代码负责按我的规则打分和算数，最后给我一份排好序、附理由的清单。」</p>
+      <p class="meta"><span class="chip">生活自动化</span><span class="chip">AI 辅助</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="outlook 邮件 延迟 发送 工作时间 vba 宏 防手滑 职场 暗矿 aaronkeene en">
+      <h4>下班后写的邮件，自动压到上班时间再发出去</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 Outlook 小宏，凡是在工作时间之外点「发送」的邮件，自动延迟到下一个工作时段才真正发出——既防深夜误发、又不打扰同事，高优先级邮件可设为立即放行。作者 <strong>aaronkeene</strong> 的 <a href="https://github.com/aaronkeene/MS_Outlook_Auto_Message_Delay" target="_blank" rel="noopener">MS_Outlook_Auto_Message_Delay（1★，暗矿）</a>，纯 VBA 写成，三个可调常量（上班起、下班止、高优先级是否绕过）一目了然，装进 Outlook 的宏编辑器即用。<strong>为我所用：</strong>远程办公、跨时区协作最实用的一条礼仪自动化，防手滑也防「显得自己不下班」。</p>
+      <p class="links"><a href="https://github.com/aaronkeene/MS_Outlook_Auto_Message_Delay" target="_blank" rel="noopener">GitHub · aaronkeene/MS_Outlook_Auto_Message_Delay</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个 Outlook 宏：在我设定的工作时间之外发出的邮件，自动延迟到下一个工作日的上班时间再发送，高重要性的邮件除外。给我可以直接粘进 VBA 编辑器的代码和安装步骤。」</p>
+      <p class="meta"><span class="chip">办公自用</span><span class="chip">未知</span><span class="chip">暗矿 1★</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>学习与知识工具</h3>
+  <p>做学问、读文献、啃专业的人，最容易给自己造工具——因为学习里那些「找、抄、整理、送到眼前」的搬运活，实在太值得自动化。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="scholar-journal-highlighter 期刊 utd24 ft50 sjr chrome 扩展 google scholar 科研 商科 暗矿 minghaowang en">
+      <h4>在 Google Scholar 上一眼认出「顶刊」论文</h4>
+      <p class="desc"><strong>点子本质：</strong>商科研究者查文献时，总要费劲判断某篇发在哪、够不够权威。这个 Chrome 扩展直接在 Google Scholar 搜索结果里高亮标出 UTD24、FT50、ABDC A*/A 等顶级期刊清单里的论文，还能标注高被引（100+/500+/1000+）。作者 <strong>minghaowang-research</strong> 的 <a href="https://github.com/minghaowang-research/scholar-journal-highlighter" target="_blank" rel="noopener">scholar-journal-highlighter（1★，暗矿）</a>，自述为科研需求自制、「happy to share it with fellow scholars（乐意分享给同行）」，支持自定义期刊清单导入导出。<strong>为我所用：</strong>任何「你脑子里有一份权威名单、想在浏览网页时自动被点亮」的场景，都能照抄这个高亮扩展的思路。</p>
+      <p class="links"><a href="https://github.com/minghaowang-research/scholar-journal-highlighter" target="_blank" rel="noopener">GitHub · minghaowang-research/scholar-journal-highlighter</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个 Chrome 扩展，在某个网站的列表页里，把命中我给定名单（比如一份期刊/公司/关键词清单）的条目自动高亮标色，名单支持我自己导入。」</p>
+      <p class="meta"><span class="chip">学习知识</span><span class="chip">未知</span><span class="chip">暗矿 1★</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="paperboy mcp 论文 arxiv openalex zotero 电子墨水 kindle kobo 送达 暗矿 michaelellis003 en">
+      <h4>跟 Claude 说一声，论文自动送到我的电子墨水屏上</h4>
+      <p class="desc"><strong>点子本质：</strong>一个 MCP server（让 Claude 连接外部服务的插件），你在对话里让 Claude「找几篇某主题的论文」，它就通过工具去 OpenAlex/arXiv 搜索、排进 Zotero 的阅读队列，再自动发到你的 Kindle/Kobo 电子墨水阅读器，并打「已送达」标签防止重复送。作者 <strong>michaelellis003</strong> 的 <a href="https://github.com/michaelellis003/paperboy" target="_blank" rel="noopener">paperboy（0★，暗矿）</a>，一句话概括自己：「You ask Claude for papers; it uses paperboy's tools to find, queue, and deliver them（你向 Claude 要论文，它用 paperboy 的工具去找、排队、送达）」。<strong>为我所用：</strong>把「阅读器」这个终点换成任何你想被动接收内容的设备，这就是一条「AI 帮我把值得读的东西送到眼前」的管道。</p>
+      <p class="links"><a href="https://github.com/michaelellis003/paperboy" target="_blank" rel="noopener">GitHub · michaelellis003/paperboy</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我想让 Claude 帮我搜论文并自动发到我的 Kindle。帮我搭一个 MCP server，工具包括：按主题搜论文、加入阅读队列、通过邮件推送到 Kindle，并给送过的打标签避免重复。」</p>
+      <p class="meta"><span class="chip">学习知识</span><span class="chip">AI 辅助</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="respmech 呼吸 力学 膈肌 emg 熵 医学 运动科学 研究 just-for-myself 暗矿 emilwalsted en">
+      <h4>科研人给自己写的呼吸力学计算器</h4>
+      <p class="desc"><strong>点子本质：</strong>做呼吸生理研究要算一堆专业指标（呼吸功、膈肌 EMG 的样本熵等），没有现成软件，研究者就自己写。作者 <strong>emilwalsted</strong> 的 <a href="https://github.com/emilwalsted/respmech" target="_blank" rel="noopener">respmech（4★，暗矿）</a>，把 LabChart 等设备的时序录音按「一次呼吸」为单位逐拍分析，直接出诊断图和表格。README 原话：「I created this code for the purpose of my own work and shared it hoping that other researchers... might find it useful（我为自己的工作写了这段代码，公开只是希望别的研究者也许用得上）」。<strong>为我所用：</strong>它是「垂直专业领域没有趁手工具、就自己造一个」的典范——你所在的窄领域，很可能也缺这么一个只有内行才想得到的计算器。</p>
+      <p class="links"><a href="https://github.com/emilwalsted/respmech" target="_blank" rel="noopener">GitHub · emilwalsted/respmech</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我这个专业有一套固定的计算/分析流程，输入是某种格式的数据文件，输出要是图表和表格。我把公式和数据格式讲给你，你帮我写成一个能反复跑的分析脚本。」</p>
+      <p class="meta"><span class="chip">学习知识</span><span class="chip">纯人工</span><span class="chip">暗矿 4★</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+  </div>
+
+  <h3>办公自用脚本与开发者周边</h3>
+  <p>开发者最爱给自己补趁手的小工具，尤其是「用 AI 写代码时发现缺了个什么」——vibe coding 时代，这类周边正成批冒出来。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="portfolio-tool 投资 组合 资产 配置 claude code 测试用例 claude-md ai架构师 暗矿 abstractionlair en">
+      <h4>既想要个投资组合工具，又想试试「我当架构师、AI 写代码」能走多远</h4>
+      <p class="desc"><strong>点子本质：</strong>做一个能管理和优化多账户资产配置（含杠杆、多空、因子暴露）的投资组合工具，但作者的第二重动机更有意思——拿它当「把 AI 编码推到极限」的实验田。作者 <strong>abstractionlair</strong> 的 <a href="https://github.com/abstractionlair/portfolio-tool" target="_blank" rel="noopener">portfolio-tool（0★，暗矿）</a>，仓库描述直接写「serving as a test case for Claude Code（作为 Claude Code 的测试用例）」，<strong>仓库带 CLAUDE.md</strong>；README 双重坦白：「I actually did want this tool for my own use... Second, I wanted to see how far I could push getting AI to write, test, and debug code while I acted mostly as an architect and manager（我确实想自用……其次，想看看在我只当架构师和管理者时，能把 AI 写测调代码推多远）」。<strong>为我所用：</strong>它示范了 vibe coding 的健康姿势——真实需求打底，人当架构师、AI 当工人。</p>
+      <p class="links"><a href="https://github.com/abstractionlair/portfolio-tool" target="_blank" rel="noopener">GitHub · abstractionlair/portfolio-tool</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我想做一个自用的 X 工具，同时练习让你写大部分代码、我来把关。先陪我把需求、模块划分和验收标准写进一份 CLAUDE.md，之后你照它来实现。」</p>
+      <p class="meta"><span class="chip">办公自用</span><span class="chip">AI 辅助</span><span class="chip">含 CLAUDE.md</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="ai-web-bridge mcp claude code 登录墙 chromium 已登录 会话 浏览器 桥接 v1 暗矿 mhaslinsky en">
+      <h4>让 Claude Code 进得去那些「需要登录」的网页工具</h4>
+      <p class="desc"><strong>点子本质：</strong>很多好用的网页工具藏在登录墙后面，AI agent 进不去。这个 MCP server 给 Claude Code 专门开一个已登录的 Chromium 浏览器身份，让它能列出、打开、截图、操作那些需要登录才能用的网站（首发适配 claude.ai/design 画布）。作者 <strong>mhaslinsky</strong> 的 <a href="https://github.com/mhaslinsky/ai-web-bridge" target="_blank" rel="noopener">ai-web-bridge（0★，暗矿）</a>，自评「v1, personal-tool maturity（v1，个人工具级成熟度）」，还坦承选择器天生脆弱、网站一改版就得调。<strong>为我所用：</strong>凡是「我登录后能用、但 AI 帮不了我」的网站，这个「借我已登录的浏览器身份」的桥接思路都能救场。</p>
+      <p class="links"><a href="https://github.com/mhaslinsky/ai-web-bridge" target="_blank" rel="noopener">GitHub · mhaslinsky/ai-web-bridge</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个 MCP server，用一个我已经登录好的独立 Chromium 浏览器身份，让 Claude 能打开指定网站、截图、点击执行操作，把每个网站的操作封装成一个适配器。」</p>
+      <p class="meta"><span class="chip">开发者周边</span><span class="chip">AI 辅助</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="job-hunt-command-center 求职 找工作 简历 版本 追踪 aws serverless lambda 邮件 抽取 暗矿 abheenash en">
+      <h4>给自己的求职季搭一个 AWS 无服务器「作战指挥室」</h4>
+      <p class="desc"><strong>点子本质：</strong>找工作时投了几十上百个岗位，很快就乱成一团——这个应聘管理系统自动摄取求职相关邮件、追踪每个岗位状态、把你投出去的简历按版本精确对应到具体职位，让你随时知道「哪份简历投了谁、进行到哪步」。作者 <strong>Abheenash</strong> 的 <a href="https://github.com/Abheenash/job-hunt-command-center" target="_blank" rel="noopener">job-hunt-command-center（0★，暗矿）</a>，一整套 AWS 无服务器架构（Lambda + DynamoDB + Cognito，Terraform 一键部署）＋ React 前端，README 自述：「I built this to run my own job search — the best kind of project is one you actually use（我做它来跑自己的求职，最好的项目就是你真会去用的那个）」。<strong>为我所用：</strong>任何「同一件事要投递/申请很多份、又得记住每份进展」的场景（找工作、投稿、申请学校/项目），都能照这个「私人追踪指挥室」的思路搭一个。</p>
+      <p class="links"><a href="https://github.com/Abheenash/job-hunt-command-center" target="_blank" rel="noopener">GitHub · Abheenash/job-hunt-command-center</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个求职追踪工具：自动从邮箱里认出求职相关邮件、抽取公司和岗位、记录每个申请的状态，还能把我不同版本的简历对应到具体职位，用一个网页看板集中展示。」</p>
+      <p class="meta"><span class="chip">办公自用</span><span class="chip">未知</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="dtcopy 备份 时间戳 条件 目录 复制 windows 个人项目 just-my-own 暗矿 lpierge en">
+      <h4>只在满足时间条件时才备份的目录复制工具</h4>
+      <p class="desc"><strong>点子本质：</strong>普通备份要么全量要么增量，作者想要更精细的——按文件修改时间或指定截止日期，有条件地复制目录，还能生成带版本、带依赖的压缩包。作者 <strong>lpierge</strong> 的 <a href="https://github.com/lpierge/dtcopy" target="_blank" rel="noopener">dtcopy（0★，暗矿）</a>，README 极其朴素：「This is a personal project. I wrote it for my own use to backup files on my laptop（这是个人项目，我为自己备份笔记本文件而写）」。<strong>为我所用：</strong>它提醒你——现成备份软件覆盖不到的那个「就差一点」的规则，其实一句话就能让 AI 给你补上。</p>
+      <p class="links"><a href="https://github.com/lpierge/dtcopy" target="_blank" rel="noopener">GitHub · lpierge/dtcopy</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个备份小工具：只复制某个日期之后修改过的文件到目标目录，可选打包成带日期版本号的压缩包，Windows 上能直接跑。」</p>
+      <p class="meta"><span class="chip">办公自用</span><span class="chip">未知</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="git-brains jetgit vscode 插件 jetbrains git 图谱 三向合并 vibe coding 暗矿 zhyc9de cn 中文">
+      <h4>三天 vibe 出一个 JetBrains 风格的 VSCode git 客户端</h4>
+      <p class="desc"><strong>点子本质：</strong>觉得 VSCode 原生 git 体验不如 JetBrains 顺手，就自己给它补一个——带分支树 git 图谱、三栏三向合并编辑器（Theirs | Result | Yours）、冲突列表快捷处理。作者 <strong>zhyc9de</strong> 的 <a href="https://github.com/zhyc9de/git-brains" target="_blank" rel="noopener">git-brains（现名 JetGit，30★，暗矿出土中）</a>，据其在 V2EX 的发帖自述是「三天 vibe coding 出来的」，是 <strong>vibe coding 时代「不满就自己补」</strong>的鲜活样本。<strong>为我所用：</strong>你天天用的某个软件里，那个让你别扭的小体验，现在真的可以三天之内自己动手补掉。</p>
+      <p class="links"><a href="https://github.com/zhyc9de/git-brains" target="_blank" rel="noopener">GitHub · zhyc9de/git-brains（JetGit）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我不满意某个编辑器里某个功能的体验，想仿照另一款软件的做法给它加个插件。帮我先理清要做哪几个界面/交互，再一步步实现成一个可安装的扩展。」</p>
+      <p class="meta"><span class="chip">开发者周边</span><span class="chip">AI 辅助 · vibe coded</span><span class="chip">暗矿 30★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <h3>媒体与收藏管理</h3>
+  <p>「给自己的账号补一个官方没做的功能」「把散落各处的收藏收进一个自己的库」——这一组是媒体党和收藏癖的自留地。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="waves tidal 音乐 下载 桌面 app 原生 无损 hires ffmpeg 自己账号 暗矿 iamprivacy en">
+      <h4>用自己的 TIDAL 账号，做一个「搜索优先」的下载 App</h4>
+      <p class="desc"><strong>点子本质：</strong>官方 App 不让你把订阅的音乐好好存下来，那就自己做一个原生桌面程序，用你自己的 TIDAL 账号搜索、试听、下载单曲/专辑/歌单/整个艺人的作品，最高支持 24bit/192kHz 无损与杜比全景声。作者 <strong>iamprivacy</strong> 的 <a href="https://github.com/iamprivacy/Waves" target="_blank" rel="noopener">Waves（31★，暗矿）</a>，反复强调「downloads from your own account, for your personal use（只从你自己的账号下载、供个人使用）」，界面「built for people who'd rather click than type（为更爱点鼠标、不爱打字的人做）」。<strong>为我所用：</strong>典型的「给自己的付费账号加一个官方缺失的功能」——注意仅限个人合规使用。</p>
+      <p class="links"><a href="https://github.com/iamprivacy/Waves" target="_blank" rel="noopener">GitHub · iamprivacy/Waves</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我想给自己订阅的某个媒体服务做一个搜索优先的桌面下载器，界面以点选为主。帮我梳理它该有哪些页面和功能，再从主界面开始一步步搭。」</p>
+      <p class="meta"><span class="chip">媒体收藏</span><span class="chip">未知</span><span class="chip">暗矿 31★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="filmrawstery 富士 fujifilm raw 照片 修图 lightroom 替代 film-simulation gpu shader onnx x100v 暗矿 lim8701 en">
+      <h4>不想为 Lightroom 续费，就自己写一个富士 RAW 修图器</h4>
+      <p class="desc"><strong>点子本质：</strong>常用富士相机拍照的人，修图离不开 Lightroom，可订阅费里其实只用得上几个功能。作者干脆自己做了个 GPU 加速的富士 RAW（.RAF）照片编辑器：实时预览、着色器驱动的处理、AI 抠图蒙版、内置胶片模拟、全分辨率导出。作者 <strong>lim8701</strong> 的 <a href="https://github.com/lim8701/FilmRawstery" target="_blank" rel="noopener">FilmRawstery（1★，暗矿）</a>，README 自述：「A hobby project, built for my own use. I shoot a lot with the Fujifilm X100V and edit in Lightroom — but I only use a few of its features, so paying for a subscription felt hard to justify（业余项目，为自用而做。我常用富士 X100V 拍照、在 Lightroom 修图，但只用得上它少数几个功能，订阅实在难以justify）」。<strong>为我所用：</strong>它是「订阅软件我只用十分之一功能，不如自己造个够用版」这一心态的标本——你那个嫌贵的订阅，也许只需要一个自用替身。</p>
+      <p class="links"><a href="https://github.com/lim8701/FilmRawstery" target="_blank" rel="noopener">GitHub · lim8701/FilmRawstery</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我只用某个付费软件里的少数几个功能，帮我理清那几个功能具体是什么，再规划一个只做这几件事的自用替代小工具该怎么搭。」</p>
+      <p class="meta"><span class="chip">媒体收藏</span><span class="chip">未知</span><span class="chip">暗矿 1★</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="fav-vault 收藏 下载 抖音 推特 twitter 流水线 vibe coding 归档 去重 sse 暗矿 tanmusong cn 中文">
+      <h4>点了「收藏」的视频，自动排队下载、归档、去重</h4>
+      <p class="desc"><strong>点子本质：</strong>把「在抖音/推特点收藏」变成一条自动流水线：收藏 → 任务队列 → 自动下载 → 按作者归档 → 去重 → 完成，全程不用手动点。作者 <strong>TanMusong</strong> 的 <a href="https://github.com/TanMusong/fav-vault" target="_blank" rel="noopener">fav-vault（12★，暗矿）</a>，据其在 V2EX 发帖自述是为「下片片」的自身需求 vibe 出来的（2026-07 发布）；下载存本地、不外传，仓库也直白提醒可能触发平台风控、需自担风险。<strong>为我所用：</strong>「点收藏 = 自动进我私人库」这个动作，对任何爱囤内容又怕原视频被删的人都极实用——但务必遵守平台规则、仅限个人。</p>
+      <p class="links"><a href="https://github.com/TanMusong/fav-vault" target="_blank" rel="noopener">GitHub · TanMusong/fav-vault</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我搭一条自动化流水线：定时读取我在某平台的收藏列表，把新收藏的内容排队下载到本地、按作者建文件夹归档、自动去重，进度用网页实时显示。」</p>
+      <p class="meta"><span class="chip">媒体收藏</span><span class="chip">AI 辅助 · vibe coded</span><span class="chip">暗矿 12★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="graphaggregator squig 耳机 频响 曲线 聚合 搜索 发烧友 联邦 github-pages 暗矿 harutohiroki en">
+      <h4>把散落各站的耳机频响图，聚成一个能一起搜的库</h4>
+      <p class="desc"><strong>点子本质：</strong>耳机发烧圈有一堆各自为政的「squig」频响曲线测评站，想跨站对比很麻烦。这个工具做了一个「联邦式」的注册与聚合层：各站站长自助注册一次，就能被统一搜索，还带自动健康检查、剔除失效站点。作者 <strong>HarutoHiroki</strong> 的 <a href="https://github.com/HarutoHiroki/GraphAggregator" target="_blank" rel="noopener">GraphAggregator（暗矿·小众发烧圈自用）</a>，用 JS + GitHub Pages 部署，替代了原来各站各自抓数据的老脚本。<strong>为我所用：</strong>任何「同一类数据散在很多小站、你想一处搜全」的垂直爱好圈，都能借这个「联邦注册 + 统一搜索」的结构。</p>
+      <p class="links"><a href="https://github.com/HarutoHiroki/GraphAggregator" target="_blank" rel="noopener">GitHub · HarutoHiroki/GraphAggregator</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我这个爱好圈的数据散在很多个人小站上，帮我做一个聚合搜索：让各站登记一次自己的数据地址，我这边统一建索引、一处搜全，并定期检查哪些站失效了。」</p>
+      <p class="meta"><span class="chip">媒体收藏</span><span class="chip">未知</span><span class="chip">暗矿·小众自用</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="go-v2ex v2ex 命令行 终端 客户端 go 摸鱼 浏览 论坛 暗矿 seth-shi cn 中文">
+      <h4>在终端里刷论坛：一个命令行版 V2EX 客户端</h4>
+      <p class="desc"><strong>点子本质：</strong>把逛 V2EX 搬进终端——在命令行里看最新/最热主题、翻评论、切换节点、看图预览，主打一个上班「摸鱼」不被发现。作者 <strong>seth-shi</strong> 的 <a href="https://github.com/seth-shi/go-v2ex" target="_blank" rel="noopener">go-v2ex</a>，纯 Go 写成、提供 mac/Linux/Windows 预编译包，自带 GitHub 自动更新，是极客把日常网站「终端化」的自用小玩意。<strong>为我所用：</strong>你常刷的任何有接口的网站，都能被做成一个只在终端里跑、清爽无广告的私人客户端。</p>
+      <p class="links"><a href="https://github.com/seth-shi/go-v2ex" target="_blank" rel="noopener">GitHub · seth-shi/go-v2ex</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我写一个命令行客户端，用某网站的公开接口，在终端里浏览它的列表和详情、支持翻页和快捷键操作，做成一个能装的小程序。」</p>
+      <p class="meta"><span class="chip">媒体收藏</span><span class="chip">纯人工</span><span class="chip">暗矿·极客自用</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>古怪但妙</h3>
+  <p>最后留给那些「需求窄到只有作者自己会想到、却做得一丝不苟」的小东西——暗矿里最可爱的一角。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="thoccs 打字 音效 键盘 声音 视频 youtube keychron 整活 neurodivergent 暗矿 emecampuzano en">
+      <h4>把任意一段文字，变成一段以假乱真的「打字声」</h4>
+      <p class="desc"><strong>点子本质：</strong>做视频配「打字音效」时，重复的同一个敲击声很假。作者就录了自己 Keychron K2 键盘上每个键的真实声音样本，让工具把它们按可调的间隔、节奏抖动、音高微变串起来，合成一段「Turns text into realistic typing sounds（把文字变成逼真打字声）」的音频。作者 <strong>emecampuzano</strong> 的 <a href="https://github.com/emecampuzano/thoccs" target="_blank" rel="noopener">thoccs（1★，暗矿）</a>，README 坦承这是个人项目、承认自己对这种「别人不在意的细节」格外较真。<strong>为我所用：</strong>它是「较真到极致的小整活」的范本——你也有那种「别人觉得无所谓、你却很在意」的小细节，值得给自己做一个。</p>
+      <p class="links"><a href="https://github.com/emecampuzano/thoccs" target="_blank" rel="noopener">GitHub · emecampuzano/thoccs</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我录了一组单个按键的声音文件，帮我写一个工具，输入一段文字就把这些样本按逼真的节奏和随机音高拼成一段打字音效导出。」</p>
+      <p class="meta"><span class="chip">古怪但妙</span><span class="chip">纯人工</span><span class="chip">暗矿 1★</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="txpaint ascii art 编辑器 rexpaint codepage437 rust egui wgpu 跨平台 linux vibe-coded claude 暗矿 cleptomania en">
+      <h4>因为「过敏 Windows」，自己 vibe 一个跨平台 ASCII 艺术编辑器</h4>
+      <p class="desc"><strong>点子本质：</strong>玩 ASCII 字符画的人常用的老牌工具 REXPaint 只有 Windows 版，作者不想再靠 Wine 别扭地跑它，索性自己从头写一个跨平台的——支持 CodePage437 字体、能读写 .xp 文件的 ASCII 艺术编辑器。作者 <strong>Cleptomania</strong> 的 <a href="https://github.com/Cleptomania/txpaint" target="_blank" rel="noopener">txpaint（0★，暗矿）</a>，用 Rust（egui + wgpu）写成，README 直言动机：「I made this because Rexpaint is only for windows... and I am allergic to windows（我做它是因为 REXPaint 只有 Windows 版……而我对 Windows 过敏）」，并坦承「essentially 100% vibecoded with Claude（基本上 100% 是拿 Claude vibe 出来的）」。<strong>时代特征：自述全程 vibe coded。</strong><strong>为我所用：</strong>你钟爱的某个老工具只在某个系统上有？现在真的可以一个周末让 AI 陪你把它「搬」到你的平台上。</p>
+      <p class="links"><a href="https://github.com/Cleptomania/txpaint" target="_blank" rel="noopener">GitHub · Cleptomania/txpaint</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我喜欢的某个小工具只有某个系统的版本，我想要个跨平台的替代。帮我先理清它的核心功能和文件格式，再用一个跨平台方案一步步把它重做出来。」</p>
+      <p class="meta"><span class="chip">古怪但妙</span><span class="chip">AI 辅助 · vibe coded</span><span class="chip">暗矿 0★</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
 </section>
 <section id="appendix" class="chapter">
-  <header class="ch-head"><span class="ch-num">30</span>
+  <header class="ch-head"><span class="ch-num">32</span>
     <div><h2>附录：新手词典与学习资源</h2>
       <p class="lede">读到这里，你可能已经被一堆英文黑话轰炸过好几轮。这一章就是你的随身翻译官：先用大白话把 47 个绕不开的词讲透，再给你一句「万能仓库咒语」直接抄走用，最后交给你一张不会过期的学习地图——官方文档、必读长文、值得关注的人、社区与视频，全部逐一核实过链接。</p>
     </div>
@@ -7775,7 +8458,7 @@ main{
     { label: "卷首", ids: ["intro"] },
     { label: "卷一 · Claude 宇宙", ids: ["ecosystem","claude-code","skills","mcp","wisdom","projects","showcase","creative"] },
     { label: "卷二 · 全网轮子", ids: ["focus","learning","windows","browser","media","ai-tools","life","security","phone","websites","selfhosted","gaming","docs","writing","career","search","resources"] },
-    { label: "卷三 · 实战总集", ids: ["cases-en","cases-cn","cases-ideas"] },
+    { label: "卷三 · 实战总集", ids: ["cases-en","cases-cn","cases-ideas","cases-human","gh-dark"] },
     { label: "附录", ids: ["appendix"] }
   ];
 
