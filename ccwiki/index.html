@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="一个人的 Claude 生态检索手册：Skills、MCP、社区智慧、项目图鉴与生活应用，600+ 张已核验条目卡">
+<meta name="description" content="一个人的 Claude 生态检索手册：Skills、MCP、社区智慧、项目图鉴与生活应用，700+ 张已核验条目卡">
 <title>生态百科全书</title>
 <style>
 /* ============================================================
@@ -631,7 +631,7 @@ main{
   <header class="hero">
     <p class="eyebrow">A PERSONAL FIELD MANUAL</p>
     <h1><span class="bracket">《</span>生态百科全书<span class="bracket">》</span></h1>
-    <p class="hero-sub">一个人的数字世界检索手册：Claude 宇宙 + 全网优秀轮子</p>
+    <p class="hero-sub">一个人的数字世界检索手册：Claude 宇宙 + 全网优秀轮子 + 网友实战总集</p>
     <div class="hero-stat"><span id="stat-line"></span></div>
     <p class="hero-date">编纂于 2026-07 · 简体中文 · 术语首见即释</p>
   </header>
@@ -6448,8 +6448,766 @@ main{
   <p class="callout"><strong>本章速查（存一份不亏）：</strong>照片视频→<strong>Pexels / Unsplash</strong>；图标→网页用 <strong>Lucide</strong>、中文找 <strong>iconfont</strong>（商用逐个看授权）；字体→<strong>思源黑体／宋体</strong>打底、标题<strong>得意黑</strong>、楷体<strong>霞鹜文楷</strong>、淘更多去<strong>猫啃网</strong>；配色→<strong>Coolors</strong> 生成、<strong>中国色</strong> 抄国风；音乐音效→<strong>Pixabay</strong> 最省心；PPT→<strong>iSlide 插件</strong>＋<strong>Canva 可画</strong>；游戏素材→<strong>Kenney</strong>＋<strong>itch.io</strong>。<strong>贯穿全章的唯一铁律：用之前看一眼授权，能商用的才用，并把授权页截图存档——这一步花十秒，替你挡掉一封索赔函。</strong></p>
 
 </section>
+<section id="cases-en" class="chapter">
+  <header class="ch-head"><span class="ch-num">27</span>
+    <div>
+      <h2>实战报告 · 英文圈</h2>
+      <p class="lede">这一章是「英文圈网友亲口说的战绩」——Reddit、X、Hacker News、GitHub、个人博客上，一个个具体的人第一人称讲「我用 Claude / Claude Code / Fable 做成了 X」。不是评测、不是软文，是本人晒出来的成品、仓库和复盘。每张卡都答齐六件事：谁、干成了什么、怎么干的、有什么结果信号（星数/赞数/省了多少时间/花了多少钱）、原帖在哪、有没有公开代码；另配一个「复刻难度星」和一句「为我所用」——告诉你这份作业该怎么抄。按用途分了七小节，不按平台分，方便你直奔自己关心的场景。</p>
+    </div>
+  </header>
+
+  <div class="callout"><strong>怎么用这一章：</strong>先扫小节标题找到离你最近的场景，再看「为我所用」那句判断值不值得抄。<strong>chip 标了来源平台</strong>（GitHub / HN / X / 博客）；<strong>「有码」</strong>= 作者公开了仓库，你能直接 clone 来改；<strong>「无码·可复刻」</strong>= 没放代码，但做法讲清楚了，照着能重做。星级是<strong>你上手复刻的难度</strong>：★=有手就行，★★★★★=得认真折腾。星数（如 33★）指该仓库在 GitHub 的收藏数，是热度信号。所有链接均于 2026-07-12 逐条打开核验；Reddit 因屏蔽了 Anthropic 抓取本次无法直取，故本章不含 Reddit 卡片。</div>
+
+  <h3>编程与产品：一个人 + Claude 做出真东西</h3>
+  <p>这一组是「拿去用、拿去上架」的成品：从改造 25 年前的老驱动，到把 Mac 变成手机遥控器，到亲手写一个自己天天在用的 Unix shell。共同点是——作者都不是在秀 demo，是在解决自己真实的活。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="dmitry brant kernel driver ftape 内核 驱动 现代化 linux 博客 hacker news 老代码">
+      <h4>两个晚上，救活 25 年前的内核驱动</h4>
+      <p class="desc">在职内核工程师 <strong>Dmitry Brant</strong>（个人博客）想让一个叫 ftape 的老驱动（25 年前给软驱磁带机写的 Linux 驱动）跑在现代内核 6.8 上——这活儿他原以为「彻底没指望」。用 Claude Code 一步步改，<strong>约两个晚上</strong>就编译通过、跑起来了。他很诚实：光靠 AI 不行，是「我的内核知识 + Claude 迭代」一起才成的。<em>为我所用：</em>手上有一坨没人敢碰的祖传老代码？别自己硬啃，让 Claude Code 陪你逐段现代化，你只当把关的老师傅。</p>
+      <p class="links"><a href="https://dmitrybrant.com/2025/09/07/using-claude-code-to-modernize-a-25-year-old-kernel-driver" target="_blank" rel="noopener">作者复盘全文</a></p>
+      <p class="meta"><span class="chip">博客</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="sixhobbits gareth dwyer claude code is all you need 博客 hacker news 工作流 终端">
+      <h4>「Claude Code 是我唯一需要的工具」</h4>
+      <p class="desc">开发者 <strong>Gareth Dwyer（网名 sixhobbits）</strong>写的长文，标题就是结论。他试遍 Cursor、Cline 等一圈 AI 编程工具，最后发现 Claude Code 是第一个「完美嵌进我原有终端工作流、不用我迁就它」的。文章发到 Hacker News 后拿到 851 赞、504 评论，是 2025 下半年关于「该用哪个 AI 编程工具」讨论最热的一篇之一。<em>为我所用：</em>还在纠结装哪个 AI 编程工具？先看这篇省下你自己踩坑的时间——他的结论是别追花活，选最贴合你日常习惯的那个。</p>
+      <p class="links"><a href="https://dwyer.co.za/static/claude-code-is-all-you-need.html" target="_blank" rel="noopener">原文</a></p>
+      <p class="meta"><span class="chip">博客·HN</span><span class="chip">部分有码</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="macpilot joonlab mac 触控板 键盘 stream deck 手机 浏览器 遥控 github c# swift">
+      <h4>MacPilot · 把 Mac 变成手机遥控的触控板</h4>
+      <p class="desc">开发者 <strong>joonlab</strong>（GitHub）「端到端全用 Claude Code」做的开源工具：<strong>手机浏览器直接连电脑、不用装任何 App</strong>，就能把 Mac 当无线触控板、键盘和 Stream Deck（可自定义快捷键面板）用——支持滚动、双指缩放、三指滑动、Unicode 输入、宏面板。C#/Swift/JS 混合栈，21★。<em>为我所用：</em>躺沙发上想按一下电脑？这就是「小需求也值得做个工具」的范本；类似「手机当遥控器」的点子都能照这个思路 vibe 出来。</p>
+      <p class="links"><a href="https://github.com/joonlab/MacPilot" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="psh philip wilson python shell login shell unix posix github claude code 自举">
+      <h4>psh · 自己写一个天天当登录 shell 用的命令行</h4>
+      <p class="desc">开发者 <strong>philipwilson</strong>（GitHub）用 Claude Code 写了一个纯 Python 实现的 Unix shell（就是 bash/zsh 那种命令行解释器），POSIX 兼容、bash 风格。最硬的信号是他自己的一句话：<strong>「我把它当登录 shell 在用」</strong>——不是玩具 demo，是每天真在用的主力工具。2★。<em>为我所用：</em>想学「一个复杂系统怎么从零搭」？挑一个你天天用、又懂它该有什么行为的东西（shell、编辑器、播放器），让 Claude 陪你一块一块实现，验收标准就是「我自己敢不敢用它」。</p>
+      <p class="links"><a href="https://github.com/philipwilson/psh" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub·HN</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="warehouse tracker amirreza ghiasvand 仓库 货位 excel python tkinter sqlite exe github vibe coded 生产">
+      <h4>Warehouse Tracker · 给仓库同事做的货位追踪器</h4>
+      <p class="desc">开发者 <strong>AmirrezaGhiasvand</strong>（GitHub，README 直书「Vibe coded with Claude」）做的桌面小程序：每天导入一份 Excel 库存表，它<strong>自动比对、找出哪些货挪了位置</strong>，并给每个商品留一份可搜索的位置变更历史。Python + Tkinter + SQLite，打包成 exe 让不懂技术的仓管直接双击用。3★，但重点是它在真实仓库里跑着。<em>为我所用：</em>身边有人天天跟 Excel 死磕重复对比？把「导入两张表→告诉我差异」这句话喂给 Claude Code，一个下午就能把同事从手动核对里解放出来。</p>
+      <p class="links"><a href="https://github.com/AmirrezaGhiasvand/warehouse-tracker" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="mctc website naemyoaungkhing 缅甸 创意科技学院 fable claude 单文件 html 3d 节点图 上线 联合创始人">
+      <h4>MCTC 官网 · 联合创始人端到端做出的真上线站点</h4>
+      <p class="desc">缅甸创意科技学院（MCTC）的<strong>联合创办人 NaeMyoAungKhing</strong>（GitHub）「端到端全用 Fable（Claude）」做的学院官网，已真实上线 mctc-edu.com。技术上很硬核：<strong>整站塞进一个自包含的 index.html 单文件</strong>、约 1600 行、零外部依赖，首页是一张会动的 3D 节点图讲「培训即就业」的模式。<em>为我所用：</em>想给自己的机构/工作室做个像样的官网，又不想被建站平台绑死？这证明「一个 HTML 文件 = 一个完整官网」完全可行，还便于永久保存和自托管。</p>
+      <p class="links"><a href="https://github.com/NaeMyoAungKhing/mctc-website" target="_blank" rel="noopener">GitHub 仓库</a> · <a href="https://mctc-edu.com" target="_blank" rel="noopener">上线站点</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>工作与办公自动化：把重复劳动交出去</h3>
+  <p>这一组是「让 Claude 替我干那些烦、又不得不干的活」——投简历、盯房源、找工作。都能落地成一套跑着的自动化，而不是一次性脚本。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="ai job agent akbardevop linkedin greenhouse lever ashby jobvite 求职 自动投递 github claude code">
+      <h4>AI Job Agent · 一套把投简历自动化的工具箱</h4>
+      <p class="desc">开发者 <strong>AkbarDevop</strong>（GitHub，README 挂着「Built with Claude Code」徽章）做的求职自动化工具箱：覆盖 LinkedIn 一键投递、Greenhouse、Lever、Jobvite、Ashby 等主流招聘系统，还包办表单自动填写、投递追踪、冷启动私信、面试准备、Outlook 邮件分拣。33★。<em>为我所用：</em>正在海投？把「打开这个岗位→按我的简历填好→记一笔到表格」交给它，你只做「要不要投」这个决定，把一天的机械投递压成一小时。</p>
+      <p class="links"><a href="https://github.com/AkbarDevop/ai-job-agent" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="robert fines retold 求职 自动化 saas medium 博客 claude cowork gmail 间隔重复 一下午">
+      <h4>一下午搭出个求职 SaaS，把找工作压成 1 小时</h4>
+      <p class="desc">作者 <strong>Robert Fines</strong>（Medium）第一人称复盘：他用 Claude + Claude Code <strong>几个小时</strong>搭出一个叫 Retold 的求职 SaaS（帮忙改简历、生成求职信、写跟进邮件），再配 Claude Cowork 定时跑五件事——每天扫招聘板、追踪投递状态、整理 Gmail、用间隔重复练系统设计面试、推送每日技术简报。结果：<strong>原本要耗一整天的找工作，现在一两小时搞定</strong>。<em>为我所用：</em>与其到处找现成的求职工具，不如照他这套「自己搭 + 定时任务」的骨架，做一个完全贴合你目标岗位的私人求职助理。</p>
+      <p class="links"><a href="https://medium.com/@fines.robert/i-automated-my-job-search-with-claude-heres-exactly-how-5d39b67938cf" target="_blank" rel="noopener">作者做法全文</a></p>
+      <p class="meta"><span class="chip">博客</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="property dashboard mountainscalling zillow 房源 crm cloudflare workers d1 看房 优胜美地 github claude code">
+      <h4>Property Dashboard · 自动盯房源的看房看板</h4>
+      <p class="desc">开发者 <strong>MountainsCalling-me</strong>（GitHub）为在优胜美地国家公园附近买房做的自动化看板：定时从 Zillow（美国最大房产网）抓新房源，存进 Cloudflare D1（云端小数据库），做成一个<strong>像分拣邮件一样的看板</strong>——收件箱 / 考虑 / 待看 / 已看 / 排除，还带价格历史和挂牌天数分析。全用 Claude Code 搭，仓库里连 prompt 和规格文档都附上了，34★。<em>为我所用：</em>在找房、找二手车、蹲某类商品降价？把「定时抓某网站→按我的标准归类→变化了提醒我」这条流水线抄过来，不同场景换个数据源就行。</p>
+      <p class="links"><a href="https://github.com/MountainsCalling-me/property-dashboard" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <h3>学习与知识管理：把脑子外挂出来</h3>
+  <p>这一组是「用 AI 帮我学得更透、记得更牢」：把大牛的一条推文提炼成方法论、让多智能体替你做深度研究、把散落的洞见连成网、把一门大学公开课的每页幻灯片对到讲课的那一秒。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="karpathy claude.md forrest chang 方法论 提炼 推文 github 191k star 编程原则 x 二创">
+      <h4>把 Karpathy 的一条推文，提炼成 19 万星的 CLAUDE.md</h4>
+      <p class="desc">AI 大牛 Andrej Karpathy 在 X 上分享了自己数周高强度用 Claude 编程后的心得（模型会替你瞎做假设还闷头往下跑）。开发者 <strong>Forrest Chang</strong>（GitHub）把它<strong>蒸馏成一份精炼的 CLAUDE.md</strong>——四条原则：想清楚再写、简单优先、只做手术刀式改动、目标驱动执行（CLAUDE.md 就是放在项目里、让 Claude Code 每次都遵守的规矩文件）。这份仓库火到<strong>19.1 万★、1.96 万 fork</strong>，是全网被抄用最多的编程守则之一。<em>为我所用：</em>直接把这份 CLAUDE.md 拷进你自己的项目，Claude Code 立刻少犯一半「自作主张」的错——这是本章性价比最高的一次抄作业。</p>
+      <p class="links"><a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub·X</span><span class="chip">有码</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="research shelf jasonbhorne 深度研究 多智能体 报告 skill github 教育 pipeline 复盘">
+      <h4>Research Shelf · 让多智能体替你写 27 篇深度研究</h4>
+      <p class="desc">开发者 <strong>jasonbhorne</strong>（GitHub）公开的研究报告库：用 Claude Code 的<strong>多智能体研究流水线</strong>（多个 AI 分头查、汇总、交叉核对）产出了 <strong>27 篇深度报告</strong>，涵盖教育政策、AI 教育、地区运营、历史等。最实用的是他把整套方法也开源了——两个可复用的技能包（`/deep-research` 派 4 个智能体、`/research-report` 派 3–5 个）、加生成脚本全公开。<em>为我所用：</em>要给某个陌生领域快速摸底？装上他这套研究 skill，一句话就能让一队 AI 帮你出一份带引用的调研报告，抵得上自己啃两天资料。</p>
+      <p class="links"><a href="https://github.com/jasonbhorne/research-shelf" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="knowledge graph ayushjj 知识图谱 wikilink 洞见 笔记 github claude code 思维模型 251">
+      <h4>Knowledge Graph · 把 251 条洞见连成一张网</h4>
+      <p class="desc">开发者 <strong>ayushjj</strong>（GitHub）用 Claude Code 搭的个人 AI 知识图谱：<strong>251+ 条精炼洞见</strong>，围绕「做 AI 产品」和「思维模型」两大主题，用 wikilink（双向链接，像维基百科里词条互相跳转那样）串成一张网，每周更新。开篇引芒格那句「孤立的事实没用，得挂在一张理论的格栅上」点题。14★。<em>为我所用：</em>读了一堆东西却记不住？照他这套做——每读到一个洞见就让 Claude 帮你写成一张卡、并连到已有的卡上，慢慢攒出一张属于你自己的、能互相印证的知识网。</p>
+      <p class="links"><a href="https://github.com/ayushjj/knowledge-graph" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="cme296 slide transcript sync az9713 斯坦福 扩散模型 公开课 幻灯片 字幕 时间戳 fable 5 github 学习">
+      <h4>把斯坦福公开课的每页 PPT，对到讲课那一秒</h4>
+      <p class="desc">开发者 <strong>az9713</strong>（GitHub）用 Fable 5 做的静态网站，把斯坦福 CME296《扩散模型与大视觉模型》公开课的<strong>全部 1041 页幻灯片</strong>，逐一对齐到「课上讲这页的那段字幕」，并附<strong>可点的时间戳直接跳到讲课视频的那一刻</strong>。整套对齐流水线加页面都是 Fable 5 生成的。1★。<em>为我所用：</em>在啃某门带 PPT 和录像的网课？照这个做法让 AI 帮你把「讲义某页」和「视频某分钟」对上，复习时想看哪页就一键跳到讲解，比来回拖进度条高效太多。</p>
+      <p class="links"><a href="https://github.com/az9713/cme296-slide-transcript-sync" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>生活与家庭：给自己做个顺手的小东西</h3>
+  <p>这一组最接地气，也最适合当你的第一个项目——习惯打卡、隐私电台、手表浏览器、家乡地图。有人甚至坦白「我完全不懂这些代码」，但东西照样能用。门槛低到不像话。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="habit tracker ishaan srivastava 习惯 打卡 连续 streak fable 5 第一个 app github 新手">
+      <h4>Habit Tracker · 「我的第一个手机 App」</h4>
+      <p class="desc">开发者 <strong>IshaanSrivastava1</strong>（GitHub）用 Fable 5 做的习惯追踪器，带连续打卡（streak）——README 上就一句朴实的自述：<strong>「我的第一个手机 App」</strong>。0★，但意义正在这里：一个新手的第一个作品就是一个能用的移动应用。<em>为我所用：</em>如果你还没做过任何东西，这就是你的起跑线证明。别挑马里奥银河那种大项目，从「一个我想坚持的小习惯」开始，做出来能自己每天点一下，就赢了。</p>
+      <p class="links"><a href="https://github.com/IshaanSrivastava1/habit-tracker" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="deutsia radio 隐私 电台 android i2p tor 匿名 抗审查 material you github claude code 68">
+      <h4>Deutsia Radio · 一款重隐私的匿名电台播放器</h4>
+      <p class="desc">开发者 <strong>deutsia</strong>（GitHub）用 Claude Code 做的安卓电台播放器，主打隐私与抗审查：能通过 <strong>I2P、Tor 和明网</strong>三种网络听台（I2P/Tor 是匿名网络，能隐藏你在听什么），配 Material You 现代界面。68★，是本章生活类里最受欢迎的开源作品之一。<em>为我所用：</em>想要某个 App 的「隐私增强版」而市面上没有？这说明「给现有品类加一层匿名/本地化」是个人开发者很值得做的方向，Claude Code 能帮你把网络层这种硬骨头啃下来。</p>
+      <p class="links"><a href="https://github.com/deutsia/deutsia-radio" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="tahoe map aigenx 太浩湖 手绘 互动地图 公益 保护 fable 5 opus 事实核查 github natural earth">
+      <h4>Tahoe Map · 手绘互动地图，配上守护它的公益组织</h4>
+      <p class="desc">团队 <strong>AIGenX-Podcast</strong>（GitHub）用 <strong>Fable 5 agent + Claude Opus 做事实核查</strong>做的太浩湖手绘互动地图：精选 11 处湖畔胜地，<strong>每一处都配上正在保护它的公益组织</strong>。细节讲究——湖岸线是照 Natural Earth 的真实地理数据画的，风格化但地理准确。0★。<em>为我所用：</em>想给家乡、母校、常去的公园做一张「有温度的互动地图」？这套「真实地理数据 + 手绘风 + 每个点挂一段故事/组织」的配方直接能抄，礼物级、传播级都合适。</p>
+      <p class="links"><a href="https://github.com/AIGenX-Podcast/tahoe-map" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="pixel watch browser leostar505 智能手表 浏览器 vibe coded 不懂代码 坦诚 github 非程序员">
+      <h4>给 Pixel 手表做个浏览器（作者：我一行都看不懂）</h4>
+      <p class="desc">开发者 <strong>leostar505-ship-it</strong>（GitHub）给 Pixel Watch 3 智能手表做的浏览器。全章最坦诚的一张卡，README 原话（全大写）：<strong>「这个 App 完全是用 Claude 聊天 vibe coded 出来的，我完全不懂这些代码」</strong>，他说只是怕别人也遇到同样的问题才传上来，附个人邮箱帮人配置。0★。<em>为我所用：</em>这就是给「我不是程序员、能行吗」最直接的回答——不懂代码也能做出能装能用的东西，还能开源帮到别人。你缺的不是技术，是「先做出来再说」的那一下。</p>
+      <p class="links"><a href="https://github.com/leostar505-ship-it/Watch-browser" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>内容创作：给创作者省下的那些工序</h3>
+  <p>这一组服务「做内容的人」——直播、写作、经营社交账号。把那些「差一步就顾不过来」的琐碎工序，交给一个自建的小工具。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="fabledeck nufuse youtube 直播 windows 提问策展 死因计数器 fable 5 github 日语 主播">
+      <h4>FableDeck · 给 YouTube 主播的直播助手</h4>
+      <p class="desc">日本开发者 <strong>nufuse</strong>（GitHub）用 Fable 5 做的 Windows 直播助手，专治直播时「差一步顾不过来」：<strong>提问策展器</strong>（自动从弹幕里抓出观众问题并归类）、<strong>听众留言本</strong>（记住常来观众的信息）、<strong>死因计数器</strong>（打游戏时按快捷键记录翻车次数）。从闲聊、问答到游戏实况都能搭把手。0★。<em>为我所用：</em>你也在做直播/播客？把你直播时「总来不及做」的那一两件事列出来，让 Claude 各做一个小面板拼成你的专属控制台，比找通用软件更贴手。</p>
+      <p class="links"><a href="https://github.com/nufuse/FableDeck" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="ai content coach dashboard tenfoldmarc instagram whisper 竞品 自托管 内容策略 github claude 10分钟">
+      <h4>内容情报台 · 扒竞品 + 转录 + 跟 Claude 聊策略</h4>
+      <p class="desc">开发者 <strong>tenfoldmarc</strong>（GitHub）做的自托管内容情报仪表盘：<strong>自动抓你最近 25 条 Instagram 帖子、外加最多 5 个竞品账号</strong>，把每条 reel 下载下来用 Whisper（开源语音转文字）转成文字，再喂给一个「读过这一切」的 Claude 让你直接聊——要表现分析、竞品情报、还是内容策略建议都行。号称 10 分钟就能自托管起来，13★。<em>为我所用：</em>在运营社交账号？与其凭感觉发，不如照这套把「我和对手都发了什么、什么爆了」喂给 Claude，让它给你出下一步选题——把「玄学涨粉」变成有数据支撑的决策。</p>
+      <p class="links"><a href="https://github.com/tenfoldmarc/ai-content-coach-dashboard" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="fabulous writing saigyo 写作 助手 校对 语法 风格 fable 5 superpowers codemirror github 多语言">
+      <h4>Fabulous Writing · 一个全 vibe coded 的写作校对助手</h4>
+      <p class="desc">开发者 <strong>saigyo</strong>（GitHub）「完全用 Claude Code + Fable 5 + Superpowers 插件 vibe-coded」出来的写作质量助手：给文章、文档、营销文案查拼写、语法、风格、清晰度——<strong>既用大模型判断、也用本地确定性规则</strong>兜底。带 CodeMirror 编辑器、侧栏分类列出问题、支持 7 种语言，还能自选接 Ollama、Claude、OpenAI 等多家模型。0★。<em>为我所用：</em>想要一个懂你品牌语气、又不把稿子偷偷发去云端的私人校对工具？这套「LLM + 本地规则双保险」的写作助手骨架可以直接拿来改成你自己的。</p>
+      <p class="links"><a href="https://github.com/saigyo/fabulous-writing" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>商业与变现：赚到的、省下的、顶掉的</h3>
+  <p>这一组算的是经济账——有人真收到了钱（哪怕只有几十美元），有人一个人顶了一支团队，有人只花 22 美元做出别人卖钱的系统。它们诚实地告诉你：机会真实，但「卖出去、伺候好」比「做出来」难得多。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="indie hackers 57 美元 cheat codes 提示词 小抄 变现 reddit seo 复盘 无码 阶梯定价">
+      <h4>48 小时卖「Claude 小抄」赚 57 美元的诚实复盘</h4>
+      <p class="desc">一位独立开发者在 <strong>Indie Hackers</strong>（独立开发者社区）复盘：卖一份 5 美元的「Claude 提示词小抄」，<strong>48 小时进账 57 美元、7 个付费客户</strong>（外加 33 个订阅、Reddit 上 1.6 万+ 浏览）。干货全在打法：一篇发在 r/PromptEngineering 的帖子拿了 1.3 万浏览；用程序化 SEO 批量生成 120 个提示词页 + 50 个「Claude for XX」页；做免费小工具当引流漏斗。最扎心的结论：<strong>5 美元的小抄比 19 美元的完整教程更好卖——「5 美元是冲动消费，人们要的是捷径不是教育」</strong>。<em>为我所用：</em>想靠 AI 变现又不知从哪起？先做一个 5 美元的「解决一个具体小痛点」的东西试水，重点练的是「怎么被人看到」，不是产品有多全。</p>
+      <p class="links"><a href="https://www.indiehackers.com/post/i-made-57-in-48-hours-selling-claude-cheat-codes-here-s-what-worked-and-what-didn-t-01d7f1f61c" target="_blank" rel="noopener">Indie Hackers 复盘全文</a></p>
+      <p class="meta"><span class="chip">博客</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="cuneiform chat bikash das indie hackers 企业 客服 chatbot 微服务 solo 一个人 团队 leverage 无码">
+      <h4>一个人 + Claude，顶一支 5–8 人的团队</h4>
+      <p class="desc">开发者 <strong>Bikash das</strong> 在 Indie Hackers 复盘：他一个人、以 Claude Code 当「联合开发者」，<strong>4 个月做出并维护一个企业级 AI 客服平台 Cuneiform Chat</strong>——6 个微服务、7 个渠道（Telegram、WhatsApp、Discord、Slack、网页挂件等）。他的核心论断一句话点透这波浪潮：<strong>「一个开发者 + AI 编程搭档，能撑起原本需要 5–8 人团队的 6 微服务架构。」</strong><em>为我所用：</em>这是「个人杠杆被放大」的最好注脚——你要做的不再是「招人还是外包」，而是学会怎么把一个复杂系统拆给 Claude 分头建，你当那个架构师和总集成。</p>
+      <p class="links"><a href="https://www.indiehackers.com/post/i-built-an-enterprise-ai-chatbot-platform-solo-6-microservices-7-channels-and-claude-code-as-my-co-developer-5bafd24c20" target="_blank" rel="noopener">Indie Hackers 复盘全文</a></p>
+      <p class="meta"><span class="chip">博客</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="opencti mcp server coopercybercoffee 22 美元 威胁情报 自然语言 mcp github 成本 安全">
+      <h4>只花 22 美元，做出一个威胁情报自然语言接口</h4>
+      <p class="desc">开发者 <strong>CooperCyberCoffee</strong>（GitHub）做的 OpenCTI MCP 服务器，让你能<strong>用大白话向 OpenCTI（开源威胁情报平台）问问题</strong>，而不用点那些复杂仪表盘（MCP 是让 AI 连接外部系统的标准协议）。最亮的结果信号明明白白写在 README 副标题里：<strong>「Built with Claude Code for $22」——整套系统的开发成本只有 22 美元</strong>。29★。<em>为我所用：</em>别再高估「做一个专业系统」的成本。把「我想用大白话查我们内部的某某系统」这句话交给 Claude Code，几十块钱的 API 费就可能换来一个原本要外包几万块的接口。</p>
+      <p class="links"><a href="https://github.com/CooperCyberCoffee/opencti_mcp_server" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>整活与艺术：不为有用，只为「原来还能这样」</h3>
+  <p>最后这组不追求实用——一个亲手写的复古 FPS、一个能识别头顶无人机的徽章、一个眼看着 AI 把自己的钱赌光的实验。留着它们，是提醒你 vibe coding 也可以纯粹为了好玩，而好玩往往是最好的练手。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="letaigamble degenai mackbrowne 赌博 agent 破产 实验 hacker news 整活 自主决策">
+      <h4>DegenAI · 看一个 AI 把自己的钱赌到破产</h4>
+      <p class="desc">开发者 <strong>mackbrowne</strong>（Show HN）做的整活实验：给一个 AI 智能体一笔赌资，让它<strong>自己决策一直赌到输光</strong>，全程公开围观（现名 DegenAI，「Watch an AI Gamble Its Own Brain Away」）。Hacker News 上 40 赞、10 评论。它的价值在于——用最直白刺激的方式，观察「放手让 AI 自主做决定」会走向什么结局。<em>为我所用：</em>想直观理解「AI 智能体自主性」到底意味着什么？这类「给它一个目标和资源、然后完全放手看它怎么办」的沙盒实验，是最生动的一堂课，也很适合做成会传播的作品。</p>
+      <p class="links"><a href="https://letaigamble.com/" target="_blank" rel="noopener">实验现场</a></p>
+      <p class="meta"><span class="chip">HN</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="friend or foe lnxgod gamechangersai 无人机 飞机 识别 esp32 ads-b remote id wifi 硬件 vibe coded github 10">
+      <h4>Friend or Foe · 识别头顶飞机与无人机的徽章</h4>
+      <p class="desc">开发者 <strong>GAMECHANGERSai（lnxgod）</strong>（GitHub，README 标「Vibe coded with Claude」）做的实时飞行器识别系统：一枚 <strong>ESP32-S3 手持徽章被动监听周围的射频信号</strong>（蓝牙、Wi-Fi、无人机 Remote ID），识别附近的无人机、智能眼镜、追踪器等设备，配 AR 界面加 ADS-B 飞机数据，<strong>不用云账号、不用付费 API</strong>。10★。<em>为我所用：</em>这是「vibe coding 也能碰硬件」的硬核证明——如果你玩单片机/传感器，Claude 完全能帮你把射频解析、协议识别这些劝退的部分写出来，让个人也能做出有点酷的物联网玩意。</p>
+      <p class="links"><a href="https://github.com/lnxgod/friendorfoe" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="nebula strike mikeveerman r-type 弹幕 射击 shmup 零依赖 web audio api 多智能体 sonnet fable github 能力测试">
+      <h4>Nebula Strike · 全程序生成、零依赖的弹幕射击</h4>
+      <p class="desc">开发者 <strong>MikeVeerman</strong>（GitHub）为测试 Fable/Claude 的能力做的 R-Type 风格横版弹幕射击游戏，全由 AI 智能体搭出来：<strong>编排多个 Claude Sonnet 智能体</strong>分别负责引擎、程序化美术、合成音效、玩家机制、敌人系统五个子系统。最硬核的是<strong>零依赖——所有画面开机时程序化画到画布上，所有音乐音效用 Web Audio API 实时合成</strong>，不用任何外部素材或联网。0★。<em>为我所用：</em>想做游戏又怕要一堆素材版权？这证明「美术和音效都能让 AI 用代码现场生成」，一个浏览器标签页就能装下一整个游戏，练手门槛比你想的低。</p>
+      <p class="links"><a href="https://github.com/MikeVeerman/nebula-strike" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="duke redux hgardneriv duke nukem fps 光线投射 raycaster vanilla javascript 复古 fable 5 github 90年代">
+      <h4>Duke Redux · 从零手写的 90 年代风 FPS</h4>
+      <p class="desc">开发者 <strong>hgardneriv</strong>（GitHub）用 Fable 5 做的复古第一人称射击游戏，向《毁灭公爵》致敬：<strong>一个从零手写的光线投射（raycaster）引擎</strong>，纯 vanilla JavaScript（占 97.4%）、零依赖、素材全程序化生成——就是 90 年代 Build 引擎那种伪 3D 味道。0★。<em>为我所用：</em>光线投射曾是 90 年代游戏程序员的看家绝活，现在你不懂这套数学也能让 Claude 帮你实现。想复刻一款你童年爱玩的老游戏？这就是可行性证明，也是理解「老游戏引擎怎么工作」的活教材。</p>
+      <p class="links"><a href="https://github.com/hgardneriv/duke-redux" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">有码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <figure class="quote"><blockquote>这个 App 完全是用 Claude 聊天 vibe coded 出来的——我完全不懂这些代码。我只是怕别人也遇到同样的问题，才把它传上来。</blockquote>
+    <figcaption>— leostar505，<a href="https://github.com/leostar505-ship-it/Watch-browser" target="_blank" rel="noopener">Pixel Watch Browser 仓库 README</a>（中文转述）</figcaption></figure>
+
+  <div class="callout"><strong>抄作业的三条心得：</strong>一、别挑最酷的挑最痒的——本章里最值得抄的往往是 Warehouse Tracker、Habit Tracker 这种「解决自己一个具体麻烦」的小东西，不是那些炫技的。二、有码就 clone 下来让 Claude 给你逐段讲解再改，无码就把作者的做法复述给 Claude 让它照着搭。三、做出来只是起点——本章「商业」小节反复在说同一件事：赚到钱的人赢在「怎么被看到」，不是「做得多全」。先做出一个能自己用的，再想别的。</div>
+</section>
+<section id="cases-cn" class="chapter">
+  <header class="ch-head"><span class="ch-num">28</span>
+    <div>
+      <h2>实战报告 · 中文圈</h2>
+      <p class="lede">上一章看的是英文圈，这一章全是中文社区里"有人真干成了"的实战报告。为什么单开一章？因为中文创作者的点子，常常离你的生活更近——不是"给美国跑步机接谷歌地图"，而是"把飞书建文档的五步压成一键""让 Claude 读对标公众号自动写稿存草稿箱""四天上架一个记订阅到期的 App"。同样的工具，中国人先想到的是自己每天要重复的那点麻烦。这一章按用途分了七组，办公与文书这一组做得最厚（因为你就是文书重度用户）。每张卡都齐了六件事：谁、干成了什么、怎么干的、有什么结果信号、原帖在哪、有没有公开代码，另外加了复刻难度星和一句"为我所用"——告诉你这作业该怎么抄。</p>
+    </div>
+  </header>
+
+  <div class="callout"><strong>怎么读这一章：</strong>chip 标的是原帖平台（知乎 / 即刻 / B站 / V2EX / linux.do / 公众号 / 小红书）；「开源」= 代码公开在 GitHub、你能照抄，「无码·可复刻」= 只讲了方法没给完整代码，但思路能抄。星级是<strong>你想复刻它的上手难度</strong>：★=有手就行，★★★★★=得折腾半天。所有链接都逐条核验过真实存在；<strong>大陆网络提醒</strong>——知乎 / B站 / 即刻 / V2EX / 公众号国内直连可开，GitHub 时通时不通（建议配加速或镜像），Claude Code 本体在国内要么走代理、要么用腾讯 CodeBuddy 等同源国产工具（多张卡里的作者就是这么干的）。</div>
+
+  <h3>编程与产品：给自己造个趁手的小东西</h3>
+  <p>这一组是"我用 Claude 做了个工具/产品"。中文开发者最爱做的，恰恰是围绕 Claude Code 自己的顺手小配件——省 token、看状态、传对话，全是自己天天挠头的痒处。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="cc-monitor token 监控 sift2009 v2ex 省钱 终端 开源 python 编程">
+      <h4>cc-monitor · 实时盯住 Claude Code 烧了多少钱</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户 SIFT2009。<strong>干成了什么：</strong>写了个终端小工具，按项目实时统计 Claude Code 的 token 消耗和花费，2 秒刷新一次，还能自动识别上下文压缩、费用突增就告警。<strong>怎么干的：</strong>Python 3.10+，只依赖一个 rich 库，MIT 开源。<strong>结果信号：</strong>治好了"开一堆会话、月底看账单才发现烧了多少"的痛，社区里作为实用小工具被收藏转发。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1206874" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://github.com/SagesAi/claude-cost-monitor" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你要是用 Max/API 又心疼额度，装上它就能看清钱花在哪个项目——不用自己动手，git clone 直接跑。</p>
+    </article>
+
+    <article class="card" data-tags="cc-lights 红绿灯 andyiac v2ex macos 菜单栏 状态 多会话 开源 编程">
+      <h4>CC Lights · 菜单栏上的红绿灯，一眼看清 AI 在忙啥</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户 andyiac。<strong>干成了什么：</strong>一个 macOS 菜单栏小应用，把每个 Claude Code 会话的状态显示成红绿灯——绿=在干活，黄=等你操作，红=报错了，点一下直接跳到那个终端。<strong>怎么干的：</strong>开源发布在 GitHub。<strong>结果信号：</strong>解决"同时开好几个 CC、不知道哪个卡住等我"的问题，在 V2EX 创造分享区发布。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1226660" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://github.com/andyiac/cc-lights" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>多开并行是 Claude Code 高手的标配，这个红绿灯是并行党的刚需配件；Mac 用户直接下现成的，Windows 用户可以把"状态可视化"这个思路让 CC 帮你复刻一版。</p>
+    </article>
+
+    <article class="card" data-tags="agent-capsule 分享 会话 对话 codex claude code z2z23n0 v2ex 加密 协作 开源">
+      <h4>Agent Capsule · 把整段 AI 对话打包成一个链接传给别人</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户（GitHub 作者 z2z23n0）。<strong>干成了什么：</strong>一键把整段 Codex / Claude Code 的原生会话导出成一个链接，对方点开就能<strong>还原到自己的客户端继续对话</strong>，不用装插件。<strong>怎么干的：</strong>端到端加密，只有拿到链接的人能看，开源。<strong>结果信号：</strong>补上了"AI 结对开发怎么交接上下文"这个空档，适合排查问题、接力开发。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1220760" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://github.com/z2z23n0/agent-capsule" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你想跟朋友/同事一起调一个 bug，又不想截一堆图，把会话打包发过去就行——协作类需求的漂亮解法。</p>
+    </article>
+
+    <article class="card" data-tags="fable5 ui 设计稿 还原 前端 蓝湖 v2ex 95% 复刻 截图 编程 产品">
+      <h4>Fable 5 把设计稿还原成前端页面，准确率约 95%</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户（发帖实测）。<strong>干成了什么：</strong>拿安卓 UI 设计稿让 Claude Fable 5 还原成前端代码，实测<strong>约 95% 的还原度</strong>，明显甩开此前 GPT-5.5、Opus 4.8 的 70~80%。<strong>怎么干的：</strong>用蓝湖（类似 Figma 的国产设计协作平台）的 Chrome 插件把设计规格喂给模型。<strong>结果信号：</strong>评论区一位 x20 订阅用户吐槽单次还原就烧掉一周额度的 21%——强，但费 token。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1224576" target="_blank" rel="noopener">V2EX 原帖</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你有设计稿要变成能跑的页面，这是当前最省事的路子——先用蓝湖导出规格，再让 Fable 5 还原，但要盯着额度别一次跑太多。</p>
+    </article>
+
+    <article class="card" data-tags="微信小程序 学术调研 问卷 云数据库 claude code 1小时 知乎 全程记录 编程 无代码">
+      <h4>1.5 小时搓出一个能用的学术调研微信小程序</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者（《全程记录》系列）。<strong>干成了什么：</strong>从零到可用，<strong>约 1.5 小时</strong>做出一个学术调研问卷小程序，带注册、参与编号、云数据库。<strong>怎么干的：</strong>Claude Code 配合 AI Agents 全程驱动，含设计到部署。<strong>结果信号：</strong>是能真实收数据的可用系统，不是截图 demo，全流程记录公开可抄。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2014655996312699206" target="_blank" rel="noopener">知乎全程记录</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>做问卷、报名、投票这类"要收集一堆人填的东西"，微信小程序在国内最好用；有云数据库就能存数据，照着这篇一步步做是最快的入门样板。</p>
+    </article>
+
+    <article class="card" data-tags="smart-me 个人助理 sdd 规格驱动 openspec claude.md 贾克斯 博客园 记忆 agent">
+      <h4>smart-me · 给自己养一个比你更懂你的 AI 助理</h4>
+      <p class="desc"><strong>谁：</strong>博客园作者贾克斯。<strong>干成了什么：</strong>用 Claude Code 搭了个私人 AI 助理，把个人背景、对话历史、投资笔记、工作日志都索引进去，让 AI 长期记住你、越用越懂你。<strong>怎么干的：</strong>核心是"规格驱动开发（SDD）"思路——改造 OpenSpec 工作流，加一份 CLAUDE.md 常驻记忆，再配视觉、搜索、GitHub、文档等 MCP 与技能。<strong>结果信号：</strong>把"AI 老忘事"这个通病用工程手段治住了，是持续迭代的私人项目。</p>
+      <p class="links"><a href="https://www.cnblogs.com/zh94/p/19530724" target="_blank" rel="noopener">博客园全文</a></p>
+      <p class="meta"><span class="chip">公众号/博客</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你想要个"记得住你所有事"的私人助手，关键不是模型多强，而是把自己的资料整理成它能读的档案——这篇给了一套可照搬的组织方法。</p>
+    </article>
+
+    <article class="card" data-tags="vibemeter hirra v2ex 额度 session 统计 热力图 本地优先 claude code codex cursor 省钱 编程 工具">
+      <h4>Vibemeter · 本地看清 CC/Codex 的额度与今日战况</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户 hirra。<strong>干成了什么：</strong>做了个额度与会话统计工具 Vibemeter，一眼看 Claude Code / Codex 的额度进度、今天的 session、项目分布和活动热力图，还能统计 Codex token 与 Claude 花费。<strong>怎么干的：</strong>macOS 浮窗（展开看详情、折叠看进度条），带声音通知；主打"<strong>本地优先</strong>"——不用账号、不上传数据、不调外部 API，只读本机已有的 Claude/Codex/Cursor 日志。<strong>结果信号：</strong>官网一条命令装，隐私零外传，是多开党的顺手仪表盘。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1215117" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://vibemeter.siney.top" target="_blank" rel="noopener">官网 vibemeter.siney.top</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>和本节的 cc-monitor 是同类刚需，这个偏"本地优先、一次看齐三家工具"；心疼额度又不想数据外传的，装它看清每天到底烧在哪个项目。</p>
+    </article>
+
+    <article class="card" data-tags="session 压缩 截图 base64 膨胀 50mb 2mb linux.do 开源 省token 编程 工具 codex">
+      <h4>一条命令，把 50MB 的会话压回 2MB</h4>
+      <p class="desc"><strong>谁：</strong>linux.do 佬友（"开源自荐"帖）。<strong>干成了什么：</strong>发现 Claude Code / Codex <strong>每轮请求都在重发你贴过的截图</strong>——base64 图片留在会话里越滚越大，写了个工具一条命令把 50MB 的 session 压回 2MB。<strong>怎么干的：</strong>清掉历史里重复发送的截图，且<strong>删掉的图还能随时找回</strong>，开源自荐。<strong>结果信号：</strong>直接省下每轮重复上传的 token 和等待时间，发在 linux.do 开发调优区。</p>
+      <p class="links"><a href="https://linux.do/t/topic/2541664" target="_blank" rel="noopener">linux.do 原帖</a></p>
+      <p class="meta"><span class="chip">linux.do</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>贴过图的长会话如果越来越慢、越来越贵，多半就是这个坑；跑一次压缩就能省下一大笔重复 token——是"省钱"里最立竿见影的一招。</p>
+    </article>
+  </div>
+
+  <h3>办公与文书自动化：把每天重复的活交出去</h3>
+  <p>这是全章最厚的一组，因为它离你最近。共同点是：都不是"做个产品",而是"把我办公室里那点重复劳动自动化"——建文档、写纪要、排版发文、做简历、跑数据分析。抄这一组，回报最快。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="飞书 文档 一键 自动化 脚本 创哥 b站 188万 效率 办公 无代码">
+      <h4>飞书建文档要五步？一句话让它变一键</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主"创哥的AI实验室"。<strong>干成了什么：</strong>飞书里创建一个文档要整整五步，他嫌烦，用 Claude Code 写了个自动化脚本，<strong>一键搞定</strong>。<strong>怎么干的：</strong>让 CC 写脚本对接飞书。<strong>结果信号：</strong>视频<strong>播放量 188.8 万</strong>，核心观点很实在——一堆这样的小自动化攒起来，效率提升很可观。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV1sBaFzuESg/" target="_blank" rel="noopener">B站视频</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>凡是你在飞书/钉钉/企微里每天重复点的那几步，都能让 Claude Code 写个脚本按一下就完成——先挑最烦的那个下手。</p>
+    </article>
+
+    <article class="card" data-tags="会议纪要 prompt 提示词 claude 3.5 sonnet deepseek 喝鹅何说说 即刻 35000赞 办公 录音转文字">
+      <h4>一套提示词，把会议录音变成清爽纪要</h4>
+      <p class="desc"><strong>谁：</strong>即刻用户"喝鹅何说说"。<strong>干成了什么：</strong>分享了一套整理会议纪要的完整提示词流程：录音先转文字，套进模板，填上参会人和背景，让 AI 按议题归类、标出谁说的、去掉废话、保留原话不乱总结。<strong>怎么干的：</strong>有梯子用 Claude 3.5 Sonnet，国内用 DeepSeek，纯提示词、零代码。<strong>结果信号：</strong>这条帖<strong>35,122 赞、187 转发</strong>，是即刻上的经典办公方法帖。</p>
+      <p class="links"><a href="https://m.okjike.com/originalPosts/66bda3716ba9e0622f4e2ea3" target="_blank" rel="noopener">即刻原帖（经搜索确认）</a></p>
+      <p class="meta"><span class="chip">即刻</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>开会多的人抄这个回报最高——录音转文字用飞书妙记或通义听悟，提示词直接套，一份两小时的会十分钟出纪要。是全章最容易上手的一张。</p>
+    </article>
+
+    <article class="card" data-tags="公众号 运营后台 rss 选题 自动发文 hello工控 腾讯云 claude code 免费额度 办公 自媒体">
+      <h4>Claude Code 帮我搭了个公众号运营后台</h4>
+      <p class="desc"><strong>谁：</strong>作者"Hello工控"（发在腾讯云开发者社区，2026-04）。<strong>干成了什么：</strong>给自己的工控类公众号搭了套自动化运营后台：仪表盘看定时发布倒计时、文章管理带评分、<strong>RSS 监控 1000+ 篇文章供 AI 选题</strong>、每天自动生成约 9 篇草稿供人工挑。<strong>怎么干的：</strong>用 Claude Code 免费额度写出来的。<strong>结果信号：</strong>作者称推荐量和阅读量都有明显改善。</p>
+      <p class="links"><a href="https://cloud.tencent.com/developer/article/2654993" target="_blank" rel="noopener">腾讯云原文</a></p>
+      <p class="meta"><span class="chip">公众号</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你要长期运营一个号，最累的是"每天找选题"，用 RSS 把对标源喂给 AI 帮你筛，是把内容生产从"想破头"变成"挑一挑"的关键一招。</p>
+    </article>
+
+    <article class="card" data-tags="公众号 躺更 openclaw claude skill 自动写文 配图 草稿箱 对标 知乎 自媒体 办公">
+      <h4>公众号"躺更"：一句话，AI 读对标、写文、配图、进草稿箱</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者。<strong>干成了什么：</strong>用 OpenClaw（AI 编排工具）+ 一个自制的公众号 Claude Skill，实现<strong>一句话指令</strong>就自动学习对标账号风格、生成约 1500 字文章、配好合规插图、排好版、投进公众号草稿箱。<strong>怎么干的：</strong>OpenClaw 当调度，Claude Skill 当执行，全流程串成流水线。<strong>结果信号：</strong>作者称真正做到"躺更"，教程被多平台转载。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2012186047975532095" target="_blank" rel="noopener">知乎教程</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>比上一张更进一步——不只选题，连初稿都自动出。适合已经有稳定选题方向、想把"写"这一步也压缩的人；但成稿一定要自己把关，AI 稿直发是大忌。</p>
+    </article>
+
+    <article class="card" data-tags="claude风 简历 frontend-design 网页简历 求职 金三银四 知乎 办公 求职 tailwind">
+      <h4>金三银四，用 Claude 做一份"Claude 风"网页简历</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者。<strong>干成了什么：</strong>用 Claude Code + 官方 frontend-design 插件，生成一份设计感很强的"Claude 风"网页简历用于求职。<strong>怎么干的：</strong>不是套模板，而是让 AI 帮你搭一整套设计系统——字体搭配、主题色变量、排版节奏、卡片层级、微交互，React + Tailwind 出稿。<strong>结果信号：</strong>专为春招求职季（金三银四）做，帮不懂设计的人也能出专业效果。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2010804851232249012" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>要投简历、要做个人主页、要给作品集配个门面，frontend-design 插件是让 AI 页面摆脱"塑料感"的关键——这张卡告诉你怎么开口让它做得好看。</p>
+    </article>
+
+    <article class="card" data-tags="数据分析 claude code plan模式 memory askuserquestion skills 门店 知乎 办公 excel">
+      <h4>用 Claude Code 做数据分析的 7 个避坑技巧</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者。<strong>干成了什么：</strong>总结了拿 Claude Code 做数据分析（比如门店经营分析）少走弯路的 7 个实战技巧。<strong>怎么干的：</strong>核心几招——先用 Plan 模式让它把"看哪些维度、数据从哪来、给谁看"问清楚再动手；用 AskUserQuestion 主动澄清需求；用 Memory 记住你的处理流程（清洗→验证→分析→可视化）；装对 Skills 解决 80% 的活。<strong>结果信号：</strong>作者称照做省下大量人力成本。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2000197696183623704" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你有一堆 Excel/CSV 要出分析和图表，别急着让 AI 直接跑——先用 Plan 模式聊清楚要什么，这一步能省掉后面一半的返工。是"人人能用"的办公硬技能。</p>
+    </article>
+
+    <article class="card" data-tags="小红书 封面图 skill 高铁 15分钟 codebuddy 腾讯 claude code 开源 自媒体 freestylefly">
+      <h4>高铁上 15 分钟，做了个小红书封面图 Skill</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者（同稿被腾讯新闻转载）。<strong>干成了什么：</strong>在高铁上花<strong>15 分钟</strong>，基于腾讯版 Claude Code（CodeBuddy）做出一个自动生成小红书封面图的 Skill 并开源——说一句"生成小红书封面图，主题为 XX"就出图。<strong>怎么干的：</strong>用 Skills 机制封装成可复用技能，代码公开在 GitHub。<strong>结果信号：</strong>全网多平台转载。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2001798086482216714" target="_blank" rel="noopener">知乎原文</a> · <a href="https://github.com/freestylefly/xiaohongshu-skills" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>做自媒体最耗时的就是配图排版，把它做成 Skill 后一句话出图。国内用不上官方 Claude Code 也别怕——作者用的就是腾讯 CodeBuddy，同一套 Skill 思路照样跑。</p>
+    </article>
+
+    <article class="card" data-tags="公众号 多智能体 写作系统 floodsung agent team 主编 编辑 wenyan mcp arxiv playwright 知乎 开源 办公 自媒体">
+      <h4>公众号 Agent 团队 · 一个主编带一群编辑，8 个号自动运转</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者 floodsung（AI 领域知名博主）。<strong>干成了什么：</strong>开源了一套全自动微信公众号内容生产系统，一个"主编"带一群"编辑"，<strong>同时运营 8 个垂直号</strong>（AI 科技、论文解读、投资洞察、数码、数字游民、合规、军事等）。<strong>怎么干的：</strong>Claude Code 主进程当 Agent Manager（主编）搜热点、定选题、派活，子 Agent 当编辑做研究/撰写/发布；配 wenyan-mcp（公众号排版）、Playwright、arxiv-mcp 等工具，命令行一句 <code>--now</code> 就跑一轮。Python + MIT 开源，GitHub 约 <strong>64★</strong>。<strong>结果信号：</strong>整条"搜索→筛选→撰写→质控→存草稿箱"流水线全自动，代码全公开可照搭。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2002438471080501669" target="_blank" rel="noopener">知乎原文</a> · <a href="https://github.com/floodsung/gongzhonghao_agent_team" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>要长期运营一个甚至一组号，这是"主编-编辑"多智能体架构最完整的中文开源样板——clone 下来把领域、对标源、排版模板换成你自己的，比从零攒提示词省太多。</p>
+    </article>
+
+    <article class="card" data-tags="claude-code-skills-zh laolaoshiren 技能合集 375 skills 飞书 企业微信 钉钉 公众号 财报 文档 readme 开源 办公 资源">
+      <h4>375+ 中文 Skills 合集 · 复制即装的办公技能库</h4>
+      <p class="desc"><strong>谁：</strong>GitHub 作者 laolaoshiren。<strong>干成了什么：</strong>整理了一份面向中文用户的 Claude Code 技能合集，<strong>375+ 精选技能 + 18 个原创可安装技能</strong>，按场景分好类。<strong>怎么干的：</strong>覆盖代码审查、自动写 README/技术文档、API 测试、Git 工作流，也有内容运营（公众号发布、小红书运营、内容生成）、财报分析、市场研究，以及<strong>飞书 / 企业微信 / 钉钉</strong>等办公工具集成；主打"复制即装"。MIT 开源，GitHub 约 <strong>602★</strong>，配可检索官网。<strong>结果信号：</strong>把散落各处的 Skill 收成一个按场景查的库。</p>
+      <p class="links"><a href="https://github.com/laolaoshiren/claude-code-skills-zh" target="_blank" rel="noopener">GitHub 仓库</a> · <a href="https://claude-skills.bt199.com" target="_blank" rel="noopener">官网索引</a></p>
+      <p class="meta"><span class="chip">GitHub</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你是文书重度用户，先翻"文档""办公工具集成""内容运营"这三类，挑一两个每天用得上的装上——不用自己写技能，照单取用是本章最省事的一次抄作业。</p>
+    </article>
+
+    <article class="card" data-tags="文章自动配图 skill 程序员徐公 gdutxiaoxu 知乎 博客园 公众号 配图 html 模板 2分钟 无代码 办公 自媒体">
+      <h4>文章自动配图 Skill · 2 分钟出 4 张公众号配图</h4>
+      <p class="desc"><strong>谁：</strong>知乎 / 博客园作者"程序员徐公"（gdutxiaoxu）。<strong>干成了什么：</strong>做了个 Claude Skill，喂一篇文章，<strong>2 分钟内自动生成 4 张风格统一的推广配图</strong>（封面 / 要点 / 金句 / 对比等）。<strong>怎么干的：</strong>Skill 先读文章、拆结构（标题、要点、金句、对比），再按文章类型选配图模板组合、填内容生成 HTML，最后一并做预览和下载——教程类出封面+路线图+要点+金句，观点类出封面+金句+要点。<strong>结果信号：</strong>把"给文章配图排版"这件最耗时的活压到 2 分钟，方法与模板全公开。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/1996326566964248603" target="_blank" rel="noopener">知乎原文</a> · <a href="https://www.cnblogs.com/gdutxiaoxu/p/19499145" target="_blank" rel="noopener">博客园同文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>写公众号 / 知乎最烦的就是配图。照他讲的"拆结构→选模板→填 HTML"三步，让 Claude 帮你捏一套贴合自己排版风格的模板，以后一句话出一整套图。</p>
+    </article>
+
+    <article class="card" data-tags="wechat-topic-radar 选题 爆款评分引擎 120分 知乎热榜 微博 github trending 对标 公众号 知乎 无代码 办公">
+      <h4>选题雷达 · 给公众号选题装个"爆款评分引擎"</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者（5000 字保姆级教程）。<strong>干成了什么：</strong>做了个公众号选题 Skill（wechat-topic-radar），每天自动扫一圈热点、算分，<strong>推给你当天最该写的 5 个选题带标题</strong>。<strong>怎么干的：</strong>扫知乎热榜、微博热搜、GitHub trending 和对标公众号，先滤掉与你人设无关的、提取热词，再针对性联网搜索收窄；核心是一套 <strong>120 分制评分引擎</strong>，从"人设匹配度、传播潜力、时效性"三个维度给候选选题打分，末尾还做事实核查。<strong>结果信号：</strong>把"每天找选题"从想破头变成挑一挑，教程含完整设计思路。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2026785087346190276" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>和上面几张能串成一条龙——选题雷达定题、配图 Skill 出图、Agent 团队写稿。运营号最耗神的就是选题，把"扫热点+按人设打分"交给它，你只在前 5 名里拍板。</p>
+    </article>
+  </div>
+
+  <h3>学习与备考：让 AI 替你搬砖，你只管判断</h3>
+  <p>这一组是把 AI 当学习外挂：读文献、写论文、背单词。共同的态度是——把"信息搬运"这种累活交给 AI，人只留下"判断"这件机器干不了的事。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="读文献 清华 博士 ai4s 科研 claude code svg 图表 知乎 学习 判断">
+      <h4>清华博士：用上 Claude Code 后，我不再读文献了</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者 Ivan，清华本科 + PhD，做 AI4S（AI for Science）方向。<strong>干成了什么：</strong>把 PDF 文献丢进工作区后不再亲自逐篇读，让 Claude 自己读正文、抓数据、对比多篇文章的方法，还能把复杂概念画成示意图、用图表对比数据、生成 HTML 报告。<strong>怎么干的：</strong>Claude Code 读 PDF + 画 SVG 图表汇报。<strong>结果信号：</strong>作者把省下的时间全用来"提问和质疑结论"。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2032909890998490476" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>他一句话点破了正确姿势——把思考里的"信息搬运+模式识别"交给 AI，只留"判断"。你读行业报告、政策文件、技术标准，都能这么用。</p>
+    </article>
+
+    <article class="card" data-tags="sci 论文 科研自动化 claude code 一天一篇 数据分析 草稿 知乎 学习 边界">
+      <h4>一天一篇 SCI 到底靠不靠谱？一篇冷静的实测</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者。<strong>干成了什么：</strong>认真探讨"用 Claude Code 实现科研自动化、一天出一篇 SCI"的现实可行性和能力边界。<strong>怎么干的：</strong>结论很克制——在<strong>数据已经就绪</strong>的前提下，8~12 小时内产出一篇 SCI 的完整初稿是可行的，但强调这是"有数据、有方向"下的加速，不是无中生有。<strong>结果信号：</strong>难得没有吹爆、把边界说清楚的实战帖。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2039394170264138194" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>科研/研究生党值得读，尤其它诚实地划了线——AI 帮你把"已有的结果"写成规范论文很强，但别指望它替你做实验。心里有这条线，才不会被"一天一篇"的标题党带偏。</p>
+    </article>
+
+    <article class="card" data-tags="academic-research-skills ars 论文 流水线 skill github 6400星 学习 科研 开源 审稿">
+      <h4>ARS · 论文研究到审稿定稿的整条开源流水线</h4>
+      <p class="desc"><strong>谁：</strong>开源作者（academic-research-skills 项目，量子位等媒体报道）。<strong>干成了什么：</strong>把"读论文→研究→写作→审稿→定稿"打包成一整套 Claude Code 技能流水线。<strong>怎么干的：</strong>一套可安装的 Skills 合集，覆盖 16 大科研场景。<strong>结果信号：</strong>GitHub 约 <strong>6.4k★</strong>，是中文科研圈里被点名最多的成套方案之一。</p>
+      <p class="links"><a href="https://www.qbitai.com/2026/05/418737.html" target="_blank" rel="noopener">量子位报道</a></p>
+      <p class="meta"><span class="chip">公众号/媒体</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>上面两张卡讲思路，这张给你现成的成套工具。要系统性用 AI 辅助科研，装这套 Skills 比自己一个个攒提示词省事得多。</p>
+    </article>
+
+    <article class="card" data-tags="背单词 阿呆 提示词 svg 图卡 词源 记忆法 少数派 学习 英语 无代码 rpa">
+      <h4>背单词神器"阿呆"：一句提示词造出一位英语老师</h4>
+      <p class="desc"><strong>谁：</strong>少数派作者。<strong>干成了什么：</strong>用一段提示词造了个虚拟英语老师"阿呆"，能拆解单词、给记忆法、造句、讲词源，还自动生成三张 SVG 图卡（单词拆解 / 记忆方法 / 造句）。<strong>怎么干的：</strong>纯提示词，无需编程；作者还给出商业化路径——适配多个模型、接绘图模型、用 RPA 批量生成发布"批发做小红书"。<strong>结果信号：</strong>发在少数派，被当作"人人都是产品经理"的样板。</p>
+      <p class="links"><a href="https://sspai.com/post/92441" target="_blank" rel="noopener">少数派原文</a></p>
+      <p class="meta"><span class="chip">公众号/媒体</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>两吃——自己背单词，直接用"阿呆"生成图卡；想做自媒体，它就是一条"提示词 + 出图 + 批量发"的英语教学号生产线。</p>
+    </article>
+  </div>
+
+  <h3>生活与家庭：给日子里的小麻烦搭个梯子</h3>
+  <p>这一组最接地气，甚至有点"歪门邪道"的可爱——从提醒你起身活动，到省下家庭里那笔订阅开支。不追求酷，只追求"我的日子确实好过了一点"。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="claude-coach 健身 插件 久坐 眼保健 颈椎 rizon othorizon v2ex 生活 健康 开源">
+      <h4>claude-coach · AI 干活时，它催你起来动一动</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户 rizon（GitHub: othorizon）。<strong>干成了什么：</strong>一个 Claude Code 插件，趁 AI 写代码的等待间隙，自动弹窗引导你做 7 组循环动作——眼神追踪、跳视训练、手指操、肩部画圆、颈侧屈伸、方框呼吸。<strong>怎么干的：</strong>开源插件。<strong>结果信号：</strong>作者自嘲"好像没人感兴趣"，但理念戳中程序员职业病痛点。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1215123" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://github.com/othorizon/claude-coach" target="_blank" rel="noopener">GitHub 仓库</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>你要是常常盯着屏幕等 AI 出结果，把这段空档变成活动时间是个绝妙主意——装上就用，或者让 CC 帮你改成你自己那套护眼/拉伸动作。</p>
+    </article>
+
+    <article class="card" data-tags="尼日利亚 claude code max 区域 套利 省钱 王马扎 即刻 生活 羊毛 家庭开支">
+      <h4>感谢尼日利亚：低成本用上 Claude Code Max</h4>
+      <p class="desc"><strong>谁：</strong>即刻用户"王马扎"。<strong>干成了什么：</strong>利用区域定价差，低成本开通了 Claude Code Max 订阅，发帖"感谢尼日利亚"。<strong>怎么干的：</strong>区域套利（帖子只报结果，具体操作在评论区讨论）。<strong>结果信号：</strong>发在即刻"值得买"圈子（百万成员），2 赞但引来 <strong>103 条评论</strong>热议。</p>
+      <p class="links"><a href="https://m.okjike.com/originalPosts/6887d9a2f00fd49661e69916" target="_blank" rel="noopener">即刻原帖（经搜索确认）</a></p>
+      <p class="meta"><span class="chip">即刻</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>Max 订阅对家庭是笔不小的固定开支，区域定价是省钱的常见路子——但要留意合规与封号风险，把它当"知道有这条路"，别当稳妥方案。</p>
+    </article>
+  </div>
+
+  <h3>内容创作与自媒体：把创作变成流水线</h3>
+  <p>这一组是中文创作者最擅长的战场：写稿、配图、做视频、拍短片。看点在于他们怎么把"灵感"这件玄学，拆成一条能重复运转的流水线。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="回到axton 71亿token skills 内容创作 多平台发布 excalidraw smart-illustrator b站 9万播放 开源">
+      <h4>烧了 71 亿 token，才筛出 6 个真正能干活的 Skills</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主"回到Axton"。<strong>干成了什么：</strong>把 Claude Code 从"终端里的 ChatGPT"改造成一条"选题→写稿→配图→多平台发布"的自动化流水线，从自己攒的 70+ 个 Skills 里筛出 6 个每天真用的。<strong>怎么干的：</strong>其中 3 个已开源——ai-pair（交叉互审）、smart-illustrator（概念配图）、excalidraw-diagram（文字转示意图）。<strong>结果信号：</strong>巅峰月<strong>烧掉约 71 亿 token</strong>、5.5 万条消息、300 万行代码改动，被 Anthropic 归为"工业级用量"；视频约 9 万播放、<strong>1.8 万赞</strong>。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV17cTW6LEcE/" target="_blank" rel="noopener">B站视频</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>他的经验之谈值千金——Skills 不是越多越好，6 个够用。想搭内容流水线，先照抄他开源的那 3 个（配图、示意图、互审），比自己从零攒快得多。</p>
+    </article>
+
+    <article class="card" data-tags="一鱼多吃 写作 agent alchian花生 即刻 5万赞 公众号 小红书 b站 内容分发 自媒体">
+      <h4>一鱼多吃：一个写作 Agent，喂饱全平台</h4>
+      <p class="desc"><strong>谁：</strong>即刻用户"Alchian花生"。<strong>干成了什么：</strong>做了个 Claude Code 自动化写作 Agent 产出公众号内容，再把这套东西"一鱼多吃"——同一个核心，分别改成小红书笔记、教程长文、B站视频教程发出去。<strong>怎么干的：</strong>Claude Code 搭自动化写作 Agent + 内容多形态改写。<strong>结果信号：</strong>这条即刻帖<strong>50,012 赞</strong>，发在 11 万成员的"AI探索站"圈子。</p>
+      <p class="links"><a href="https://m.okjike.com/originalPosts/68fb620e1ed9b53c781da64d" target="_blank" rel="noopener">即刻原帖（经搜索确认）</a></p>
+      <p class="meta"><span class="chip">即刻</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>"一鱼多吃"是自媒体人效率的核心——别为每个平台从头写，做一个核心内容，让 AI 帮你适配成各平台的语气和格式。这个思路比任何具体工具都值钱。</p>
+    </article>
+
+    <article class="card" data-tags="存续 科幻 短片 小说 剧本 code4craft claude code sora gpt-image v2ex 开源 drama_survive 内容创作">
+      <h4>《存续》· 用 Claude Code 写小说，再拍成科幻短片</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户 code4craft。<strong>干成了什么：</strong>用 Claude Code 写科幻小说和剧本，再配合 Sora 2.0（视频生成）+ GPT Image 2.0（图像生成）做出成品短片《存续》。<strong>怎么干的：</strong>Claude 写文本，其他模型出图出视频，作者把<strong>剧本、分集 prompt、参考图都开源</strong>在 GitHub（仓库 drama_survive）。<strong>结果信号：</strong>小说上豆瓣阅读，短片上 B站，作者称"过程不亚于写一个自己喜欢的软件"。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1220363" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://github.com/code4craft" target="_blank" rel="noopener">作者 GitHub</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">开源</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>想做 AI 短片又不知从哪起步，抄他的分工——文本交给 Claude（写得最扎实），画面和视频交给专门的图像/视频模型，把 prompt 都存下来方便复现。</p>
+    </article>
+  </div>
+
+  <h3>商业与副业：从"做出来"到"有人付钱"</h3>
+  <p>这一组是真金白银的路。中文创作者对"变现"格外敏感，所以这里既有让人心动的成绩，也有把"卖出去比做出来难"说透的清醒。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="openclaw claude code 94次提交 b2b saas 一人公司 编排 zoe 当天交付 知乎 商业 副业">
+      <h4>一天 94 次提交、30 分钟 7 个 PR，还开了 3 个客户会</h4>
+      <p class="desc"><strong>谁：</strong>知乎作者（独立开发者，2026 年 1 月实战）。<strong>干成了什么：</strong>做一个真实的 B2B SaaS 产品，客户当天提需求、当天看到效果、直接转成付费。<strong>怎么干的：</strong>从"管理 Claude Code"升级成"管理一个 AI 管家（OpenClaw 里的编排器 Zoe），它再去管一群 Claude Code/Codex"——双层架构，PR 好了 Telegram 通知他。<strong>结果信号：</strong>那天<strong>94 次提交、30 分钟合 7 个 PR</strong>，编辑器都没打开；成本每月约 $190，作者实际投入可能只 10 分钟。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2010127051726792220" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="meta"><span class="chip">知乎</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★★</span></p>
+      <p class="desc"><strong>为我所用：</strong>这是"一人公司"的天花板级范式——从"自己写"到"当包工头"。门槛不低，但它指明了方向：真正的杠杆是让 AI 管理 AI。想做外包/SaaS 副业的人必读。</p>
+    </article>
+
+    <article class="card" data-tags="斌哥 一人公司 11人 ai团队 编排器 claude code 47秒 4个功能 b站 30集 商业 副业">
+      <h4>给一人公司搭一个 11 人的 AI 团队</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主"斌哥-一人公司"。<strong>干成了什么：</strong>用 Claude Code 把常规要 11 个人干的活，拆成 11 个 AI 角色组成的研发团队，一个编排器协调 11 个环节。<strong>怎么干的：</strong>orchestrator 编排 + 多 agent 分工，30 集系列长期连载。<strong>结果信号：</strong>视频里演示<strong>47 秒给一款遥控软件上线 4 个功能</strong>；第 1 集约 5.1 万播放。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV1pFRgBvEgT/" target="_blank" rel="noopener">B站视频</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>和上一张同一思路（多 agent 分工），但这个有 30 集手把手的连载可跟。想系统学"怎么把一个人变成一个团队"，把这套视频当教程追。</p>
+    </article>
+
+    <article class="card" data-tags="闲鱼 claude code 变现 副业 小钱 服务 b站 商业 接单">
+      <h4>用 Claude Code 在闲鱼赚点小钱，其实挺容易</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主。<strong>干成了什么：</strong>分享用 Claude Code 在闲鱼接单变现的具体做法（做小工具、代做需求等）。<strong>怎么干的：</strong>视频演示接单到交付的流程。<strong>结果信号：</strong>标题主打"很容易"，同题材相关视频里常见"一个月 5000+"的说法——<strong>注意：这属于同类视频的宣称，非该作者本人核实数据，需理性看待</strong>。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV12boeBSE16/" target="_blank" rel="noopener">B站视频</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>闲鱼是国内门槛最低的接单场，适合练手赚第一笔。但记住第 07 章"大学生月入 9 万"那张卡的教训——真正难的是售后和获客，不是做出来。别信"躺赚"，把它当"验证需求"的起点。</p>
+    </article>
+
+    <article class="card" data-tags="chocpink 上班 副业 vibe coding 上架 ios app swift xcode 一个月 b站 vlog 商业">
+      <h4>白天上班、晚上 vibe coding，一个月冲上架第一款 App</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主"chocpink_AI版"（外企 AI 产品经理 + 独立开发者）。<strong>干成了什么：</strong>用业余时间 vibe coding，一个月冲刺上架自己的第一款 iOS App，做成 vlog 系列记录全程。<strong>怎么干的：</strong>Claude + Cursor + Swift + Xcode + Figma 一套组合。<strong>结果信号：</strong>核心分享的是心法——把"不知从哪下手"的大项目拆成一个个能解决的小问题。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV1fRSfBWE5X/" target="_blank" rel="noopener">B站视频</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>最适合"有份正职、想搞副业 App"的上班族——跟着 vlog 看一个真人怎么用碎片时间一步步推进，比看教程更有代入感，也更知道自己会卡在哪。</p>
+    </article>
+  </div>
+
+  <h3>整活：不一定有用，但让你知道还能这么玩</h3>
+  <p>最后这组，有的纯为好玩，有的是薅羊毛的机灵，有的是玩到最后反而卸载了的清醒。留着它，是提醒你——vibe coding 也可以只为一乐。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="雀王 麻将 fable5 h5 川麻 日麻 雀魂 b站 hellolvs 试玩 整活 游戏">
+      <h4>《雀王》· 让 Fable 5 复刻一款"类雀魂"麻将</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主。<strong>干成了什么：</strong>用 Claude Fable 5 做出一款类雀魂风格的麻将游戏《雀王》，支持川麻、日麻等多种规则，<strong>手机浏览器直接能玩</strong>。<strong>怎么干的：</strong>Fable 5 生成为主、多轮迭代打磨（不是一次成型，"7 天复刻"系列记录）。<strong>结果信号：</strong>成品可试玩，是 Fable 5 发布后国内最出圈的游戏 demo 之一。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV1crER6zEzS/" target="_blank" rel="noopener">B站视频</a> · <a href="https://www.hellolvs.cn/mahjong" target="_blank" rel="noopener">在线试玩</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>想试 Fable 5 到底多强，做个你熟悉的小游戏最直观。麻将这种规则复杂的都能啃下来，说明它处理"状态机 + 规则判定"已经相当能打。</p>
+    </article>
+
+    <article class="card" data-tags="fable5 20个 h5 小游戏 一句提示词 yidaimaxia v2ex three.js canvas prompt 公开 整活 编程">
+      <h4>一句提示词，Fable 5 批量吐出 20 款 H5 小游戏</h4>
+      <p class="desc"><strong>谁：</strong>V2EX 用户 yidaimaxia。<strong>干成了什么：</strong>用 Claude Fable 5 单条提示词生成 20 款网页小游戏（森林冰火人、3D 坦克大战、物理解谜等），集成进自己的工具站可玩。<strong>怎么干的：</strong>涉及双人键控、Three.js 3D、Canvas 物理引擎、寻路算法；每款游戏都<strong>公开了完整英文 prompt</strong>，方便你用别的模型对比测试。<strong>结果信号：</strong>作者坦承复杂碰撞和状态机容易让 AI 逻辑混乱，靠拆分提示词模块化解决。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1226617" target="_blank" rel="noopener">V2EX 原帖</a></p>
+      <p class="meta"><span class="chip">V2EX</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>最大的宝藏是他公开的那批 prompt——想学"怎么把游戏需求讲清楚让 AI 一次做对"，直接抄他的提示词结构，这是最好的模板库。</p>
+    </article>
+
+    <article class="card" data-tags="140万人 卸载 人工大黑 claude code 反思 b站 冷静 整活 复盘">
+      <h4>我教了 140 万人装 Claude Code，现在决定暂时卸载它</h4>
+      <p class="desc"><strong>谁：</strong>B站 UP 主"人工大黑"（教学累计触达约 140 万人）。<strong>干成了什么：</strong>长期高强度用完之后，反过来复盘"为什么暂时卸载"，是难得的冷静反思帖。<strong>怎么干的：</strong>第一人称复盘，聊使用中的取舍与对国内用户的顾虑。<strong>结果信号：</strong>账号影响力信号"140 万人"，帖子引发社区关于依赖、安全、区域政策的讨论。</p>
+      <p class="links"><a href="https://www.bilibili.com/video/BV1wpTJ6yEAq/" target="_blank" rel="noopener">B站视频</a></p>
+      <p class="meta"><span class="chip">B站</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+      <p class="desc"><strong>为我所用：</strong>被满屏"神器""必装"刷到头晕时，看一个头部教学作者的冷静话——工具再好也要想清楚自己到底需不需要、代价是什么。这份清醒本身就值得收藏。</p>
+    </article>
+  </div>
+
+  <figure class="quote"><blockquote>把思考拆成信息搬运、模式识别、判断三件事——前两件 AI 比人强、比人快、比人不累，你只留下判断。这不是放弃思考，恰恰是把思考留给最该由人做的地方。</blockquote>
+    <figcaption>— 知乎作者 Ivan（清华 AI4S），<a href="https://zhuanlan.zhihu.com/p/2032909890998490476" target="_blank" rel="noopener">《用上 Claude Code 之后，我不再读文献了》</a>（中文转述）</figcaption></figure>
+
+  <div class="callout"><strong>看完想动手？</strong>中文圈这一章最大的启发是：<strong>最值钱的点子往往长在你自己的重复劳动里</strong>。别急着做马麻将、做 SaaS，先从"办公与文书"那组里挑一件你每天都要手动做一遍的烦事（建文档、写纪要、排版发文），照着抄一遍。做成了、自己用上了，你就迈过了从"围观"到"上手"最难的那道坎。国内用不上官方 Claude Code？这章里好几位作者用的是腾讯 CodeBuddy 等同源国产工具，一样能跑——工具从不是借口。</div>
+</section>
+<section id="cases-ideas" class="chapter">
+  <header class="ch-head"><span class="ch-num">29</span>
+    <div>
+      <h2>无码点子库：只见效果，没给代码</h2>
+      <p class="lede">前两章收的是「有人做成了 X，这是仓库/成品」。这一章反过来——收的是<strong>只见效果、没给实现</strong>的东西：有人现场演示了一段惊艳的能力却没开源、有人在帖子里畅想「谁能做一个 X」、有人在评论区随手抛出一个金点子、还有些是我核验前两章素材时刷到、觉得可惜不收就没了的「无主意念」。它们的价值不在「能下载」，而在「能点燃」——每一张卡都是一颗种子，配了一句可以直接对 Claude 说的「复刻起手式」，你照着说出口，它就可能在你手里长出来。</p>
+    </div>
+  </header>
+
+  <div class="callout"><strong>怎么读这一章：</strong>每张卡回答四件事——<strong>点子本质</strong>（一句话说清是什么）、<strong>为什么可行</strong>（凭什么这事能成）、<strong>原帖</strong>（真实可查的出处，供你看效果）、<strong>复刻起手式</strong>（一句可直接对 Claude / Claude Code 说的话，作为你的第一步）。「仅演示·无码」= 只放了效果、没给代码；「无码·可复刻」= 作者讲了思路但没给成品；「有码·可复刻」= 顺手也开源了，抄起来更快。星是<strong>你复刻的上手难度</strong>：★=一句话就出雏形，★★★★★=得反复折腾。这一章不保证「照抄就有」，它保证的是「你不会缺灵感」。</div>
+
+  <h3>效率：把重复劳动一句话交出去</h3>
+  <p>这一组的共同点是——你每天/每周都在手动做的某件烦事，其实可以一次性描述给 Claude，让它替你跑。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="fable5 ui 还原 设计稿 截图 前端 复刻 v2ex zhuiyun041 效率 无码 demo 95%">
+      <h4>把设计稿/竞品截图一句话还原成前端页面</h4>
+      <p class="desc"><strong>点子本质：</strong>V2EX 用户 zhuiyun041 拿 Fable 5 测「看图还原界面」——喂一张 App 界面截图，让它精确复刻成 HTML/CSS。<strong>为什么可行：</strong>他给出了直观对照——ChatGPT 4.5 还原得很糟，Opus 4.8 约七八成一致，<strong>Fable 5 到了 95% 一致度</strong>；评论区补了个真实代价：一次还原烧掉了他当周约 21% 的额度。<strong>为我所用：</strong>看到喜欢的页面别再截图存收藏夹了，直接让它变成你能改的代码。仅演示，未给代码。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1224576" target="_blank" rel="noopener">V2EX 原帖（含前后对比）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「这是一张界面截图，请用纯 HTML+CSS 精确还原它，注意间距、圆角、字号和配色，做成一个能直接在浏览器打开的单文件。」</p>
+      <p class="meta"><span class="chip">效率</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="claude code 四平台 视频号 抖音 小红书 b站 自动发布 内容分发 口播稿 知乎 效率 中文">
+      <h4>一晚打通四个平台，从此内容只做一次</h4>
+      <p class="desc"><strong>点子本质：</strong>一位知乎作者用 Claude Code 一晚上搭出「一次产出、四平台自动发」的流水线，覆盖视频号、抖音、小红书、B站，自动生成各平台口播稿，人只管拍和剪。<strong>为什么可行：</strong>各平台的发布字段、标题调性其实高度模板化，正是 Claude「读规则、填表单、改文案」的强项。<strong>为我所用：</strong>任何「同一份内容要在 N 个地方重复搬运」的活，都可以让它包办，把你从复制粘贴里解放出来。文章讲了思路，未给完整代码。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/1946907178423256174" target="_blank" rel="noopener">知乎全程复盘</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我有一段视频文案，帮我改写成抖音、小红书、B站、视频号各自调性的标题和正文，并列一张各平台发布字段的对照清单，告诉我每一步该填什么。」</p>
+      <p class="meta"><span class="chip">效率</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>学习：让它替你啃硬骨头，你只管质疑</h3>
+  <p>学习类点子的精髓不是「让 AI 帮你学」，而是「让 AI 干掉学习里最枯燥的搬运环节，把你的脑力留给真正需要判断的地方」。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="claude code 文献 论文 阅读 清华 ivan 科研 pdf svg 学习 无码 知乎 中文 质疑">
+      <h4>让 Claude 读文献，你只负责挑刺</h4>
+      <p class="desc"><strong>点子本质：</strong>知乎作者 Ivan（清华本博、做 AI4S 研究）说他「不再读文献了」——让 Claude 直接读 PDF、抽取要点、把复杂概念画成图、跨多篇论文对比数据，用 HTML+SVG 呈现结论，他省下的时间全用来提问和质疑。<strong>为什么可行：</strong>读文献里「找、抄、整理」占了大半时间，而这恰恰是 Claude 最快的部分。<strong>为我所用：</strong>他特意强调——底子还得有，你得能看出它哪里在「循环论证」、哪里「听着不对」。这不是偷懒，是把人放到最该在的位置。偏叙述，无代码。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2032909890998490476" target="_blank" rel="noopener">知乎原文</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「这里有几篇 PDF 论文，请逐篇提炼核心论点、方法和数据，做成一张跨论文对比表，再用 SVG 把它们的关系画成一张图；哪里你不确定，明确标出来让我核对。」</p>
+      <p class="meta"><span class="chip">学习</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="claude code 源码 逐行导读 陌生项目 大项目 学习 知乎 51万行 架构 上手 中文">
+      <h4>把任何陌生大项目变成「逐行导读课」</h4>
+      <p class="desc"><strong>点子本质：</strong>2026 年 3 月 Claude Code 源码意外泄露后，一批人用 Claude Code 反过来<strong>逐行解读这 50 多万行代码</strong>，还原出它的五层架构、Agent 循环、工具系统和记忆设计，写成一篇篇公开导读。<strong>为什么可行：</strong>「接手一个看不懂的大项目」是所有人的噩梦，而让 AI 先带你走一遍结构、讲清每一块干嘛，正是它的拿手好戏。<strong>为我所用：</strong>不用等到源码泄露——你手上任何一个看不懂的开源库、一份晦涩的长文档、一个前同事留下的烂摊子，都能这么读。先看懂，再动手。属分析型输出，思路公开。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2022433246449780672" target="_blank" rel="noopener">知乎源码解读（示例）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「这是一个我完全不熟的代码仓库，请先给我画一张整体架构图，再从入口文件开始，逐个模块讲清它是干什么的、和谁交互，最后给我一条『从哪读起』的学习路线。」</p>
+      <p class="meta"><span class="chip">学习</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="fable5 无限宇宙 可探索 沉浸 学习 课件 anshu 生成 音频 演示 脑洞 英文圈">
+      <h4>一句话生成一个「可探索的无限宇宙」当课件</h4>
+      <p class="desc"><strong>点子本质：</strong>在 Fable 5 发布头三天的作品合集里，网名 Anshu 用三个 prompt 做出一个可无限探索、自带生成素材和音频的宇宙场景。<strong>为什么可行：</strong>Fable 5 能一口气吐出 Three.js 场景、着色器、程序化音效，把「抽象概念」变成「能走进去的空间」。<strong>为我所用：</strong>别只把它当炫技——把它当讲课工具：太阳系、细胞内部、历史城市、数据结构……任何「用文字讲不清、走进去一看就懂」的东西，都可以让它给你搭一个可探索的沉浸场景。仅演示，未开源。</p>
+      <p class="links"><a href="https://aiblewmymind.substack.com/p/claude-fable-5-use-cases" target="_blank" rel="noopener">Fable 5 首发作品合集（经搜索引擎确认）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用 Three.js 做一个能自由飞行探索的『太阳系』单页网页，每颗行星可点开看简介，配上程序生成的环境音，全部写进一个 HTML 文件。」</p>
+      <p class="meta"><span class="chip">学习</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <h3>生活：给自己做一个「只有你需要」的小东西</h3>
+  <p>这一组最接地气——都是「我有个具体的小麻烦/小好奇」，做出来不为发布、只为自己用得顺手。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="claude artifacts 零代码 小工具 画板 日记 习惯 记账 即刻 szhans 生活 无码 3分钟 中文">
+      <h4>三分钟捏一个只给自己用的趁手小工具</h4>
+      <p class="desc"><strong>点子本质：</strong>即刻用户 Szhans 演示用 Claude Artifacts（在对话里直接生成、能点能玩的迷你网页）<strong>不到三分钟做出一个在线画板</strong>，全程只是用大白话聊，不写一行代码。<strong>为什么可行：</strong>Artifacts 让「想法→能用的小软件」压缩到几分钟，还能边看边改。<strong>为我所用：</strong>把你脑子里「要是有个小工具能……就好了」的念头挨个说出来——习惯打卡、每日记账、抽签决定、单位换算、给孩子做的算术小游戏……做坏了重来的成本几乎是零。仅演示，人人可复现。</p>
+      <p class="links"><a href="https://m.okjike.com/originalPosts/6678b11d0a5cbfb89646059e" target="_blank" rel="noopener">即刻原帖</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用一个 Artifact 帮我做一个『每日习惯打卡』小网页：能加习惯、点一下打勾、显示连续天数，数据存在本地不丢，界面简洁点。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★☆☆☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="carboneye 碳足迹 拍照 环保 估算 生活 fable5 app 商业 anshu gabriel 英文圈 演示">
+      <h4>拍张照，估一估这件东西的碳足迹</h4>
+      <p class="desc"><strong>点子本质：</strong>Fable 5 首发案例里，Gabriel Tsuruta 做了个叫 carboneye.app 的小应用——拍张照或写句描述，它帮你估算这件产品的气候影响。<strong>为什么可行：</strong>「识别物品 + 查常识性数据 + 给个量级估算」正好落在大模型能力圈内，做个「够用不精确」的版本门槛很低。<strong>为我所用：</strong>这条思路可以套到无数「拍照→给个专业判断」的场景：拍食物估热量、拍植物认病害、拍衣服配穿搭、拍配料表查添加剂。做给自己用，也可能是个产品雏形。演示为主。</p>
+      <p class="links"><a href="https://aiblewmymind.substack.com/p/claude-fable-5-use-cases" target="_blank" rel="noopener">Fable 5 首发作品合集（经搜索引擎确认）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「做一个网页应用：用户上传一张食物照片或输入食物名，你估算它大致的热量和主要营养，给出一个『高/中/低』的直观标识和一句人话解释。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="claude typewriter 打字机 arduino ibm wheelwriter 博物馆 装置 硬件 生活 脑洞 sonnet 英文圈 演示">
+      <h4>让一台老打字机在博物馆现场「手写」回答</h4>
+      <p class="desc"><strong>点子本质：</strong>「Code w/ Claude 2026」大会展出的一件装置——一台 IBM Wheelwriter 老式打字机接上 Arduino，Sonnet 4 先筛内容、Sonnet 4.6 生成回答，再由打字机的菊花轮<strong>把答案一个字一个字实体敲在纸上</strong>。它曾在旧金山笛洋美术馆的莫奈展上服役，累计完成 1600 多次对话。<strong>为什么可行：</strong>Claude Code 能直接写 Arduino 固件、驱动机械，把「屏幕里的 AI」接到「屏幕外的物件」。<strong>为我所用：</strong>它示范了一种迷人的方向——把 AI 藏进一件有质感的实体物里做成体验/展陈，而不是又一个 App。仅展出，未开源。</p>
+      <p class="links"><a href="https://techtiff.substack.com/p/code-with-claude-2026" target="_blank" rel="noopener">大会现场记述</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我有一块 Arduino 和一个热敏小票打印机，帮我写固件，让它接收一段文字后打印出来；再帮我设计一个把 AI 回答送去打印的最小流程。」</p>
+      <p class="meta"><span class="chip">生活</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <h3>创作：把脑子里的画面直接说出来</h3>
+  <p>创作类点子最能体现「描述即成品」的魔力——你负责想象，它负责把想象渲染成能看、能玩、能读的东西。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="claude code 小说 剧本 科幻 短片 存续 code4craft seedance gpt image 视频 创作 v2ex 有码 中文">
+      <h4>Claude 写小说，视频模型拍成短片《存续》</h4>
+      <p class="desc"><strong>点子本质：</strong>V2EX 用户 code4craft 用 Claude Code 写科幻小说/剧本《存续》，再配合 Seedance 2.0（视频）和 GPT Image 2.0（分镜图）做成了一部科幻短片。<strong>为什么可行：</strong>Claude 文字功底好，负责世界观、剧本、分镜脚本；视频/图像模型负责把每一场戏渲染出来——一条「文本→分镜→成片」的流水线。<strong>为我所用：</strong>你不需要会拍片：把一个故事讲给 Claude，让它拆成分镜和逐镜 prompt，再喂给视频模型，一个人就能做完一部短片。作者<strong>把剧本、分集 prompt、参考图都开源</strong>了，抄作业门槛很低。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1220363" target="_blank" rel="noopener">V2EX 原帖</a> · <a href="https://github.com/code4craft/drama_survive" target="_blank" rel="noopener">剧本与 prompt 仓库</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我把这个故事梗概扩写成一个 5 分钟短片剧本，拆成一组分镜，每个分镜给我一句可以直接喂给视频生成模型的英文 prompt，注明镜头、光线和情绪。」</p>
+      <p class="meta"><span class="chip">创作</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="fable5 3d 交互网站 单prompt 13分钟 rewind02 three.js gsap 前端 创作 x twitter 演示 英文圈">
+      <h4>13 分钟，一句 prompt 出一个 3D 交互网站</h4>
+      <p class="desc"><strong>点子本质：</strong>X 用户 rewind02 现场看 Fable 5 用<strong>单个 prompt、13 分钟</strong>做出一个完整的 3D 交互网站，当场感叹「这大概是我见过单 prompt 生成的最好网站」。<strong>为什么可行：</strong>Fable 5 能一次性组织好 Three.js、GSAP 动画和自定义交互，做出粒子、着色器、音频反应这类「贵得要请开发者」的效果。<strong>为我所用：</strong>下次你想要个「有质感、会动、让人记住」的落地页/作品集/发布页，别再套模板了——把气质描述给它，让它一次生成。仅演示效果，未附代码。</p>
+      <p class="links"><a href="https://x.com/rewind02/status/2065078299471024566" target="_blank" rel="noopener">X 原推（含演示，经搜索引擎确认）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用 Three.js + GSAP 给我做一个单页作品集网站：深色背景、随鼠标流动的粒子、滚动触发的动画，主标题用我的名字，整站写进一个 HTML 文件。」</p>
+      <p class="meta"><span class="chip">创作</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="fable5 霍格沃茨 城堡 可探索 matt shumer 单prompt 游戏 创作 脑洞 演示 英文圈 hogwarts">
+      <h4>一句话生成一座能逛的霍格沃茨城堡</h4>
+      <p class="desc"><strong>点子本质：</strong>Fable 5 首发合集里，Matt Shumer 用一句 prompt 生成了一整座<strong>可探索、有一间间房间</strong>的霍格沃茨城堡，在 X 上放出演示。<strong>为什么可行：</strong>模型能一次性搭出带空间结构、可行走、可交互的场景——「造一个能进去逛的地方」这件事，第一次变成了一句话的成本。<strong>为我所用：</strong>把你熟悉或幻想的任何空间说出来：老家的院子、小说里的场景、公司的办公室、梦里的迷宫，让它给你搭成能走进去的小世界，做纪念、做游戏、做展示都行。仅演示。</p>
+      <p class="links"><a href="https://aiblewmymind.substack.com/p/claude-fable-5-use-cases" target="_blank" rel="noopener">Fable 5 首发作品合集（经搜索引擎确认）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用网页做一个第一人称可行走的 3D 小场景：一座有几间房间的城堡，能用方向键走动、推门进屋，每间房里放一件可点击的小物件，全部写进一个 HTML 文件。」</p>
+      <p class="meta"><span class="chip">创作</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <h3>商业：把「顺手做的东西」变成一条小收入</h3>
+  <p>这一组不谈一夜暴富，谈的是「一个可批量、可复用的内容/工具管线」——门槛低、能自己跑起来，是普通人试水变现最现实的起点。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="fable5 h5 小游戏 单prompt 批量 20款 pokitx yidaimaxia 流量站 工具站 商业 v2ex 中文 演示">
+      <h4>一句 prompt 批量出 20 款小游戏，攒成一个流量站</h4>
+      <p class="desc"><strong>点子本质：</strong>V2EX 用户 yidaimaxia 用 Fable 5 <strong>单个 prompt 批量生成 20 款经典 H5 网页小游戏</strong>，还把每款游戏用到的完整英文 prompt 公开在 pokitx.com 上供人复现。<strong>为什么可行：</strong>可玩的小游戏是天然的流量入口，而「一条指令产一批」把内容生产成本压到近乎为零。<strong>为我所用：</strong>选一个细分主题（怀旧街机、儿童算术、成语接龙……），让它批量生成一批小游戏堆成一个站，靠聚合和 SEO 慢慢养流量——这是「内容站」这门老生意的 AI 版打法。游戏未开源，但 prompt 全公开。</p>
+      <p class="links"><a href="https://www.v2ex.com/t/1226617" target="_blank" rel="noopener">V2EX 原帖（附 pokitx.com 效果）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我用纯 HTML/JS 做 5 款单文件小游戏（贪吃蛇、2048、打砖块、扫雷、记忆翻牌），每款一个页面，风格统一，能直接放到网站上玩。」</p>
+      <p class="meta"><span class="chip">商业</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="背单词 英语 教学 小红书 伪代码 prompt sspai svg 知识付费 内容号 商业 中文 无码 阿呆">
+      <h4>用「会说话的 prompt」批量产背单词教学卡片</h4>
+      <p class="desc"><strong>点子本质：</strong>少数派上一篇分享给 Claude 写了个「阿呆老师」人格 prompt——输入一个单词，它自动生成三张 SVG 教学卡：拆词根、谐音记忆、词源、例句，风格活泼像小红书爆款。<strong>为什么可行：</strong>「知识点 + 固定视觉模板 + 批量」正是大模型 + SVG 的甜区；作者点破：配上批量化就能量产内容。<strong>为我所用：</strong>把「背单词」换成任何你懂的领域——考研政治考点、菜谱步骤、育儿知识、历史冷知识，用一个 prompt 固化成统一风格的图文卡，喂养一个知识账号。作者自述「不用学编程，用嘴就行」。prompt 思路公开。</p>
+      <p class="links"><a href="https://sspai.com/post/92441" target="_blank" rel="noopener">少数派原文</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我设计一个 prompt：输入一个英语单词，输出一张 SVG 卡片，包含词义、词根拆解、一个谐音记忆法和一个例句，配色统一、排版像小红书笔记；先给我做『abandon』这张。」</p>
+      <p class="meta"><span class="chip">商业</span><span class="chip">无码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+
+    <article class="card" data-tags="claude skill 小红书 美食 手账 图文 n8n generate.py 内容号 商业 知乎 中文 3分钟 批量">
+      <h4>三分钟出一张小红书风美食手账，喂养一个内容号</h4>
+      <p class="desc"><strong>点子本质：</strong>一位知乎作者把原本靠 n8n 复杂连线的美食图文生成，浓缩成一个只有两个文件（SKILL.md + generate.py）的 Claude 技能——输入一道菜名，<strong>约三分钟</strong>产出一张垂直网格排版、手绘线条 + 水彩风的小红书美食手账。<strong>为什么可行：</strong>把「固定视觉风格 + 可替换内容」交给一个技能，就能稳定复现、按需量产。<strong>为我所用：</strong>换个题材照做——旅行手账、读书笔记卡、健身餐记录、每日单词，任何「同一套模板换内容」的图文号都能这么喂。技能思路与代码结构公开。</p>
+      <p class="links"><a href="https://zhuanlan.zhihu.com/p/2005612356173071665" target="_blank" rel="noopener">知乎教程</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「帮我做一个 Claude 技能：输入一道菜名，生成一张竖版小红书图文卡，包含食材清单、三步做法和一句点评，用手绘线条分区、暖色水彩风；先做『番茄炒蛋』。」</p>
+      <p class="meta"><span class="chip">商业</span><span class="chip">有码·可复刻</span><span class="stars" title="复刻难度">★★★☆☆</span></p>
+    </article>
+  </div>
+
+  <h3>脑洞：不一定有用，但让你看见天花板</h3>
+  <p>最后一组不讲实用，讲「原来还能这样」。留着它们，是为了不断刷新你对「一句话能换来什么」的想象上限。</p>
+
+  <div class="card-grid">
+    <article class="card" data-tags="fable5 曼哈顿 3d 建筑 46000 openstreetmap webgl milanjanosov 单prompt 脑洞 演示 英文圈 城市 可视化">
+      <h4>一句 prompt 渲染 4.6 万栋真实高度的赛博曼哈顿</h4>
+      <p class="desc"><strong>点子本质：</strong>数据科学家 Milan Janosov 直播首用 Fable 5，用一个 prompt 生成了一座<strong>约 4.6 万栋建筑、全按真实高度</strong>渲染的赛博朋克曼哈顿——霓虹粉路网、辉光效果、城市脉动动画，全塞进一个不发任何外部请求的 HTML 文件。<strong>为什么可行：</strong>他先用 Python 从 OpenStreetMap 扒出建筑轮廓和路网数据，再让 Fable 5 一次性写出整个 WebGL 实现。<strong>为我所用：</strong>「真实地理数据 + 一句话生成可视化」这条路，能套到你自己的城市、你跑过的路线、你想展示的任何空间数据上。仅演示，作者给了可复现的步骤但没给最终 prompt。</p>
+      <p class="links"><a href="https://milanjanosov.substack.com/p/one-prompt-46000-buildings-my-first" target="_blank" rel="noopener">作者首用实录</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「这是一份某城市的建筑轮廓和高度数据（GeoJSON），请用 Three.js 把它渲染成一个可旋转缩放的 3D 城市，夜景霓虹风，写成一个单文件网页。」</p>
+      <p class="meta"><span class="chip">脑洞</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="fable5 minecraft 克隆 单prompt 生物群系 昼夜 矿洞 chrissgpt 脑洞 演示 英文圈 沙盒 游戏">
+      <h4>一句话生成带生物群系和矿洞的 Minecraft</h4>
+      <p class="desc"><strong>点子本质：</strong>Fable 5 首发合集里，网名 ChrissGPT 用<strong>单个 prompt</strong>生成了一个 Minecraft 风格的沙盒——带不同生物群系、昼夜循环、矿石和洞穴。<strong>为什么可行：</strong>体素世界、区块生成、简单光照这些「看着很复杂」的东西，其实有成熟套路，模型一次就能铺出可玩雏形。<strong>为我所用：</strong>它是一记最直白的「天花板刷新」——当「造一个沙盒游戏」都成了一句话的起点，你手里那些「太难了吧」的念头，都值得先说出来试一句。仅演示。</p>
+      <p class="links"><a href="https://aiblewmymind.substack.com/p/claude-fable-5-use-cases" target="_blank" rel="noopener">Fable 5 首发作品合集（经搜索引擎确认）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用 Three.js 做一个能自由破坏和放置方块的第一人称体素小世界，带简单的地形生成和昼夜光照，方向键移动、鼠标点击挖/放，写进一个 HTML 文件。」</p>
+      <p class="meta"><span class="chip">脑洞</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★★</span></p>
+    </article>
+
+    <article class="card" data-tags="fable5 v8 引擎 cad 3d 模型 10分钟 aaron 工程 脑洞 演示 英文圈 机械 建模">
+      <h4>10 分钟让它建出一台 V8 发动机的 CAD 模型</h4>
+      <p class="desc"><strong>点子本质：</strong>Fable 5 首发合集里，网名 Aaron 在<strong>不到 10 分钟</strong>里让模型生成了一台 V8 发动机的 3D CAD 模型。<strong>为什么可行：</strong>参数化建模本质是「用代码描述几何形状」，正好是模型能算、能写的东西；配合它的空间推理，机械结构也能被「说」出来。<strong>为我所用：</strong>如果你做产品设计、3D 打印、机械或建筑，别再从零画草图——先用一句话让它给你一个可调参数的基础模型，再手动精修。工程领域「描述即建模」的一扇小门。仅演示。</p>
+      <p class="links"><a href="https://aiblewmymind.substack.com/p/claude-fable-5-use-cases" target="_blank" rel="noopener">Fable 5 首发作品合集（经搜索引擎确认）</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「用 OpenSCAD（参数化建模语言）帮我写一个可调参数的齿轮模型代码，能改齿数、模数和厚度，最后能导出成 STL 用来 3D 打印。」</p>
+      <p class="meta"><span class="chip">脑洞</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+
+    <article class="card" data-tags="m5stack cardputer 口袋电脑 固件 烧录 硬件 claude code usb 脑洞 演示 英文圈 diy 嵌入式">
+      <h4>对着口袋电脑说想要什么，它写好固件直接烧进去</h4>
+      <p class="desc"><strong>点子本质：</strong>「Code w/ Claude 2026」大会上展出的玩法——一台名片大小的可编程卡片电脑 M5Stack Cardputer ADV，用 USB-C 插上，<strong>你对 Claude Code 说想要它做什么，Claude 就写出固件并直接烧录进去</strong>。<strong>为什么可行：</strong>Claude Code 能读懂嵌入式开发链路，从写代码到编译烧录一条龙。<strong>为我所用：</strong>它把「做一个实体小玩意」的门槛拉到了「会说话」——一个桌面天气钟、一个番茄计时器、一个给孩子的电子宠物，说出来它就能帮你做进一块能拿在手里的硬件里。会场演示，未开源。</p>
+      <p class="links"><a href="https://techtiff.substack.com/p/code-with-claude-2026" target="_blank" rel="noopener">大会现场记述</a></p>
+      <p class="desc"><strong>复刻起手式：</strong>「我有一块 ESP32 开发板和一个小 OLED 屏，帮我写 Arduino 固件，让它联网获取天气并显示在屏上，一步步教我怎么编译和烧录。」</p>
+      <p class="meta"><span class="chip">脑洞</span><span class="chip">仅演示·无码</span><span class="stars" title="复刻难度">★★★★☆</span></p>
+    </article>
+  </div>
+
+  <figure class="quote"><blockquote>一个人坐下来，带着一个曾经觉得不切实际的想法，打开 AI 编程工具，把它描述出来，然后看着一个能用的原型在一个下午之内出现——这样的时刻，正在变得寻常。</blockquote>
+    <figcaption>— techtiff，<a href="https://techtiff.substack.com/p/code-with-claude-2026" target="_blank" rel="noopener">Code with Claude 2026</a>（中文转述）</figcaption></figure>
+
+  <div class="callout"><strong>把任何一张点子卡变成现实，就三步：</strong>①<strong>描述效果</strong>——别想技术，用大白话把「我想要一个能……的东西」讲清楚，越具体越好（谁用、解决什么、长什么样）；②<strong>让 Claude 先规划</strong>——加一句「先别写代码，帮我把这个需求拆成几步、列出要用到的东西、告诉我最简单的做法」，让它替你把路铺好；③<strong>vibe coding</strong>——说「好，按第一步开始做」，做出雏形就用起来，不满意就继续用大白话说「这里改成……」。整章的每一句「复刻起手式」都是给你准备好的第一步——挑离你最近、最痒的那一个，现在就把它说出口。</div>
+</section>
 <section id="appendix" class="chapter">
-  <header class="ch-head"><span class="ch-num">26</span>
+  <header class="ch-head"><span class="ch-num">30</span>
     <div><h2>附录：新手词典与学习资源</h2>
       <p class="lede">读到这里，你可能已经被一堆英文黑话轰炸过好几轮。这一章就是你的随身翻译官：先用大白话把 47 个绕不开的词讲透，再给你一句「万能仓库咒语」直接抄走用，最后交给你一张不会过期的学习地图——官方文档、必读长文、值得关注的人、社区与视频，全部逐一核实过链接。</p>
     </div>
@@ -7017,6 +7775,7 @@ main{
     { label: "卷首", ids: ["intro"] },
     { label: "卷一 · Claude 宇宙", ids: ["ecosystem","claude-code","skills","mcp","wisdom","projects","showcase","creative"] },
     { label: "卷二 · 全网轮子", ids: ["focus","learning","windows","browser","media","ai-tools","life","security","phone","websites","selfhosted","gaming","docs","writing","career","search","resources"] },
+    { label: "卷三 · 实战总集", ids: ["cases-en","cases-cn","cases-ideas"] },
     { label: "附录", ids: ["appendix"] }
   ];
 
