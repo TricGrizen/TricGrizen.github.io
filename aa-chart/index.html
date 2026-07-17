@@ -539,6 +539,12 @@ function nearest(mx, my) {
   }
   return best;
 }
+// keep the view out of negative territory: 0 is a hard wall on both axes
+function clampDom(d) {
+  if (state.scale === 'linear' && d.x0 < 0) { d.x1 -= d.x0; d.x0 = 0; }
+  if (d.y0 < 0) { d.y1 -= d.y0; d.y0 = 0; }
+  return d;
+}
 let panning = false, panStart = null, moved = false;
 canvas.addEventListener('pointerdown', e => {
   panning = true; moved = false;
@@ -554,10 +560,10 @@ canvas.addEventListener('pointermove', e => {
     if (moved) {
       const kx = (panStart.dom.x1 - panStart.dom.x0) / (W - M.l - M.r);
       const ky = (panStart.dom.y1 - panStart.dom.y0) / (H - M.t - M.b);
-      state.dom = {
+      state.dom = clampDom({
         x0: panStart.dom.x0 - dx * kx, x1: panStart.dom.x1 - dx * kx,
         y0: panStart.dom.y0 + dy * ky, y1: panStart.dom.y1 + dy * ky,
-      };
+      });
       hideTip(); draw();
     }
     return;
@@ -584,10 +590,10 @@ canvas.addEventListener('wheel', e => {
   const d = state.dom;
   const tx = d.x0 + (mx - M.l) / (W - M.l - M.r) * (d.x1 - d.x0);
   const ty = d.y0 + (H - M.b - my) / (H - M.t - M.b) * (d.y1 - d.y0);
-  state.dom = {
+  state.dom = clampDom({
     x0: tx - (tx - d.x0) * f, x1: tx + (d.x1 - tx) * f,
     y0: ty - (ty - d.y0) * f, y1: ty + (d.y1 - ty) * f,
-  };
+  });
   hideTip(); draw();
 }, { passive: false });
 canvas.addEventListener('dblclick', () => { resetDomain(); draw(); });
